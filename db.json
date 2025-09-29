@@ -1,0 +1,110 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Espresso",
+      "describe": "Rich and aromatic espresso shots.",
+      "price": 3.50,
+      "brand": 1,
+      "images": ["/logo192.png", "/logo192.png"],
+      "tags": "coffee"
+    },
+    {
+      "id": 2,
+      "name": "Latte",
+      "describe": "Creamy latte with a perfect balance of espresso and milk.",
+      "price": 4.50,
+      "brand": 1,
+      "images": ["/logo192.png", "/logo192.png"],
+      "tags": "coffee"
+    },
+    {
+      "id": 3,
+      "name": "Cappuccino",
+      "describe": "A classic cappuccino with a thick layer of foam.",
+      "price": 4.50,
+      "brand": 1,
+      "images": ["/logo192.png", "/logo192.png"],
+      "tags": "coffee"
+    },
+    {
+      "id": 4,
+      "name": "Americano",
+      "describe": "A smooth and strong Americano.",
+      "price": 3.00,
+      "brand": 1,
+      "images": ["/logo192.png", "/logo192.png"],
+      "tags": "coffee"
+    },
+    {
+      "id": 5,
+      "name": "Mocha",
+      "describe": "A delicious blend of chocolate and coffee.",
+      "price": 5.00,
+      "brand": 1,
+      "images": ["/logo192.png", "/logo192.png"],
+      "tags": "coffee"
+    },
+    {
+      "id": 6,
+      "name": "Macchiato",
+      "describe": "A shot of espresso with a dollop of foamed milk.",
+      "price": 3.75,
+      "brand": 1,
+      "images": ["/logo192.png", "/logo192.png"],
+      "tags": "coffee"
+    },
+    {
+      "id": 7,
+      "name": "Cold Brew",
+      "describe": "Smooth and refreshing cold brew coffee.",
+      "price": 5.50,
+      "brand": 2,
+      "images": ["/logo192.png", "/logo192.png"],
+      "tags": "coffee"
+    },
+    {
+      "id": 8,
+      "name": "Iced Coffee",
+      "describe": "Chilled coffee served over ice.",
+      "price": 4.00,
+      "brand": 2,
+      "images": ["/logo192.png", "/logo192.png"],
+      "tags": "coffee"
+    }
+  ],
+  "brands": [
+    { "id": 1, "name": "Coffee House" },
+    { "id": 2, "name": "Bean Roasters" }
+  ],
+  "blogs": [
+    {
+      "id": 1,
+      "title": "The Art of Brewing",
+      "description": "A deep dive into different coffee brewing methods.",
+      "date": "September 29, 2025",
+      "image": "/logo192.png"
+    },
+    {
+      "id": 2,
+      "title": "Coffee Origins: From Bean to Cup",
+      "description": "Explore the journey of coffee from the farm to your cup.",
+      "date": "September 28, 2025",
+      "image": "/logo192.png"
+    },
+    {
+      "id": 3,
+      "title": "Health Benefits of Coffee",
+      "description": "Discover the surprising health benefits of your favorite beverage.",
+      "date": "September 27, 2025",
+      "image": "/logo192.png"
+    },
+    {
+      "id": 4,
+      "title": "A Guide to Different Coffee Roasts",
+      "description": "Learn about the differences between light, medium, and dark roasts.",
+      "date": "September 26, 2025",
+      "image": "/logo192.png"
+    }
+  ]
+}
