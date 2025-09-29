@@ -179,7 +179,7 @@ const Header = () => {
                     >
                       <img src={menu} alt="" />
                       <span className="me-5 d-inline-block">
-                        Shop Categories
+                        Shop Categories 
                       </span>
                     </button>
                     <ul
