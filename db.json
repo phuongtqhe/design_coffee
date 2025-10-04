@@ -8,75 +8,15 @@
       "brand": 1,
       "images": ["/logo192.png", "/logo192.png"],
       "tags": "coffee"
-    },
-    {
-      "id": 2,
-      "name": "Latte",
-      "describe": "Creamy latte with a perfect balance of espresso and milk.",
-      "price": 4.50,
-      "brand": 1,
-      "images": ["/logo192.png", "/logo192.png"],
-      "tags": "coffee"
-    },
-    {
-      "id": 3,
-      "name": "Cappuccino",
-      "describe": "A classic cappuccino with a thick layer of foam.",
-      "price": 4.50,
-      "brand": 1,
-      "images": ["/logo192.png", "/logo192.png"],
-      "tags": "coffee"
-    },
-    {
-      "id": 4,
-      "name": "Americano",
-      "describe": "A smooth and strong Americano.",
-      "price": 3.00,
-      "brand": 1,
-      "images": ["/logo192.png", "/logo192.png"],
-      "tags": "coffee"
-    },
-    {
-      "id": 5,
-      "name": "Mocha",
-      "describe": "A delicious blend of chocolate and coffee.",
-      "price": 5.00,
-      "brand": 1,
-      "images": ["/logo192.png", "/logo192.png"],
-      "tags": "coffee"
-    },
-    {
-      "id": 6,
-      "name": "Macchiato",
-      "describe": "A shot of espresso with a dollop of foamed milk.",
-      "price": 3.75,
-      "brand": 1,
-      "images": ["/logo192.png", "/logo192.png"],
-      "tags": "coffee"
-    },
-    {
-      "id": 7,
-      "name": "Cold Brew",
-      "describe": "Smooth and refreshing cold brew coffee.",
-      "price": 5.50,
-      "brand": 2,
-      "images": ["/logo192.png", "/logo192.png"],
-      "tags": "coffee"
-    },
-    {
-      "id": 8,
-      "name": "Iced Coffee",
-      "describe": "Chilled coffee served over ice.",
-      "price": 4.00,
-      "brand": 2,
-      "images": ["/logo192.png", "/logo192.png"],
-      "tags": "coffee"
     }
   ],
-  "brands": [
-    { "id": 1, "name": "Coffee House" },
-    { "id": 2, "name": "Bean Roasters" }
+  "category": [
+    { "id": 1, "name": "Tea" },
+    { "id": 2, "name": "Milk tea" },
+    { "id": 3, "name": "Coffee" },
+    { "id": 4, "name": "Food"}
   ],
+  
   "blogs": [
     {
       "id": 1,
@@ -106,5 +46,32 @@
       "date": "September 26, 2025",
       "image": "/logo192.png"
     }
+  ],
+  "users": [
+    {
+      "id": "minhlqhe161101@fpt.edu.vn",
+      "name": "Admin Minh le",
+      "password": "$2a$10$Dk29FNTkf7C4N0Qt1sDc5eJKYTxBA9/dgfLXFMCAFmVMTL0c917SC",
+      "email": "Sincere@april.biz",
+      "address": {
+        "country": "US",
+        "state": "Arizona",
+        "city": "Wisokyburgh",
+        "detailAddress": "Victor Plains",
+        "zipcode": "90566-7771"
+      },
+      "phone": "0878-532-644",
+      "role": "Admin"
+    }
+  ],
+  "feedbacks": [
+    {
+      "id": 1,
+      "userId": "minhlqhe161101@fpt.edu.vn",
+      "rating": 4,
+      "comment": "really good product",
+      "reply": "good"
+    }
   ]
+
 }
