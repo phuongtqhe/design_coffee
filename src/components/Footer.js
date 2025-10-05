@@ -7,7 +7,7 @@ import {BsFire} from "react-icons/bs";
 const Footer = () => {
   return (
     <>
-      <footer className="py-4">
+      <footer className="py-4 bg-dark">
         <div className="container-xxl">
           <div className="row">
             <div className="col-12 col-lg-4">
@@ -24,10 +24,10 @@ const Footer = () => {
                   +84 363840808
                 </a>
                 <a
-                  href="mailto:minhdev@gmail.com"
+                  href="mailto:phuongthan2553@gmail.com"
                   className="mt-2 d-block mb-0 text-white"
                 >
-                  minhdev@gmail.com
+                  phuongthan@gmail.com
                 </a>
                 <div className="social_icons d-flex align-items-center gap-30 mt-4">
                   <a className="text-white" href="#">

@@ -57,9 +57,24 @@ const Home = () => {
             <h3 className="section-heading">Our Latest Blogs</h3>
           </div>
         </div>
-        <div className="row">
-          {blogs.map((blog) => (
-            <div className="col-12 col-md-6 col-lg-3" key={blog.id}>
+        <div className="row g-3">
+          {blogs.length > 0 && (
+            <div className="col-12 col-lg-6" key={`featured-${blogs[0].id}`}>
+              <div className="card shadow-sm border-0 rounded-12 hover-elevate h-100">
+                <div style={{ height: 320, overflow: 'hidden' }}>
+                  <img src={blogs[0].image || '/logo192.png'} alt={blogs[0].title} className="img-fluid w-100 h-100" style={{ objectFit: 'cover' }} />
+                </div>
+                <div className="card-body">
+                  <p className="text-muted small mb-1">{blogs[0].date}</p>
+                  <h4 className="card-title">{blogs[0].title}</h4>
+                  <p className="card-text">{blogs[0].description}</p>
+                  <Link to={`/blog/${blogs[0].id}`} className="btn btn-primary btn-sm">Read More</Link>
+                </div>
+              </div>
+            </div>
+          )}
+          {blogs.slice(1).map((blog) => (
+            <div className="col-12 col-sm-6 col-lg-3" key={blog.id}>
               <BlogCard blog={blog} />
             </div>
           ))}
