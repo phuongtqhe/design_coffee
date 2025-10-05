@@ -1,5 +1,5 @@
 import { Navigate, Outlet, useLocation } from 'react-router-dom';
-import { useAuthentication } from '../util/use-authentication';
+import { useAuthentication } from '../utils/use-authentication';
 
 export function PublicRoute() {
     const { isLogged } = useAuthentication();
