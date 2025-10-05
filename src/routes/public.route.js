@@ -1,6 +1,11 @@
 import { Outlet } from 'react-router-dom';
 import Layout from '../components/Layout';
 import Home from '../pages/Home';
+import Blogs from '../pages/Blogs';
+import BlogDetail from '../pages/BlogDetail';
+import Contact from '../pages/Contact';
+import Login from '../pages/Login';
+import SignUp from '../pages/SignUp';
 
 export function publicRoutes() {
     return {
@@ -12,6 +17,11 @@ export function publicRoutes() {
         ),
         children: [
             { index: true, element: <Home /> },
+            { path: 'blogs', element: <Blogs /> },
+            { path: 'blog/:id', element: <BlogDetail /> },
+            { path: 'contact', element: <Contact /> },
+            { path: 'login', element: <Login /> },
+            { path: 'signup', element: <SignUp /> },
         ],
     };
 }
