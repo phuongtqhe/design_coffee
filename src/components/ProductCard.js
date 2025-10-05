@@ -15,78 +15,119 @@ const ProductCard = (props) => {
     axios
       .get("http://localhost:9999/brands")
       .then((res) => res.data)
-      .then((data) => {
-        setBrands(data);
-      });
+      .then((data) => setBrands(data))
+      .catch(() => setBrands([]));
   }, []);
 
   return (
     <>
+      {!product ? null : (
       <div
-        className={` ${
-          location.pathname === "/product" ? `gr-${grid}` : "col-3"
-        } `}
+        className={`${location.pathname === "/product" ? `gr-${grid || 3}` : "col-12 col-sm-6 col-lg-3 mb-4"}`}
       >
-        <Link
-          to={product && product.id ? `/product/${product.id}` : '/'}
-          className="product-card position-relative"
-        >
-          <div className="wishlist-icon position-absolute">
-            <button className="border-0 bg-transparent">
-              <img src={wish} alt="wishlist" />
+        <div className="card h-100 shadow-sm border-0 product-card">
+          <div className="position-relative">
+            {/* Wishlist Button */}
+            <button 
+              className="btn btn-light btn-sm position-absolute top-0 end-0 m-2 rounded-circle"
+              style={{ width: "35px", height: "35px", zIndex: 2 }}
+            >
+              <img src={wish} alt="wishlist" style={{ width: "18px", height: "18px" }} />
             </button>
+            
+            {/* Product Image */}
+            <div className="product-image-container" style={{ height: "250px", overflow: "hidden" }}>
+              <img
+                src={(product.images && product.images[0]) || "/logo192.png"}
+                className="img-fluid w-100 h-100"
+                alt={product.name || "product image"}
+                style={{ objectFit: "cover", transition: "transform 0.3s ease" }}
+                onMouseEnter={(e) => e.target.style.transform = "scale(1.05)"}
+                onMouseLeave={(e) => e.target.style.transform = "scale(1)"}
+              />
+            </div>
           </div>
-          <div className="product-image">
-            <img
-              src={product && product.images && product.images[0]}
-              className="img-fluid"
-              alt="product image"
-            />
-            <img
-              src={product && product.images && product.images[1]}
-              className="img-fluid"
-              alt="product image"
-            />
-          </div>
-          <div className="product-details">
-            <h6 className="brand">
-              {brands.find((b) => b.id === (product && product.brand))?.name}
-            </h6>
+          
+          {/* Product Details */}
+          <div className="card-body d-flex flex-column">
+            <div className="mb-2">
+              <small className="text-muted text-uppercase fw-medium">
+                {brands.find((b) => b.id === product.brand)?.name || product.name || "Coffee"}
+              </small>
+            </div>
+            
             <h5
-              className="product-title"
+              className="card-title mb-2"
               style={{
                 overflow: "hidden",
                 whiteSpace: "nowrap",
                 textOverflow: "ellipsis",
-                display: "block",
+                fontSize: "1.1rem",
+                fontWeight: "600"
               }}
+              title={product.describe || product.name}
             >
-              {product && product.describe}
+              {product.describe || product.name}
             </h5>
-            <ReactStars
-              count={5}
-              size={24}
-              value={4}
-              edit={false}
-              activeColor="#ffd700"
-            />
-            <p className="price">${product && product.price}</p>
-          </div>
-          <div className="action-bar position-absolute">
-            <div className="d-flex flex-column gap-15">
-              <button className="border-0 bg-transparent">
-                <img src={prodcompare} alt="compare" />
-              </button>
-              <button className="border-0 bg-transparent">
-                <img src={view} alt="view" />
-              </button>
-              <button className="border-0 bg-transparent">
-                <img src={addcart} alt="addcart" />
-              </button>
+            
+            <div className="mb-2">
+              <ReactStars
+                count={5}
+                size={20}
+                value={4}
+                edit={false}
+                activeColor="#ffc107"
+              />
+            </div>
+            
+            <div className="mt-auto">
+              <div className="d-flex justify-content-between align-items-center mb-3">
+                <h6 className="price mb-0 text-primary fw-bold fs-5">
+                  ${Number(product.price).toFixed(2)}
+                </h6>
+              </div>
+              
+              {/* Action Buttons */}
+              <div className="d-flex gap-2">
+                <button 
+                  className="btn btn-outline-secondary btn-sm flex-fill"
+                  title="Compare"
+                >
+                  <img src={prodcompare} alt="compare" style={{ width: "16px", height: "16px" }} />
+                </button>
+                <button 
+                  className="btn btn-outline-secondary btn-sm flex-fill"
+                  title="Quick View"
+                >
+                  <img src={view} alt="view" style={{ width: "16px", height: "16px" }} />
+                </button>
+                <button 
+                  className="btn btn-success btn-sm flex-fill fw-bold"
+                  title="Add to Cart"
+                  style={{ 
+                    background: "linear-gradient(135deg, #28a745, #20c997)",
+                    border: "none",
+                    boxShadow: "0 2px 8px rgba(40, 167, 69, 0.3)",
+                    transition: "all 0.3s ease"
+                  }}
+                  onMouseEnter={(e) => {
+                    e.target.style.transform = "translateY(-2px)";
+                    e.target.style.boxShadow = "0 4px 12px rgba(40, 167, 69, 0.4)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.target.style.transform = "translateY(0)";
+                    e.target.style.boxShadow = "0 2px 8px rgba(40, 167, 69, 0.3)";
+                  }}
+                >
+                  <img src={addcart} alt="addcart" style={{ width: "16px", height: "16px", marginRight: "4px" }} />
+                  Add
+                </button>
+              </div>
             </div>
           </div>
-        </Link>
+        </div>
       </div>
+      )}
     </>
   );
 };
