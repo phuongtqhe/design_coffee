@@ -1,120 +1,230 @@
 {
   "products": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Espresso",
       "describe": "Rich and aromatic espresso shots.",
       "price": 3.5,
       "brand": 1,
-      "images": ["https://www.highlandscoffee.com.vn/vnt_upload/product/11_2022/BR_Drink/HLC_New_logo_Products__TRA_SEN_VANG_CU_NANG.png", "/logo192.png"],
+      "images": [
+        "https://www.highlandscoffee.com.vn/vnt_upload/product/11_2022/BR_Drink/HLC_New_logo_Products__TRA_SEN_VANG_CU_NANG.png",
+        "/logo192.png"
+      ],
       "tags": "coffee"
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Cappuccino",
       "describe": "Creamy cappuccino with a perfect foam cap.",
       "price": 4.2,
       "brand": 2,
-      "images": ["https://www.clarin.com/img/2022/03/01/ceq4FUBv9_2000x1500__1.jpg", "/logo192.png"],
+      "images": [
+        "https://www.clarin.com/img/2022/03/01/ceq4FUBv9_2000x1500__1.jpg",
+        "/logo192.png"
+      ],
       "tags": "coffee"
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "Latte",
       "describe": "Smooth latte with rich milk and espresso.",
-      "price": 4.0,
+      "price": 4,
       "brand": 3,
-      "images": ["https://aeonmall-review-rikkei.cdn.vccloud.vn/test/public/wp/15/editors/0sUuOt28xTxgBI4aoETKyYSF7xOQ9iH3r1WT7iF3.png", "/logo192.png"],
+      "images": [
+        "https://aeonmall-review-rikkei.cdn.vccloud.vn/test/public/wp/15/editors/0sUuOt28xTxgBI4aoETKyYSF7xOQ9iH3r1WT7iF3.png",
+        "/logo192.png"
+      ],
       "tags": "coffee"
     },
     {
-      "id": 4,
+      "id": "4",
       "name": "Americano",
       "describe": "Diluted espresso for a bold, clean taste.",
-      "price": 3.0,
+      "price": 3,
       "brand": 1,
-      "images": ["https://fnbvietnam.vn/wp-content/uploads/2023/05/review-menu-katinat-saigon-kafe-2.jpg", "/logo192.png"],
+      "images": [
+        "https://fnbvietnam.vn/wp-content/uploads/2023/05/review-menu-katinat-saigon-kafe-2.jpg",
+        "/logo192.png"
+      ],
       "tags": "coffee"
     },
     {
-      "id": 5,
+      "id": "5",
       "name": "Mocha",
       "describe": "Chocolate-infused mocha with cream.",
       "price": 4.5,
       "brand": 2,
-      "images": ["https://tb-static.uber.com/prod/image-proc/processed_images/20b9627136be03f7ed3e048d02eafea1/5954bcb006b10dbfd0bc160f6370faf3.jpeg", "/logo192.png"],
+      "images": [
+        "https://tb-static.uber.com/prod/image-proc/processed_images/20b9627136be03f7ed3e048d02eafea1/5954bcb006b10dbfd0bc160f6370faf3.jpeg",
+        "/logo192.png"
+      ],
       "tags": "coffee"
     },
     {
-      "id": 6,
+      "id": "6",
       "name": "Flat White",
       "describe": "Velvety flat white with microfoam.",
       "price": 4.1,
       "brand": 3,
-      "images": ["https://tse2.mm.bing.net/th/id/OIP.DBF8Wu56HWZwP6nru1Cp_wHaLH?cb=12&w=500&h=750&rs=1&pid=ImgDetMain&o=7&rm=3", "/logo192.png"],
+      "images": [
+        "https://tse2.mm.bing.net/th/id/OIP.DBF8Wu56HWZwP6nru1Cp_wHaLH?cb=12&w=500&h=750&rs=1&pid=ImgDetMain&o=7&rm=3",
+        "/logo192.png"
+      ],
       "tags": "coffee"
     },
     {
-      "id": 7,
+      "id": "7",
       "name": "Macchiato",
       "describe": "Espresso stained with a touch of milk.",
       "price": 3.8,
       "brand": 4,
-      "images": ["https://th.bing.com/th/id/R.087d656d74c87b3f101437e975badbbf?rik=4u9WbrsMS79j5g&riu=http%3a%2f%2fgongcha.ph%2fwp-content%2fuploads%2f2022%2f02%2fWintermelon-Milk-1024x1024.jpg&ehk=FAGz%2f5ruQLNbgRU0MpvWLE5vetH8e1Zt4jkgWl5ArbA%3d&risl=&pid=ImgRaw&r=0", "/logo192.png"],
+      "images": [
+        "https://th.bing.com/th/id/R.087d656d74c87b3f101437e975badbbf?rik=4u9WbrsMS79j5g&riu=http%3a%2f%2fgongcha.ph%2fwp-content%2fuploads%2f2022%2f02%2fWintermelon-Milk-1024x1024.jpg&ehk=FAGz%2f5ruQLNbgRU0MpvWLE5vetH8e1Zt4jkgWl5ArbA%3d&risl=&pid=ImgRaw&r=0",
+        "/logo192.png"
+      ],
       "tags": "coffee"
     },
     {
-      "id": 8,
+      "id": "8",
       "name": "Cold Brew",
       "describe": "Slow-steeped cold brew over ice.",
       "price": 4.3,
       "brand": 5,
-      "images": ["https://tse4.mm.bing.net/th/id/OIP.w3QijMZ8P-X4hNBlzDaCLAHaHa?cb=12&w=1320&h=1320&rs=1&pid=ImgDetMain&o=7&rm=3", "/logo192.png"],
+      "images": [
+        "https://tse4.mm.bing.net/th/id/OIP.w3QijMZ8P-X4hNBlzDaCLAHaHa?cb=12&w=1320&h=1320&rs=1&pid=ImgDetMain&o=7&rm=3",
+        "/logo192.png"
+      ],
       "tags": "coffee"
     },
     {
-      "id": 9,
+      "id": "9",
       "name": "Iced Latte",
       "describe": "Chilled latte with ice and milk.",
       "price": 4.2,
       "brand": 2,
-      "images": ["https://tse3.mm.bing.net/th/id/OIP.BQjOAKKUfR357mOetEm5VAHaHa?cb=12&w=1024&h=1024&rs=1&pid=ImgDetMain&o=7&rm=3", "/logo192.png"],
+      "images": [
+        "https://tse3.mm.bing.net/th/id/OIP.BQjOAKKUfR357mOetEm5VAHaHa?cb=12&w=1024&h=1024&rs=1&pid=ImgDetMain&o=7&rm=3",
+        "/logo192.png"
+      ],
       "tags": "coffee"
     },
     {
-      "id": 10,
+      "id": "10",
       "name": "Affogato",
       "describe": "Espresso poured over vanilla ice cream.",
-      "price": 5.0,
+      "price": 5,
       "brand": 4,
-      "images": ["https://tse2.mm.bing.net/th/id/OIP.GjYKgjLh3rKJGIQc7-i-JgAAAA?cb=12&w=282&h=338&rs=1&pid=ImgDetMain&o=7&rm=3", "/logo192.png"],
+      "images": [
+        "https://tse2.mm.bing.net/th/id/OIP.GjYKgjLh3rKJGIQc7-i-JgAAAA?cb=12&w=282&h=338&rs=1&pid=ImgDetMain&o=7&rm=3",
+        "/logo192.png"
+      ],
       "tags": "coffee"
     }
   ],
   "category": [
-    { "id": 1, "name": "Tea" },
-    { "id": 2, "name": "Milk tea" },
-    { "id": 3, "name": "Coffee" },
-    { "id": 4, "name": "Food"}
+    {
+      "id": "1",
+      "name": "Tea"
+    },
+    {
+      "id": "2",
+      "name": "Milk tea"
+    },
+    {
+      "id": "3",
+      "name": "Coffee"
+    },
+    {
+      "id": "4",
+      "name": "Food"
+    }
   ],
   "brands": [
-    { "id": 1, "name": "House Blend" },
-    { "id": 2, "name": "Premium Beans" },
-    { "id": 3, "name": "Roasters Guild" },
-    { "id": 4, "name": "Artisan Roast" },
-    { "id": 5, "name": "ColdCraft" }
+    {
+      "id": "1",
+      "name": "House Blend"
+    },
+    {
+      "id": "2",
+      "name": "Premium Beans"
+    },
+    {
+      "id": "3",
+      "name": "Roasters Guild"
+    },
+    {
+      "id": "4",
+      "name": "Artisan Roast"
+    },
+    {
+      "id": "5",
+      "name": "ColdCraft"
+    }
   ],
-  
   "blogs": [
-    { "id": 1, "title": "The Art of Brewing", "description": "A deep dive into different coffee brewing methods.", "date": "September 29, 2025", "image": "https://katinat.vn/wp-content/uploads/2024/12/BD_44X28CM-1.jpg" },
-    { "id": 2, "title": "Coffee Origins: From Bean to Cup", "description": "Explore the journey of coffee from the farm to your cup.", "date": "September 28, 2025", "image": "https://cdn.brvn.vn/editor/2023/03/A42_330929-katinat-2_1679918153.jpg" },
-    { "id": 3, "title": "Health Benefits of Coffee", "description": "Discover the surprising health benefits of your favorite beverage.", "date": "September 27, 2025", "image": "https://media-cdn.tripadvisor.com/media/photo-s/1a/42/45/40/main-entrace.jpg" },
-    { "id": 4, "title": "A Guide to Different Coffee Roasts", "description": "Learn about the differences between light, medium, and dark roasts.", "date": "September 26, 2025", "image": "https://tse1.explicit.bing.net/th/id/OIP.9NJWCbRZJxILCqHuF7B0WgHaD4?cb=12&w=1024&h=536&rs=1&pid=ImgDetMain&o=7&rm=3" },
-    { "id": 5, "title": "Single-Origin Spotlight: Ethiopia", "description": "Floral and citrus notes in Ethiopian beans.", "date": "September 25, 2025", "image": "https://bizweb.dktcdn.net/100/425/912/files/menu-katinat-moi-nhat-3.jpg?v=1697079675187" },
-    { "id": 6, "title": "Grinding Guide 101", "description": "How grind size impacts flavor extraction.", "date": "September 24, 2025", "image": "https://static.wixstatic.com/media/4a49ec_e77f53f8da0248f7b6a2f81a372a2a75~mv2.jpg/v1/fill/w_470,h_587,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/4a49ec_e77f53f8da0248f7b6a2f81a372a2a75~mv2.jpg" },
-    { "id": 8, "title": "Cold Brew vs Iced Coffee", "description": "Key differences and when to choose each.", "date": "September 22, 2025", "image": "https://tse3.mm.bing.net/th/id/OIP.zp9-KhjN5isqQfoGs63BswHaHa?cb=12&w=960&h=960&rs=1&pid=ImgDetMain&o=7&rm=3" },
-    { "id": 9, "title": "Roast Levels Explained", "description": "Light, medium, dark — what's best?", "date": "September 21, 2025", "image": "https://tse4.mm.bing.net/th/id/OIP.kuuuV-GVpdpZytjYjmKpTgHaJQ?cb=12&w=800&h=1000&rs=1&pid=ImgDetMain&o=7&rm=3" },
-    { "id": 10, "title": "Home Espresso Setup", "description": "Gear to level up your home cafe.", "date": "September 20, 2025", "image": "https://tse1.explicit.bing.net/th/id/OIP.0vSsTSdmYDyxb0gskO6glwHaE8?cb=12&w=600&h=400&rs=1&pid=ImgDetMain&o=7&rm=3" }
+    {
+      "id": "1",
+      "title": "The Art of Brewing",
+      "description": "A deep dive into different coffee brewing methods.",
+      "date": "September 29, 2025",
+      "image": "https://katinat.vn/wp-content/uploads/2024/12/BD_44X28CM-1.jpg"
+    },
+    {
+      "id": "2",
+      "title": "Coffee Origins: From Bean to Cup",
+      "description": "Explore the journey of coffee from the farm to your cup.",
+      "date": "September 28, 2025",
+      "image": "https://cdn.brvn.vn/editor/2023/03/A42_330929-katinat-2_1679918153.jpg"
+    },
+    {
+      "id": "3",
+      "title": "Health Benefits of Coffee",
+      "description": "Discover the surprising health benefits of your favorite beverage.",
+      "date": "September 27, 2025",
+      "image": "https://media-cdn.tripadvisor.com/media/photo-s/1a/42/45/40/main-entrace.jpg"
+    },
+    {
+      "id": "4",
+      "title": "A Guide to Different Coffee Roasts",
+      "description": "Learn about the differences between light, medium, and dark roasts.",
+      "date": "September 26, 2025",
+      "image": "https://tse1.explicit.bing.net/th/id/OIP.9NJWCbRZJxILCqHuF7B0WgHaD4?cb=12&w=1024&h=536&rs=1&pid=ImgDetMain&o=7&rm=3"
+    },
+    {
+      "id": "5",
+      "title": "Single-Origin Spotlight: Ethiopia",
+      "description": "Floral and citrus notes in Ethiopian beans.",
+      "date": "September 25, 2025",
+      "image": "https://bizweb.dktcdn.net/100/425/912/files/menu-katinat-moi-nhat-3.jpg?v=1697079675187"
+    },
+    {
+      "id": "6",
+      "title": "Grinding Guide 101",
+      "description": "How grind size impacts flavor extraction.",
+      "date": "September 24, 2025",
+      "image": "https://static.wixstatic.com/media/4a49ec_e77f53f8da0248f7b6a2f81a372a2a75~mv2.jpg/v1/fill/w_470,h_587,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/4a49ec_e77f53f8da0248f7b6a2f81a372a2a75~mv2.jpg"
+    },
+    {
+      "id": "8",
+      "title": "Cold Brew vs Iced Coffee",
+      "description": "Key differences and when to choose each.",
+      "date": "September 22, 2025",
+      "image": "https://tse3.mm.bing.net/th/id/OIP.zp9-KhjN5isqQfoGs63BswHaHa?cb=12&w=960&h=960&rs=1&pid=ImgDetMain&o=7&rm=3"
+    },
+    {
+      "id": "9",
+      "title": "Roast Levels Explained",
+      "description": "Light, medium, dark — what's best?",
+      "date": "September 21, 2025",
+      "image": "https://tse4.mm.bing.net/th/id/OIP.kuuuV-GVpdpZytjYjmKpTgHaJQ?cb=12&w=800&h=1000&rs=1&pid=ImgDetMain&o=7&rm=3"
+    },
+    {
+      "id": "10",
+      "title": "Home Espresso Setup",
+      "description": "Gear to level up your home cafe.",
+      "date": "September 20, 2025",
+      "image": "https://tse1.explicit.bing.net/th/id/OIP.0vSsTSdmYDyxb0gskO6glwHaE8?cb=12&w=600&h=400&rs=1&pid=ImgDetMain&o=7&rm=3"
+    }
   ],
   "users": [
     {
@@ -131,16 +241,29 @@
       },
       "phone": "0878-532-644",
       "role": "Admin"
+    },
+    {
+      "id": "kbbgbro@gmail.com",
+      "email": "kbbgbro@gmail.com",
+      "name": "Hoàng Anh Nguyễn",
+      "picture": "https://lh3.googleusercontent.com/a/ACg8ocJEjFhbQVu1wjJi3_-cFeJ8CsRn_eL5Yw26mUawiHE_9a2RAw=s96-c",
+      "role": "customer"
+    },
+    {
+      "id": "kbbgbro@gmail.com",
+      "email": "kbbgbro@gmail.com",
+      "name": "Hoàng Anh Nguyễn",
+      "picture": "https://lh3.googleusercontent.com/a/ACg8ocJEjFhbQVu1wjJi3_-cFeJ8CsRn_eL5Yw26mUawiHE_9a2RAw=s96-c",
+      "role": "customer"
     }
   ],
   "feedbacks": [
     {
-      "id": 1,
+      "id": "1",
       "userId": "minhlqhe161101@fpt.edu.vn",
       "rating": 4,
       "comment": "really good product",
       "reply": "good"
     }
   ]
-
 }

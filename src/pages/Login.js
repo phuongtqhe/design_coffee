@@ -1,8 +1,74 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button, Col, Container, Form, Row } from "react-bootstrap";
 import bgImage from "../images/background/bg_1.jpg";
+import { GoogleLogin } from "@react-oauth/google";
+import { jwtDecode } from "jwt-decode";
+import { useNavigate } from "react-router-dom";
+import bcrypt from "bcryptjs";
+import { toast } from "react-toastify";
 
 function Login() {
+  const navigate = useNavigate();
+  const [emailOrPhone, setEmailOrPhone] = useState("");
+  const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    if (!emailOrPhone || !password) {
+      toast.warning("Vui lòng nhập đầy đủ thông tin!");
+      return;
+    }
+
+    setLoading(true);
+    try {
+      const res = await fetch("http://localhost:9999/users");
+      const users = await res.json();
+
+      // Tìm người dùng theo email / username / phone
+      const foundUser = users.find(
+        (u) =>
+          u.email.toLowerCase() === emailOrPhone.toLowerCase() ||
+          u.id.toLowerCase() === emailOrPhone.toLowerCase() ||
+          u.phone === emailOrPhone
+      );
+
+      if (!foundUser) {
+        toast.error("Không tìm thấy tài khoản!");
+        setLoading(false);
+        return;
+      }
+
+      // So sánh mật khẩu với hash trong DB
+      const passwordMatch = await bcrypt.compare(password, foundUser.password);
+
+      if (!passwordMatch) {
+        toast.error("Sai mật khẩu!");
+        setLoading(false);
+        return;
+      }
+
+      // Lưu thông tin người dùng vào sessionStorage
+      sessionStorage.setItem(
+        "data",
+        JSON.stringify({
+          email: foundUser.email,
+          name: foundUser.name,
+          role: foundUser.role,
+          phone: foundUser.phone,
+        })
+      );
+
+      toast.success("Đăng nhập thành công!");
+      navigate("/");
+    } catch (error) {
+      console.error(error);
+      toast.error("Lỗi khi đăng nhập!");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <div
       style={{
@@ -52,28 +118,44 @@ function Login() {
             <h2 style={{ fontWeight: "600", marginBottom: "20px" }}>
               Đăng nhập
             </h2>
-            <Form>
+            <Form onSubmit={handleLogin}>
               <Form.Group className="mb-3">
                 <Form.Label>
                   Email hoặc tên người dùng hoặc số điện thoại
                 </Form.Label>
                 <Form.Control
-                  type="email"
+                  type="text"
                   placeholder="Nhập thông tin đăng nhập"
+                  value={emailOrPhone}
+                  onChange={(e) => setEmailOrPhone(e.target.value)}
+                  required
                 />
               </Form.Group>
               <Form.Group className="mb-3">
                 <Form.Label>Mật khẩu</Form.Label>
-                <Form.Control type="password" placeholder="Nhập mật khẩu" />
+                <Form.Control
+                  type="password"
+                  placeholder="Nhập mật khẩu"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
+                />
               </Form.Group>
               <Form.Check
                 type="switch"
                 label="Ghi nhớ tài khoản cho lần sử dụng sau"
                 className="mb-3"
               />
-              <Button variant="primary" className="w-100 mb-3">
-                Đăng nhập
+              <Button
+                variant="primary"
+                className="w-100 mb-3"
+                type="submit"
+                disabled={loading}
+              >
+                {loading ? "Đang đăng nhập..." : "Đăng nhập"}
               </Button>
+
+              {/* Separator */}
               <div
                 className="text-center mb-3"
                 style={{ position: "relative" }}
@@ -93,9 +175,28 @@ function Login() {
                   Hoặc
                 </span>
               </div>
-              <Button variant="danger" className="w-100 mb-3">
-                Đăng nhập bằng tài khoản Google
-              </Button>
+
+              {/* Google Login */}
+              <div className="mb-3" style={{ padding: "10px 0" }}>
+                <GoogleLogin
+                  onSuccess={(credentialResponse) => {
+                    const decoded = jwtDecode(credentialResponse.credential);
+
+                    sessionStorage.setItem(
+                      "data",
+                      JSON.stringify({
+                        email: decoded.email,
+                        name: decoded.name,
+                        picture: decoded.picture,
+                      })
+                    );
+
+                    toast.success("Đăng nhập Google thành công!");
+                    navigate("/");
+                  }}
+                  onError={() => toast.error("Đăng nhập Google thất bại!")}
+                />
+              </div>
 
               <Button
                 variant="outline-secondary"
