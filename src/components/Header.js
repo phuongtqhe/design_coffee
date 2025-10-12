@@ -56,7 +56,7 @@ const Header = () => {
                     HOME
                   </NavLink>
                   <NavLink 
-                    to="/product" 
+                    to="/products" 
                     className="nav-link me-4 px-3 py-2 rounded text-decoration-none fw-medium"
                     activeClassName="active"
                   >
@@ -92,7 +92,10 @@ const Header = () => {
               <div className="d-flex align-items-center justify-content-end gap-3">
                 {/* Search Bar */}
                 <div className="search-container flex-grow-1" style={{ maxWidth: "300px" }}>
-                  <form action={"/ourStore/" + searchKey}>
+                  <form action={"/product/" + searchKey} onSubmit={(e) => {
+                    e.preventDefault();
+                    navigate(searchKey ? `/product?search=${searchKey}` : '/product');
+                  }}>
                     <div className="input-group">
                       <input
                         style={{ height: "45px" }}
