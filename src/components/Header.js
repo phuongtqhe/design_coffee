@@ -35,10 +35,9 @@ const Header = () => {
             <div className="col-12 col-lg-8">
               <div className="d-flex align-items-center flex-wrap">
                 {/* Brand Logo */}
-                <div className="me-4 mb-2 mb-lg-0">
+                <div className="mb-4 mb-4 mb-lg-0">
                   <Link to="/" className="text-decoration-none">
                     <img 
-                      className="logo-img" 
                       style={{ height: "60px", width: "auto" }} 
                       src={'/logo_main.png'} 
                       alt='logo'
