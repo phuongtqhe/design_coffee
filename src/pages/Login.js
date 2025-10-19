@@ -1,133 +1,226 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import Container from "../components/Container";
-import axios from "axios";
+import { Button, Col, Container, Form, Row } from "react-bootstrap";
+import bgImage from "../images/background/bg_1.jpg";
+import { GoogleLogin } from "@react-oauth/google";
+import { jwtDecode } from "jwt-decode";
+import { useNavigate } from "react-router-dom";
+import bcrypt from "bcryptjs";
 import { toast } from "react-toastify";
 
-const Login = () => {
-  const [formData, setFormData] = useState({
-    email: "",
-    password: ""
-  });
-  const [loading, setLoading] = useState(false);
+function Login() {
   const navigate = useNavigate();
+  const [emailOrPhone, setEmailOrPhone] = useState("");
+  const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
 
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
-
-  const handleSubmit = async (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
+    if (!emailOrPhone || !password) {
+      toast.warning("Vui lòng nhập đầy đủ thông tin!");
+      return;
+    }
+
     setLoading(true);
-
     try {
-      const response = await axios.get(`http://localhost:9999/users/${formData.email}`);
-      const user = response.data;
+      const res = await fetch("http://localhost:9999/users");
+      const users = await res.json();
 
-      if (user && user.password === formData.password) {
-        // Store user data in session storage
-        sessionStorage.setItem('data', JSON.stringify({
-          email: user.email,
-          name: user.name,
-          role: user.role
-        }));
-        
-        toast.success("Login successful!");
-        navigate('/');
-      } else {
-        toast.error("Invalid email or password");
+      // Tìm người dùng theo email / username / phone
+      const foundUser = users.find(
+        (u) =>
+          u.email.toLowerCase() === emailOrPhone.toLowerCase() ||
+          u.id.toLowerCase() === emailOrPhone.toLowerCase() ||
+          u.phone === emailOrPhone
+      );
+
+      if (!foundUser) {
+        toast.error("Không tìm thấy tài khoản!");
+        setLoading(false);
+        return;
       }
+
+      // So sánh mật khẩu với hash trong DB
+      const passwordMatch = await bcrypt.compare(password, foundUser.password);
+
+      if (!passwordMatch) {
+        toast.error("Sai mật khẩu!");
+        setLoading(false);
+        return;
+      }
+
+      // Lưu thông tin người dùng vào sessionStorage
+      sessionStorage.setItem(
+        "data",
+        JSON.stringify({
+          email: foundUser.email,
+          name: foundUser.name,
+          role: foundUser.role,
+          phone: foundUser.phone,
+        })
+      );
+
+      toast.success("Đăng nhập thành công!");
+      navigate("/");
     } catch (error) {
-      toast.error("User not found or login failed");
+      console.error(error);
+      toast.error("Lỗi khi đăng nhập!");
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <>
-      <Container class1="login-wrapper py-5">
-        <div className="row justify-content-center">
-          <div className="col-12 col-md-6 col-lg-4">
-            <div className="card shadow-sm border-0 rounded-12">
-              <div className="card-body p-5">
-                <div className="text-center mb-4">
-                  <h2 className="card-title">Welcome Back</h2>
-                  <p className="text-muted">Sign in to your account</p>
-                </div>
+    <div
+      style={{
+        backgroundImage: `url(${bgImage})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+        minHeight: "100vh",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        padding: "20px",
+      }}
+    >
+      <Container
+        style={{
+          backgroundColor: "rgba(255, 255, 255, 0.9)",
+          borderRadius: "20px",
+          padding: "40px",
+          boxShadow: "0 4px 10px rgba(0,0,0,0.2)",
+          maxWidth: "900px",
+        }}
+      >
+        <Row className="align-items-center">
+          <Col
+            xs={12}
+            md={6}
+            className="mb-4 mb-md-0 text-center text-md-start"
+          >
+            <h1
+              style={{
+                fontWeight: "700",
+                fontSize: "2.5rem",
+                lineHeight: "1.2",
+                marginBottom: "20px",
+              }}
+            >
+              Chào mừng <br /> quý khách
+            </h1>
+            <p style={{ fontSize: "1.1rem", color: "#555" }}>
+              Quán cà phê chúng tôi luôn luôn hoan nghênh những vị khách hàng
+              thân thiết của mình quay trở lại.
+            </p>
+          </Col>
 
-                <form onSubmit={handleSubmit}>
-                  <div className="mb-3">
-                    <label htmlFor="email" className="form-label">Email Address</label>
-                    <input
-                      type="email"
-                      className="form-control"
-                      id="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      required
-                      placeholder="Enter your email"
-                    />
-                  </div>
+          <Col xs={12} md={6}>
+            <h2 style={{ fontWeight: "600", marginBottom: "20px" }}>
+              Đăng nhập
+            </h2>
+            <Form onSubmit={handleLogin}>
+              <Form.Group className="mb-3">
+                <Form.Label>
+                  Email hoặc tên người dùng hoặc số điện thoại
+                </Form.Label>
+                <Form.Control
+                  type="text"
+                  placeholder="Nhập thông tin đăng nhập"
+                  value={emailOrPhone}
+                  onChange={(e) => setEmailOrPhone(e.target.value)}
+                  required
+                />
+              </Form.Group>
+              <Form.Group className="mb-3">
+                <Form.Label>Mật khẩu</Form.Label>
+                <Form.Control
+                  type="password"
+                  placeholder="Nhập mật khẩu"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
+                />
+              </Form.Group>
+              <Form.Check
+                type="switch"
+                label="Ghi nhớ tài khoản cho lần sử dụng sau"
+                className="mb-3"
+              />
+              <Button
+                variant="primary"
+                className="w-100 mb-3"
+                type="submit"
+                disabled={loading}
+              >
+                {loading ? "Đang đăng nhập..." : "Đăng nhập"}
+              </Button>
 
-                  <div className="mb-4">
-                    <label htmlFor="password" className="form-label">Password</label>
-                    <input
-                      type="password"
-                      className="form-control"
-                      id="password"
-                      name="password"
-                      value={formData.password}
-                      onChange={handleChange}
-                      required
-                      placeholder="Enter your password"
-                    />
-                  </div>
-
-                  <button 
-                    type="submit" 
-                    className="btn btn-primary w-100 mb-3"
-                    disabled={loading}
-                  >
-                    {loading ? (
-                      <>
-                        <span className="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
-                        Signing In...
-                      </>
-                    ) : (
-                      "Sign In"
-                    )}
-                  </button>
-
-                  <div className="text-center">
-                    <p className="mb-0">
-                      Don't have an account?{" "}
-                      <Link to="/signup" className="text-primary text-decoration-none">
-                        Sign up here
-                      </Link>
-                    </p>
-                  </div>
-                </form>
-
-                {/* Demo credentials */}
-                <div className="mt-4 p-3 bg-light rounded">
-                  <h6 className="text-muted mb-2">Demo Credentials:</h6>
-                  <small className="text-muted">
-                    Email: Sincere@april.biz<br />
-                    Password: admin123
-                  </small>
-                </div>
+              {/* Separator */}
+              <div
+                className="text-center mb-3"
+                style={{ position: "relative" }}
+              >
+                <hr />
+                <span
+                  style={{
+                    background: "#fff",
+                    padding: "0 10px",
+                    position: "absolute",
+                    top: "-12px",
+                    left: "50%",
+                    transform: "translateX(-50%)",
+                    color: "#555",
+                  }}
+                >
+                  Hoặc
+                </span>
               </div>
-            </div>
-          </div>
-        </div>
+
+              {/* Google Login */}
+              <div className="mb-3" style={{ padding: "10px 0" }}>
+                <GoogleLogin
+                  onSuccess={(credentialResponse) => {
+                    const decoded = jwtDecode(credentialResponse.credential);
+
+                    sessionStorage.setItem(
+                      "data",
+                      JSON.stringify({
+                        email: decoded.email,
+                        name: decoded.name,
+                        picture: decoded.picture,
+                      })
+                    );
+
+                    toast.success("Đăng nhập Google thành công!");
+                    navigate("/");
+                  }}
+                  onError={() => toast.error("Đăng nhập Google thất bại!")}
+                />
+              </div>
+
+              <Button
+                variant="outline-secondary"
+                className="w-100 mb-3"
+                href="/signup"
+              >
+                Đăng ký tài khoản mới
+              </Button>
+
+              <p className="text-center mb-0">Bạn quên thông tin tài khoản?</p>
+              <p className="text-center">
+                <a
+                  href="/reset-password"
+                  style={{ textDecoration: "none", color: "#0d6efd" }}
+                >
+                  Quên mật khẩu
+                </a>
+              </p>
+            </Form>
+          </Col>
+        </Row>
       </Container>
-    </>
+    </div>
   );
-};
+}
 
 export default Login;

@@ -5,7 +5,7 @@ import { AppRouter } from "./routes/router";
 function App() {
   return (
     <>
-      <ToastContainer theme='colored' position='top-center'></ToastContainer>
+      <ToastContainer theme="colored" position="top-center"></ToastContainer>
       <AppRouter />
     </>
   );

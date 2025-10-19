@@ -77,12 +77,6 @@ const AllProducts = () => {
     setPriceFilter((prev) => ({ ...prev, [name]: Number(value) }));
   };
 
-  // Get unique category IDs from products to match with categories
-  const productCategoryIds = [...new Set(products.map((p) => p.categoryId))];
-  const displayCategories = categories.filter((c) =>
-    productCategoryIds.includes(c.id)
-  );
-
   return (
     <Container class1="all-products-wrapper py-5 home-wrapper-2">
       <div className="row mb-4">
@@ -136,12 +130,12 @@ const AllProducts = () => {
       </div>
 
       {/* Products by Category */}
-      {displayCategories.map((category) => {
+      {categories.map((category) => {
         const categoryProducts = filteredProducts.filter(
-          (p) => p.categoryId === category.id
+          (p) => p.categoryId == category.id
         );
-        if (categoryProducts.length === 0) return null;
-
+        if (categoryProducts.length == 0) return null;
+          
         return (
           <div key={category.id} className="mb-5">
             <h3 className="section-heading">{category.name}</h3>

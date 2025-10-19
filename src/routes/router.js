@@ -1,9 +1,12 @@
-import { createBrowserRouter, Navigate, Outlet, RouterProvider } from 'react-router-dom';
-import { publicRoutes } from './public.route';
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { publicRoutes } from "./public.route";
 
-const allRoutes = createBrowserRouter([
-  publicRoutes()
-]);
+//Code cũ:
+// const allRoutes = createBrowserRouter([
+//   publicRoutes()
+// ]);
+
+const allRoutes = createBrowserRouter(publicRoutes()); //sửa lại để nhận mảng thay vì object
 
 export const AppRouter = ({ children }) => (
   <>
