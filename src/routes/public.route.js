@@ -9,6 +9,7 @@ import Contact from "../pages/Contact";
 import Login from "../pages/Login";
 import SignUp from "../pages/SignUp";
 import Feedback from "../pages/Feedback";
+import AllProducts from "../pages/AllProducts";
 
 export function publicRoutes() {
   return [
@@ -25,6 +26,7 @@ export function publicRoutes() {
         { path: "blog/:id", element: <BlogDetail /> },
         { path: "contact", element: <Contact /> },
         { path: "feedback", element: <Feedback /> },
+        { path: "products", element: <AllProducts /> },
       ],
     },
 
