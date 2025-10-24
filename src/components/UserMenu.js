@@ -170,14 +170,14 @@ const UserMenu = () => {
                 <BiUser /> My Profile
               </Link>
             </li>
-            <li>
+            {/* <li>
               <Link
                 to="/myOrder"
                 className="dropdown-item d-flex align-items-center gap-2"
               >
                 <FaMoneyCheckDollar /> My Orders
               </Link>
-            </li>
+            </li> */}
             <li>
               <Link
                 to="/wishlist"
