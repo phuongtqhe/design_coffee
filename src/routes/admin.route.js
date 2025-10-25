@@ -2,6 +2,7 @@ import { Outlet } from "react-router-dom";
 import DefaultAdminLayout from "../admin/layouts/DefaultAdminLayout";
 import Home from "../pages/Home";
 import FeedbackAdmin from "../pages/FeedbackAdmin";
+import CustomersList from "../pages/CustomersList";
 
 export default function adminRoutes() {
     return {
@@ -13,8 +14,8 @@ export default function adminRoutes() {
         ),
         children: [
             { index: true, element: <Home /> },
-            { path: 'feedbacks', element: <FeedbackAdmin /> },
-            // { path: '/admin/dashboard', element: <Dashboard /> },
+            { path: 'admin/feedbacks', element: <FeedbackAdmin /> },
+            { path: 'admin/customers', element: <CustomersList /> },
         ]
     };
 }
