@@ -11,6 +11,7 @@ import SignUp from "../pages/SignUp";
 import Feedback from "../pages/Feedback";
 import AllProducts from "../pages/AllProducts";
 import UserProfile from "../pages/UserProfile";
+import ForgotPassword from "../pages/ForgotPassword";
 
 export function publicRoutes() {
   return [
@@ -35,5 +36,6 @@ export function publicRoutes() {
     //Những trang riêng không dùng chung container
     { path: "/login", element: <Login /> },
     { path: "/signup", element: <SignUp /> },
+    { path: "/reset-password", element: <ForgotPassword /> },
   ];
 }
