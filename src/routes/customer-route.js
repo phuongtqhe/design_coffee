@@ -21,7 +21,7 @@ export function customerRoutes() {
     ),
     children: [
       // { path: '/cart', element: <Cart /> },
-      { path: "/profile/:id", element: <UserProfile /> },
+      // { path: "/profile/:id", element: <UserProfile /> },
     ],
   };
 }

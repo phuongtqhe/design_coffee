@@ -1,16 +1,71 @@
-import React, { useState } from "react";
-import { Container, Nav } from "react-bootstrap";
+import React, { useEffect, useState } from "react";
+import { Container, Nav, Spinner } from "react-bootstrap";
 import ProfileTab from "../components/profile/ProfileTab";
 import OrderHistoryTab from "../components/profile/OrderHistoryTab";
 import SettingsTab from "../components/profile/SettingsTab";
-import { FaUser, FaBoxOpen, FaCog, FaEnvelope, FaHeart } from "react-icons/fa";
+import { FaUser, FaBoxOpen, FaCog, FaEnvelope } from "react-icons/fa";
 
 function UserProfile() {
   const [activeTab, setActiveTab] = useState("profile");
+  const [userData, setUserData] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const sessionUser = JSON.parse(sessionStorage.getItem("data"));
+    if (!sessionUser?.email) {
+      setLoading(false);
+      return;
+    }
+
+    fetch(
+      `http://localhost:9999/users?email=${encodeURIComponent(
+        sessionUser.email
+      )}`
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.length > 0) {
+          setUserData(data[0]);
+        } else {
+          // Nếu không có trong DB (trường hợp Google login lần đầu)
+          setUserData(sessionUser);
+        }
+      })
+      .catch(() => setUserData(sessionUser))
+      .finally(() => setLoading(false));
+  }, []);
+
+  if (loading) {
+    return (
+      <Container
+        className="d-flex justify-content-center align-items-center"
+        style={{ height: "50vh" }}
+      >
+        <Spinner animation="border" variant="secondary" />
+      </Container>
+    );
+  }
+
+  if (!userData) {
+    return (
+      <Container className="text-center py-5">
+        <h4 className="text-muted">No user data found. Please log in again.</h4>
+      </Container>
+    );
+  }
+
+  // ✅ Lấy chữ cái đầu làm avatar nếu không có hình
+  const initials = userData.name
+    ? userData.name
+        .split(" ")
+        .map((n) => n[0])
+        .join("")
+        .toUpperCase()
+    : "U";
 
   return (
     <Container fluid className="p-0">
-      {/* Header */}
+      {/* Banner Header */}
       <div
         className="text-white py-4 px-5"
         style={{
@@ -18,28 +73,42 @@ function UserProfile() {
         }}
       >
         <div className="d-flex align-items-center">
-          <div
-            className="rounded-circle d-flex justify-content-center align-items-center fw-bold"
-            style={{
-              width: "90px",
-              height: "90px",
-              backgroundColor: "#d9d9d9",
-              color: "#4b4b4b",
-              fontSize: "30px",
-              marginRight: "20px",
-              border: "4px solid white",
-            }}
-          >
-            JD
-          </div>
+          {userData.picture ? (
+            <img
+              src={userData.picture}
+              alt="avatar"
+              className="rounded-circle border border-3 border-white me-3"
+              style={{
+                width: "90px",
+                height: "90px",
+                objectFit: "cover",
+              }}
+            />
+          ) : (
+            <div
+              className="rounded-circle d-flex justify-content-center align-items-center fw-bold"
+              style={{
+                width: "90px",
+                height: "90px",
+                backgroundColor: "#d9d9d9",
+                color: "#4b4b4b",
+                fontSize: "30px",
+                marginRight: "20px",
+                border: "4px solid white",
+              }}
+            >
+              {initials}
+            </div>
+          )}
+
           <div>
-            <h3 className="fw-bold mb-1">John Doe</h3>
+            <h3 className="fw-bold mb-1">{userData.name}</h3>
             <div className="d-flex align-items-center mb-2">
               <FaEnvelope className="me-2" />
-              john.doe@email.com
+              {userData.email}
             </div>
-            <div className="d-flex gap-3">
-              <span>📦 24 Orders</span>
+            <div className="d-flex gap-3 text-light small">
+              <span>📦 0 Orders</span>
               <span>❤️ Coffee Lover</span>
             </div>
           </div>
@@ -73,9 +142,9 @@ function UserProfile() {
 
       {/* Tab Content */}
       <Container className="py-4">
-        {activeTab === "profile" && <ProfileTab />}
-        {activeTab === "orders" && <OrderHistoryTab />}
-        {activeTab === "settings" && <SettingsTab />}
+        {activeTab === "profile" && <ProfileTab user={userData} />}
+        {activeTab === "orders" && <OrderHistoryTab user={userData} />}
+        {activeTab === "settings" && <SettingsTab user={userData} />}
       </Container>
     </Container>
   );
