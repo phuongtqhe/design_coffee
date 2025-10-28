@@ -23,7 +23,7 @@
       "id": "anhnhhe172682@fpt.edu.vn",
       "userName": "Chim Xanh",
       "email": "anhnhhe172682@fpt.edu.vn",
-      "password": "$2b$10$4nVgQUEogF9Cu6ZTzOWMluOzggfxlbWmgrm.XV8Gr53hwK77en5u6",
+      "password": "$2b$10$GuqSxHOiFrEzFb6ZvH8uDeMBOe8SdOh2GAKSccScsxHpeFU7O4Nxu",
       "picture": "",
       "phone": "0123456789",
       "role": "customer",
@@ -36,7 +36,7 @@
         "detailAddress": "Số 123, Đường ABC"
       },
       "createdAt": "2025-10-25T02:26:13.056Z",
-      "updatedAt": "2025-10-25T02:26:13.056Z"
+      "updatedAt": "2025-10-26T03:27:15.420Z"
     },
     {
       "id": "2",
