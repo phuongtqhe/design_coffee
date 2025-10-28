@@ -19,7 +19,7 @@ function SettingsTab() {
 
   // 🔹 Lấy user hiện tại từ sessionStorage
   useEffect(() => {
-    const storedUser = sessionStorage.getItem("user");
+    const storedUser = sessionStorage.getItem("data");
     if (storedUser) {
       setUser(JSON.parse(storedUser));
     }
@@ -43,7 +43,7 @@ function SettingsTab() {
 
     try {
       // 🔸 Lấy user từ db.json
-      const res = await fetch(`http://localhost:3000/users/${user.id}`);
+      const res = await fetch(`http://localhost:9999/users/${user.id}`);
       if (!res.ok) throw new Error("Failed to fetch user");
       const userData = await res.json();
 
@@ -88,7 +88,7 @@ function SettingsTab() {
       return;
 
     try {
-      await fetch(`http://localhost:3000/users/${user.id}`, {
+      await fetch(`http://localhost:9999/users/${user.id}`, {
         method: "DELETE",
       });
       toast.success("Account deleted successfully");
