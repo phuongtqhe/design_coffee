@@ -36,16 +36,18 @@ const ProductCard = (props) => {
             </button>
             
             {/* Product Image */}
-            <div className="product-image-container" style={{ height: "250px", overflow: "hidden" }}>
-              <img
-                src={(product.images && product.images[0]) || "/logo192.png"}
-                className="img-fluid w-100 h-100"
-                alt={product.name || "product image"}
-                style={{ objectFit: "cover", transition: "transform 0.3s ease" }}
-                onMouseEnter={(e) => e.target.style.transform = "scale(1.05)"}
-                onMouseLeave={(e) => e.target.style.transform = "scale(1)"}
-              />
-            </div>
+            <Link to={`/product/${product.id}`} className="text-decoration-none">
+              <div className="product-image-container" style={{ height: "250px", overflow: "hidden" }}>
+                <img
+                  src={(product.images && product.images[0]) || "/logo192.png"}
+                  className="img-fluid w-100 h-100"
+                  alt={product.name || "product image"}
+                  style={{ objectFit: "cover", transition: "transform 0.3s ease" }}
+                  onMouseEnter={(e) => e.target.style.transform = "scale(1.05)"}
+                  onMouseLeave={(e) => e.target.style.transform = "scale(1)"}
+                />
+              </div>
+            </Link>
           </div>
           
           {/* Product Details */}
@@ -56,19 +58,21 @@ const ProductCard = (props) => {
               </small>
             </div>
             
-            <h5
-              className="card-title mb-2"
-              style={{
-                overflow: "hidden",
-                whiteSpace: "nowrap",
-                textOverflow: "ellipsis",
-                fontSize: "1.1rem",
-                fontWeight: "600"
-              }}
-              title={product.describe || product.name}
-            >
-              {product.describe || product.name}
-            </h5>
+            <Link to={`/product/${product.id}`} className="text-decoration-none text-dark">
+              <h5
+                className="card-title mb-2"
+                style={{
+                  overflow: "hidden",
+                  whiteSpace: "nowrap",
+                  textOverflow: "ellipsis",
+                  fontSize: "1.1rem",
+                  fontWeight: "600"
+                }}
+                title={product.describe || product.name}
+              >
+                {product.describe || product.name}
+              </h5>
+            </Link>
             
             <div className="mb-2">
               <ReactStars

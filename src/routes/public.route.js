@@ -10,6 +10,7 @@ import Login from "../pages/Login";
 import SignUp from "../pages/SignUp";
 import Feedback from "../pages/Feedback";
 import AllProducts from "../pages/AllProducts";
+import ProductDetail from "../pages/ProductDetail";
 
 export function publicRoutes() {
   return [
@@ -27,6 +28,7 @@ export function publicRoutes() {
         { path: "contact", element: <Contact /> },
         { path: "feedback", element: <Feedback /> },
         { path: "products", element: <AllProducts /> },
+        { path: "product/:id", element: <ProductDetail /> },
       ],
     },
 
