@@ -1,164 +1,701 @@
 {
-  "products": [
+  "users": [
     {
       "id": "1",
-      "name": "Espresso",
-      "describe": "Rich and aromatic espresso shots.",
-      "price": 3.5,
-      "brand": 1,
-      "images": [
-        "https://www.highlandscoffee.com.vn/vnt_upload/product/11_2022/BR_Drink/HLC_New_logo_Products__TRA_SEN_VANG_CU_NANG.png",
-        "/logo192.png"
-      ],
-      "tags": "coffee"
+      "userName": "System Admin",
+      "email": "admin@gmail.com",
+      "password": "adminpassword123.",
+      "picture": "",
+      "phone": "0123456789",
+      "role": "admin",
+      "status": "active",
+      "address": {
+        "country": "",
+        "city": "",
+        "zipcode": "",
+        "street": "",
+        "detailAddress": ""
+      },
+      "createdAt": "",
+      "updatedAt": ""
+    },
+    {
+      "id": "anhnhhe172682@fpt.edu.vn",
+      "userName": "Chim Xanh",
+      "email": "anhnhhe172682@fpt.edu.vn",
+      "password": "$2b$10$GuqSxHOiFrEzFb6ZvH8uDeMBOe8SdOh2GAKSccScsxHpeFU7O4Nxu",
+      "picture": "",
+      "phone": "0123456789",
+      "role": "customer",
+      "status": "active",
+      "address": {
+        "country": "Việt Nam",
+        "city": "Hà Nội",
+        "zipcode": "10000",
+        "street": "Hoàng Mai",
+        "detailAddress": "Số 123, Đường ABC"
+      },
+      "createdAt": "2025-10-25T02:26:13.056Z",
+      "updatedAt": "2025-10-26T03:27:15.420Z"
     },
     {
       "id": "2",
-      "name": "Cappuccino",
-      "describe": "Creamy cappuccino with a perfect foam cap.",
-      "price": 4.2,
-      "brand": 2,
-      "images": [
-        "https://www.clarin.com/img/2022/03/01/ceq4FUBv9_2000x1500__1.jpg",
-        "/logo192.png"
-      ],
-      "tags": "coffee"
+      "userName": "Hoàng Anh Nguyễn",
+      "email": "nguyenhoanganh21003@gmail.com",
+      "password": "",
+      "picture": "https://lh3.googleusercontent.com/a/ACg8ocLjVMbhH6FGZZJYshU8KpTffnZHKmaQy3MyvnzobCfZ_FSnkis=s96-c",
+      "phone": "",
+      "role": "customer",
+      "status": "active",
+      "address": {
+        "country": "",
+        "city": "",
+        "zipcode": "",
+        "street": "",
+        "detailAddress": ""
+      },
+      "createdAt": "2025-10-25T03:29:05.449Z",
+      "updatedAt": "2025-10-25T03:29:05.449Z"
+    },
+    {
+      "id": "thanhdhhe180811@fpt.edu.vn",
+      "email": "thanhdhhe180811@fpt.edu.vn",
+      "name": "Do Huy Thanh (K18 HL)",
+      "picture": "https://lh3.googleusercontent.com/a/ACg8ocJ0S1guyU4Bn9cNTXVZPEV8MXCTPhWLE-oGJrRag2E75lxdpA=s96-c",
+      "role": "customer"
+    },
+    {
+      "id": "thanhdhhe180811@fpt.edu.vn",
+      "email": "thanhdhhe180811@fpt.edu.vn",
+      "name": "Do Huy Thanh (K18 HL)",
+      "picture": "https://lh3.googleusercontent.com/a/ACg8ocJ0S1guyU4Bn9cNTXVZPEV8MXCTPhWLE-oGJrRag2E75lxdpA=s96-c",
+      "role": "customer"
+    }
+  ],
+  "categories": [
+    {
+      "id": "1",
+      "name": "Food",
+      "status": "active",
+      "createdAt": ""
+    },
+    {
+      "id": "2",
+      "name": "Coffe",
+      "status": "active",
+      "createdAt": ""
     },
     {
       "id": "3",
-      "name": "Latte",
-      "describe": "Smooth latte with rich milk and espresso.",
-      "price": 4,
-      "brand": 3,
-      "images": [
-        "https://aeonmall-review-rikkei.cdn.vccloud.vn/test/public/wp/15/editors/0sUuOt28xTxgBI4aoETKyYSF7xOQ9iH3r1WT7iF3.png",
-        "/logo192.png"
-      ],
-      "tags": "coffee"
+      "name": "Tea",
+      "status": "active",
+      "createdAt": ""
     },
     {
       "id": "4",
-      "name": "Americano",
-      "describe": "Diluted espresso for a bold, clean taste.",
+      "name": "Milk Tea",
+      "status": "active",
+      "createdAt": ""
+    }
+  ],
+  "toppings": [
+    {
+      "id": "1",
+      "name": "",
+      "price": 0,
+      "status": "active"
+    }
+  ],
+  "products": [
+    {
+      "id": "300",
+      "title": "Latte Caramel",
+      "description": "Rich and aromatic espresso shots.",
+      "price": 2.5,
+      "originPrice": 2.5,
+      "categoryId": 2,
+      "featured": false,
+      "status": "active",
+      "images": [
+        "https://product.hstatic.net/1000075078/product/1746441451_caramel-coffee_dc2004f6d8144f2f8b7512ba95319ef7_large.png",
+        "/logo192.png"
+      ],
+      "toppings": [
+        ""
+      ],
+      "details": [],
+      "createdAt": "",
+      "updatedAt": ""
+    },
+    {
+      "id": "302",
+      "title": "Latte Hazelnut",
+      "description": "Creamy cappuccino with a perfect foam cap.",
+      "price": 2.2,
+      "originPrice": 2.2,
+      "categoryId": 2,
+      "featured": false,
+      "status": "active",
+      "images": [
+        "https://product.hstatic.net/1000075078/product/1746441372_halzenut-latte_3ef994056c3b4765a600e853f6cca72d_large.png",
+        "/logo192.png"
+      ],
+      "toppings": [
+        ""
+      ],
+      "details": [],
+      "createdAt": "",
+      "updatedAt": ""
+    },
+    {
+      "id": "303",
+      "title": "Latte Bạc Xỉu",
+      "description": "Smooth latte with rich milk and espresso.",
+      "price": 4,
+      "originPrice": 4,
+      "categoryId": 2,
+      "featured": false,
+      "status": "active",
+      "images": [
+        "https://product.hstatic.net/1000075078/product/1746441267_latte-bac-xiu_a6fe420fef6f4ec7a2e4f87e9e03ef4b_large.png",
+        "/logo192.png"
+      ],
+      "toppings": [
+        ""
+      ],
+      "details": [],
+      "createdAt": "",
+      "updatedAt": ""
+    },
+    {
+      "id": "304",
+      "title": "Cappuccino Nóng",
+      "description": "Diluted espresso for a bold, clean taste.",
       "price": 3,
-      "brand": 1,
+      "originPrice": 3,
+      "categoryId": 2,
+      "featured": false,
+      "status": "active",
       "images": [
-        "https://fnbvietnam.vn/wp-content/uploads/2023/05/review-menu-katinat-saigon-kafe-2.jpg",
+        "https://product.hstatic.net/1000075078/product/1737357108_cappucino-nong_f78c106928fe4c418906763d3dfa4b29_large.png",
         "/logo192.png"
       ],
-      "tags": "coffee"
+      "toppings": [
+        ""
+      ],
+      "details": [],
+      "createdAt": "",
+      "updatedAt": ""
     },
     {
-      "id": "5",
-      "name": "Mocha",
-      "describe": "Chocolate-infused mocha with cream.",
+      "id": "305",
+      "title": "Caramel Macchiato Đá",
+      "description": "Chocolate-infused mocha with cream.",
       "price": 4.5,
-      "brand": 2,
+      "originPrice": 4.5,
+      "categoryId": 2,
+      "featured": false,
+      "status": "active",
       "images": [
-        "https://tb-static.uber.com/prod/image-proc/processed_images/20b9627136be03f7ed3e048d02eafea1/5954bcb006b10dbfd0bc160f6370faf3.jpeg",
+        "https://product.hstatic.net/1000075078/product/1737357135_caramel-macchiato-da_d0a3250162e6427ab8808d8bc35012ec_large.png",
         "/logo192.png"
       ],
-      "tags": "coffee"
+      "toppings": [
+        ""
+      ],
+      "details": [],
+      "createdAt": "",
+      "updatedAt": ""
     },
     {
-      "id": "6",
-      "name": "Flat White",
-      "describe": "Velvety flat white with microfoam.",
-      "price": 4.1,
-      "brand": 3,
+      "id": "306",
+      "title": "Espresso Nóng",
+      "description": "Chocolate-infused mocha with cream.",
+      "price": 4.5,
+      "originPrice": 4.5,
+      "categoryId": 2,
+      "featured": false,
+      "status": "active",
       "images": [
-        "https://tse2.mm.bing.net/th/id/OIP.DBF8Wu56HWZwP6nru1Cp_wHaLH?cb=12&w=500&h=750&rs=1&pid=ImgDetMain&o=7&rm=3",
+        "https://product.hstatic.net/1000075078/product/1737357444_espresso-nong_2ac99445a9fc4619a45761a5023b538c_large.png",
         "/logo192.png"
       ],
-      "tags": "coffee"
+      "toppings": [
+        ""
+      ],
+      "details": [],
+      "createdAt": "",
+      "updatedAt": ""
     },
     {
-      "id": "7",
-      "name": "Macchiato",
-      "describe": "Espresso stained with a touch of milk.",
-      "price": 3.8,
-      "brand": 4,
+      "id": "307",
+      "title": "Latte Nóng",
+      "description": "Chocolate-infused mocha with cream.",
+      "price": 4.5,
+      "originPrice": 4.5,
+      "categoryId": 2,
+      "featured": false,
+      "status": "active",
       "images": [
-        "https://th.bing.com/th/id/R.087d656d74c87b3f101437e975badbbf?rik=4u9WbrsMS79j5g&riu=http%3a%2f%2fgongcha.ph%2fwp-content%2fuploads%2f2022%2f02%2fWintermelon-Milk-1024x1024.jpg&ehk=FAGz%2f5ruQLNbgRU0MpvWLE5vetH8e1Zt4jkgWl5ArbA%3d&risl=&pid=ImgRaw&r=0",
+        "https://product.hstatic.net/1000075078/product/1737357451_latte-nong_5072d19ea4af4c28a1f9f307e49d3af9_large.png",
         "/logo192.png"
       ],
-      "tags": "coffee"
+      "toppings": [
+        ""
+      ],
+      "details": [],
+      "createdAt": "",
+      "updatedAt": ""
     },
     {
-      "id": "8",
-      "name": "Cold Brew",
-      "describe": "Slow-steeped cold brew over ice.",
-      "price": 4.3,
-      "brand": 5,
+      "id": "308",
+      "title": "Bạc Xỉu",
+      "description": "Chocolate-infused mocha with cream.",
+      "price": 3.5,
+      "originPrice": 3.5,
+      "categoryId": 2,
+      "featured": false,
+      "status": "active",
       "images": [
-        "https://tse4.mm.bing.net/th/id/OIP.w3QijMZ8P-X4hNBlzDaCLAHaHa?cb=12&w=1320&h=1320&rs=1&pid=ImgDetMain&o=7&rm=3",
+        "https://product.hstatic.net/1000075078/product/1737357020_bac-xiu-da_43a593b61b8e44379111a9ebb00904d9_large.png",
         "/logo192.png"
       ],
-      "tags": "coffee"
+      "toppings": [
+        ""
+      ],
+      "details": [],
+      "createdAt": "",
+      "updatedAt": ""
     },
     {
-      "id": "9",
-      "name": "Iced Latte",
-      "describe": "Chilled latte with ice and milk.",
-      "price": 4.2,
-      "brand": 2,
+      "id": "309",
+      "title": "Bạc Xỉu Nóng",
+      "description": "Chocolate-infused mocha with cream.",
+      "price": 3.5,
+      "originPrice": 3.5,
+      "categoryId": 2,
+      "featured": false,
+      "status": "active",
       "images": [
-        "https://tse3.mm.bing.net/th/id/OIP.BQjOAKKUfR357mOetEm5VAHaHa?cb=12&w=1024&h=1024&rs=1&pid=ImgDetMain&o=7&rm=3",
+        "https://product.hstatic.net/1000075078/product/1737357029_bac-xiu-nong_e0a0732dee144dfda4e3cb43949ce065_large.png",
         "/logo192.png"
       ],
-      "tags": "coffee"
+      "toppings": [
+        ""
+      ],
+      "details": [],
+      "createdAt": "",
+      "updatedAt": ""
+    },
+    {
+      "id": "310",
+      "title": "Cà Phê Đen Đá",
+      "description": "Chocolate-infused mocha with cream.",
+      "price": 3.5,
+      "originPrice": 3.5,
+      "categoryId": 2,
+      "featured": false,
+      "status": "active",
+      "images": [
+        "https://product.hstatic.net/1000075078/product/1737356988_cf-den-da_25422ed38d5a4696bc1af22266ac7589_large.png",
+        "/logo192.png"
+      ],
+      "toppings": [
+        ""
+      ],
+      "details": [],
+      "createdAt": "",
+      "updatedAt": ""
+    },
+    {
+      "id": "106",
+      "title": "Trà Alisan Trái Cây",
+      "description": "Classic refreshing green tea.",
+      "price": 2.5,
+      "originPrice": 2.5,
+      "categoryId": 3,
+      "featured": false,
+      "status": "active",
+      "images": [
+        "https://gongcha.com.vn/wp-content/uploads/2021/03/ALISAN-TRÁI-CÂY-768x768.png",
+        "/logo192.png"
+      ],
+      "toppings": [
+        ""
+      ],
+      "details": [],
+      "createdAt": "",
+      "updatedAt": ""
+    },
+    {
+      "id": "107",
+      "title": "Chanh Ai-yu và Trân Châu Trắng",
+      "description": "Robust and full-bodied black tea.",
+      "price": 2.6,
+      "originPrice": 2.6,
+      "categoryId": 3,
+      "featured": false,
+      "status": "active",
+      "images": [
+        "https://gongcha.com.vn/wp-content/uploads/2018/02/Chanh-Aiyu-trân-châu-trắng-2-768x768.png",
+        "/logo192.png"
+      ],
+      "toppings": [
+        ""
+      ],
+      "details": [],
+      "createdAt": "",
+      "updatedAt": ""
+    },
+    {
+      "id": "108",
+      "title": "Đào Hồng Mận Hạt É",
+      "description": "Robust and full-bodied black tea.",
+      "price": 2.6,
+      "originPrice": 2.6,
+      "categoryId": 3,
+      "featured": false,
+      "status": "active",
+      "images": [
+        "https://gongcha.com.vn/wp-content/uploads/2018/02/Đào-hồng-mận-hột-é-1-768x768.png",
+        "/logo192.png"
+      ],
+      "toppings": [
+        ""
+      ],
+      "details": [],
+      "createdAt": "",
+      "updatedAt": ""
+    },
+    {
+      "id": "109",
+      "title": "Trà Oolong Vải",
+      "description": "Robust and full-bodied black tea.",
+      "price": 2.6,
+      "originPrice": 2.6,
+      "categoryId": 3,
+      "featured": false,
+      "status": "active",
+      "images": [
+        "https://gongcha.com.vn/wp-content/uploads/2018/02/Oolong-vải-2-768x768.png",
+        "/logo192.png"
+      ],
+      "toppings": [
+        ""
+      ],
+      "details": [],
+      "createdAt": "",
+      "updatedAt": ""
+    },
+    {
+      "id": "110",
+      "title": "Trà Alisan Vải",
+      "description": "Robust and full-bodied black tea.",
+      "price": 2.6,
+      "originPrice": 2.6,
+      "categoryId": 3,
+      "featured": false,
+      "status": "active",
+      "images": [
+        "https://gongcha.com.vn/wp-content/uploads/2018/02/Alisan-vải-2-768x768.png",
+        "/logo192.png"
+      ],
+      "toppings": [
+        ""
+      ],
+      "details": [],
+      "createdAt": "",
+      "updatedAt": ""
+    },
+    {
+      "id": "111",
+      "title": "Trà Đen Đào",
+      "description": "Robust and full-bodied black tea.",
+      "price": 2.6,
+      "originPrice": 2.6,
+      "categoryId": 3,
+      "featured": false,
+      "status": "active",
+      "images": [
+        "https://gongcha.com.vn/wp-content/uploads/2018/02/Đen-đào-2-768x768.png",
+        "/logo192.png"
+      ],
+      "toppings": [
+        ""
+      ],
+      "details": [],
+      "createdAt": "",
+      "updatedAt": ""
+    },
+    {
+      "id": "208",
+      "title": "Strawberry White Choco",
+      "description": "Creamy milk tea with roasted oolong.",
+      "price": 4.8,
+      "originPrice": 4.8,
+      "categoryId": 4,
+      "featured": false,
+      "status": "active",
+      "images": [
+        "https://gongcha.com.vn/wp-content/uploads/2024/12/STAWBERRY-8.png",
+        "/logo192.png"
+      ],
+      "toppings": [
+        ""
+      ],
+      "details": [],
+      "createdAt": "",
+      "updatedAt": ""
+    },
+    {
+      "id": "209",
+      "title": "Matcha Okinawa",
+      "description": "Sweet and creamy taro flavored milk tea.",
+      "price": 5.2,
+      "originPrice": 5.2,
+      "categoryId": 4,
+      "featured": false,
+      "status": "active",
+      "images": [
+        "https://gongcha.com.vn/wp-content/uploads/2024/12/OKINAWA-8.png",
+        "/logo192.png"
+      ],
+      "toppings": [
+        ""
+      ],
+      "details": [],
+      "createdAt": "",
+      "updatedAt": ""
+    },
+    {
+      "id": "210",
+      "title": "Trà Sữa Caviar Cream Earl Grey",
+      "description": "Sweet and creamy taro flavored milk tea.",
+      "price": 5.2,
+      "originPrice": 5.2,
+      "categoryId": 4,
+      "featured": false,
+      "status": "active",
+      "images": [
+        "https://gongcha.com.vn/wp-content/uploads/2024/07/Tra-sua-Earl-Grey-Carvia_web.png",
+        "/logo192.png"
+      ],
+      "toppings": [
+        ""
+      ],
+      "details": [],
+      "createdAt": "",
+      "updatedAt": ""
+    },
+    {
+      "id": "211",
+      "title": "Trà Sữa Earl Grey",
+      "description": "Sweet and creamy taro flavored milk tea.",
+      "price": 5.2,
+      "originPrice": 5.2,
+      "categoryId": 4,
+      "featured": false,
+      "status": "active",
+      "images": [
+        "https://gongcha.com.vn/wp-content/uploads/2023/11/Tra-sua-Earl-Grey-768x768.png",
+        "/logo192.png"
+      ],
+      "toppings": [
+        ""
+      ],
+      "details": [],
+      "createdAt": "",
+      "updatedAt": ""
+    },
+    {
+      "id": "212",
+      "title": "Trà Sữa Đào",
+      "description": "Sweet and creamy taro flavored milk tea.",
+      "price": 5.2,
+      "originPrice": 5.2,
+      "categoryId": 4,
+      "featured": false,
+      "status": "active",
+      "images": [
+        "https://gongcha.com.vn/wp-content/uploads/2021/12/Tra-Sua-Dao.png",
+        "/logo192.png"
+      ],
+      "toppings": [
+        ""
+      ],
+      "details": [],
+      "createdAt": "",
+      "updatedAt": ""
+    },
+    {
+      "id": "213",
+      "title": "Trà Sữa Xoài",
+      "description": "Sweet and creamy taro flavored milk tea.",
+      "price": 5.2,
+      "originPrice": 5.2,
+      "categoryId": 4,
+      "featured": false,
+      "status": "active",
+      "images": [
+        "https://gongcha.com.vn/wp-content/uploads/2019/06/Tra-Sua-Xoai.png",
+        "/logo192.png"
+      ],
+      "toppings": [
+        ""
+      ],
+      "details": [],
+      "createdAt": "",
+      "updatedAt": ""
+    },
+    {
+      "id": "214",
+      "title": "Trà sữa Oolong 3J",
+      "description": "Sweet and creamy taro flavored milk tea.",
+      "price": 5.2,
+      "originPrice": 5.2,
+      "categoryId": 4,
+      "featured": false,
+      "status": "active",
+      "images": [
+        "https://gongcha.com.vn/wp-content/uploads/2018/02/Trà-sữa-Oolong-3J-2-768x768.png",
+        "/logo192.png"
+      ],
+      "toppings": [
+        ""
+      ],
+      "details": [],
+      "createdAt": "",
+      "updatedAt": ""
+    },
+    {
+      "id": "215",
+      "title": "Trà Sữa Pudding Đậu Đỏ",
+      "description": "Sweet and creamy taro flavored milk tea.",
+      "price": 5.2,
+      "originPrice": 5.2,
+      "categoryId": 4,
+      "featured": false,
+      "status": "active",
+      "images": [
+        "https://gongcha.com.vn/wp-content/uploads/2018/02/Trà-sữa-Pudding-đậu-đỏ-2-768x768.png",
+        "/logo192.png"
+      ],
+      "toppings": [
+        ""
+      ],
+      "details": [],
+      "createdAt": "",
+      "updatedAt": ""
+    },
+    {
+      "id": "216",
+      "title": "Trà Sữa Chocolate",
+      "description": "Sweet and creamy taro flavored milk tea.",
+      "price": 5.2,
+      "originPrice": 5.2,
+      "categoryId": 4,
+      "featured": false,
+      "status": "active",
+      "images": [
+        "https://gongcha.com.vn/wp-content/uploads/2018/02/Trà-sữa-Chocolate-2-768x768.png",
+        "/logo192.png"
+      ],
+      "toppings": [
+        ""
+      ],
+      "details": [],
+      "createdAt": "",
+      "updatedAt": ""
+    },
+    {
+      "id": "217",
+      "title": "Trà Sữa Trân Châu Đen",
+      "description": "Sweet and creamy taro flavored milk tea.",
+      "price": 5.2,
+      "originPrice": 5.2,
+      "categoryId": 4,
+      "featured": false,
+      "status": "active",
+      "images": [
+        "https://gongcha.com.vn/wp-content/uploads/2018/02/Trà-sữa-Trân-châu-đen-1.png",
+        "/logo192.png"
+      ],
+      "toppings": [
+        ""
+      ],
+      "details": [],
+      "createdAt": "",
+      "updatedAt": ""
+    },
+    {
+      "id": "218",
+      "title": "Trà Sữa Khoai Môn",
+      "description": "Sweet and creamy taro flavored milk tea.",
+      "price": 5.2,
+      "originPrice": 5.2,
+      "categoryId": 4,
+      "featured": false,
+      "status": "active",
+      "images": [
+        "https://gongcha.com.vn/wp-content/uploads/2018/01/Trà-sữa-Khoai-môn-2-768x768.png",
+        "/logo192.png"
+      ],
+      "toppings": [
+        ""
+      ],
+      "details": [],
+      "createdAt": "",
+      "updatedAt": ""
     },
     {
       "id": "10",
-      "name": "Affogato",
-      "describe": "Espresso poured over vanilla ice cream.",
-      "price": 5,
-      "brand": 4,
+      "title": "Croissant",
+      "description": "Buttery and flaky croissant.",
+      "price": 2.8,
+      "originPrice": 2.8,
+      "categoryId": 1,
+      "featured": false,
+      "status": "active",
       "images": [
-        "https://tse2.mm.bing.net/th/id/OIP.GjYKgjLh3rKJGIQc7-i-JgAAAA?cb=12&w=282&h=338&rs=1&pid=ImgDetMain&o=7&rm=3",
+        "https://tse4.mm.bing.net/th/id/OIP.U-otG2TFJ3hvCSN-Qa0k4AHaFj?cb=12&w=768&h=576&rs=1&pid=ImgDetMain&o=7&rm=3",
         "/logo192.png"
       ],
-      "tags": "coffee"
+      "toppings": [
+        ""
+      ],
+      "details": [],
+      "createdAt": "",
+      "updatedAt": ""
+    },
+    {
+      "id": "11",
+      "title": "Banh Mi",
+      "description": "Vietnamese sandwich with various fillings.",
+      "price": 3.2,
+      "originPrice": 3.2,
+      "categoryId": 1,
+      "featured": false,
+      "status": "active",
+      "images": [
+        "https://tse3.mm.bing.net/th/id/OIP.ptp9yUIDiWwKfTsy4-NiyAHaE8?cb=12&w=900&h=600&rs=1&pid=ImgDetMain&o=7&rm=3",
+        "/logo192.png"
+      ],
+      "toppings": [
+        ""
+      ],
+      "details": [],
+      "createdAt": "",
+      "updatedAt": ""
     }
   ],
-  "category": [
+  "reviews": [
     {
-      "id": "1",
-      "name": "Tea"
-    },
-    {
-      "id": "2",
-      "name": "Milk tea"
-    },
-    {
-      "id": "3",
-      "name": "Coffee"
-    },
-    {
-      "id": "4",
-      "name": "Food"
-    }
-  ],
-  "brands": [
-    {
-      "id": "1",
-      "name": "House Blend"
-    },
-    {
-      "id": "2",
-      "name": "Premium Beans"
-    },
-    {
-      "id": "3",
-      "name": "Roasters Guild"
-    },
-    {
-      "id": "4",
-      "name": "Artisan Roast"
-    },
-    {
-      "id": "5",
-      "name": "ColdCraft"
+      "id": "",
+      "productId": "",
+      "userId": "",
+      "rating": 0,
+      "comment": "",
+      "createdAt": ""
     }
   ],
   "blogs": [
@@ -166,104 +703,184 @@
       "id": "1",
       "title": "The Art of Brewing",
       "description": "A deep dive into different coffee brewing methods.",
-      "date": "September 29, 2025",
-      "image": "https://katinat.vn/wp-content/uploads/2024/12/BD_44X28CM-1.jpg"
+      "content": "Explore the delicate art of coffee brewing — from pour-over and French press to espresso and cold brew. Each method highlights different flavors and aromas from the same beans.",
+      "image": "https://katinat.vn/wp-content/uploads/2024/12/BD_44X28CM-1.jpg",
+      "status": "active",
+      "createdAt": "",
+      "updatedAt": ""
     },
     {
       "id": "2",
       "title": "Coffee Origins: From Bean to Cup",
       "description": "Explore the journey of coffee from the farm to your cup.",
-      "date": "September 28, 2025",
-      "image": "https://cdn.brvn.vn/editor/2023/03/A42_330929-katinat-2_1679918153.jpg"
+      "content": "From lush coffee farms in South America to your morning brew, learn how beans are grown, processed, and roasted to perfection before reaching your cup.",
+      "image": "https://cdn.brvn.vn/editor/2023/03/A42_330929-katinat-2_1679918153.jpg",
+      "status": "active",
+      "createdAt": "",
+      "updatedAt": ""
     },
     {
       "id": "3",
       "title": "Health Benefits of Coffee",
       "description": "Discover the surprising health benefits of your favorite beverage.",
-      "date": "September 27, 2025",
-      "image": "https://media-cdn.tripadvisor.com/media/photo-s/1a/42/45/40/main-entrace.jpg"
+      "content": "Recent studies reveal that moderate coffee consumption may improve focus, boost metabolism, and even support heart health. Discover how to enjoy it responsibly.",
+      "image": "https://media-cdn.tripadvisor.com/media/photo-s/1a/42/45/40/main-entrace.jpg",
+      "status": "active",
+      "createdAt": "",
+      "updatedAt": ""
     },
     {
       "id": "4",
       "title": "A Guide to Different Coffee Roasts",
       "description": "Learn about the differences between light, medium, and dark roasts.",
-      "date": "September 26, 2025",
-      "image": "https://tse1.explicit.bing.net/th/id/OIP.9NJWCbRZJxILCqHuF7B0WgHaD4?cb=12&w=1024&h=536&rs=1&pid=ImgDetMain&o=7&rm=3"
+      "content": "Each roast level offers a unique flavor profile — light roasts are floral and bright, while dark roasts are bold and smoky. Find out which suits your taste best.",
+      "image": "https://tse1.explicit.bing.net/th/id/OIP.9NJWCbRZJxILCqHuF7B0WgHaD4?cb=12&w=1024&h=536&rs=1&pid=ImgDetMain&o=7&rm=3",
+      "status": "active",
+      "createdAt": "",
+      "updatedAt": ""
     },
     {
       "id": "5",
       "title": "Single-Origin Spotlight: Ethiopia",
       "description": "Floral and citrus notes in Ethiopian beans.",
-      "date": "September 25, 2025",
-      "image": "https://bizweb.dktcdn.net/100/425/912/files/menu-katinat-moi-nhat-3.jpg?v=1697079675187"
+      "content": "Ethiopian coffees are known for their vibrant floral aromas and citrusy notes. Learn about the unique regions that produce these complex, aromatic beans.",
+      "image": "https://bizweb.dktcdn.net/100/425/912/files/menu-katinat-moi-nhat-3.jpg?v=1697079675187",
+      "status": "active",
+      "createdAt": "",
+      "updatedAt": ""
     },
     {
       "id": "6",
       "title": "Grinding Guide 101",
       "description": "How grind size impacts flavor extraction.",
-      "date": "September 24, 2025",
-      "image": "https://static.wixstatic.com/media/4a49ec_e77f53f8da0248f7b6a2f81a372a2a75~mv2.jpg/v1/fill/w_470,h_587,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/4a49ec_e77f53f8da0248f7b6a2f81a372a2a75~mv2.jpg"
+      "content": "Grind size plays a crucial role in brewing. Finer grinds extract more quickly, ideal for espresso; coarser grinds suit French press and cold brew. Learn how to adjust for taste.",
+      "image": "https://static.wixstatic.com/media/4a49ec_e77f53f8da0248f7b6a2f81a372a2a75~mv2.jpg/v1/fill/w_470,h_587,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/4a49ec_e77f53f8da0248f7b6a2f81a372a2a75~mv2.jpg",
+      "status": "active",
+      "createdAt": "",
+      "updatedAt": ""
     },
     {
       "id": "8",
       "title": "Cold Brew vs Iced Coffee",
       "description": "Key differences and when to choose each.",
-      "date": "September 22, 2025",
-      "image": "https://tse3.mm.bing.net/th/id/OIP.zp9-KhjN5isqQfoGs63BswHaHa?cb=12&w=960&h=960&rs=1&pid=ImgDetMain&o=7&rm=3"
+      "content": "Cold brew is steeped slowly in cold water, creating a smooth, low-acid drink. Iced coffee is brewed hot and chilled, offering a brighter flavor. Discover which fits your mood.",
+      "image": "https://tse3.mm.bing.net/th/id/OIP.zp9-KhjN5isqQfoGs63BswHaHa?cb=12&w=960&h=960&rs=1&pid=ImgDetMain&o=7&rm=3",
+      "status": "active",
+      "createdAt": "",
+      "updatedAt": ""
     },
     {
       "id": "9",
       "title": "Roast Levels Explained",
       "description": "Light, medium, dark — what's best?",
-      "date": "September 21, 2025",
-      "image": "https://tse4.mm.bing.net/th/id/OIP.kuuuV-GVpdpZytjYjmKpTgHaJQ?cb=12&w=800&h=1000&rs=1&pid=ImgDetMain&o=7&rm=3"
+      "content": "Light, medium, and dark roasts each have unique taste notes. Learn how roasting affects acidity, aroma, and caffeine content to pick your perfect cup.",
+      "image": "https://tse4.mm.bing.net/th/id/OIP.kuuuV-GVpdpZytjYjmKpTgHaJQ?cb=12&w=800&h=1000&rs=1&pid=ImgDetMain&o=7&rm=3",
+      "status": "active",
+      "createdAt": "",
+      "updatedAt": ""
     },
     {
       "id": "10",
       "title": "Home Espresso Setup",
       "description": "Gear to level up your home cafe.",
-      "date": "September 20, 2025",
-      "image": "https://tse1.explicit.bing.net/th/id/OIP.0vSsTSdmYDyxb0gskO6glwHaE8?cb=12&w=600&h=400&rs=1&pid=ImgDetMain&o=7&rm=3"
-    }
-  ],
-  "users": [
-    {
-      "id": "minhlqhe161101@fpt.edu.vn",
-      "name": "Admin Minh le",
-      "password": "$2a$10$Dk29FNTkf7C4N0Qt1sDc5eJKYTxBA9/dgfLXFMCAFmVMTL0c917SC",
-      "email": "Sincere@april.biz",
-      "address": {
-        "country": "US",
-        "state": "Arizona",
-        "city": "Wisokyburgh",
-        "detailAddress": "Victor Plains",
-        "zipcode": "90566-7771"
-      },
-      "phone": "0878-532-644",
-      "role": "Admin"
-    },
-    {
-      "id": "kbbgbro@gmail.com",
-      "email": "kbbgbro@gmail.com",
-      "name": "Hoàng Anh Nguyễn",
-      "picture": "https://lh3.googleusercontent.com/a/ACg8ocJEjFhbQVu1wjJi3_-cFeJ8CsRn_eL5Yw26mUawiHE_9a2RAw=s96-c",
-      "role": "customer"
-    },
-    {
-      "id": "kbbgbro@gmail.com",
-      "email": "kbbgbro@gmail.com",
-      "name": "Trần Văn Lmao",
-      "picture": "https://lh3.googleusercontent.com/a/ACg8ocJEjFhbQVu1wjJi3_-cFeJ8CsRn_eL5Yw26mUawiHE_9a2RAw=s96-c",
-      "role": "customer"
+      "content": "Turn your kitchen into a mini café with the right espresso machine, grinder, and milk frother. Here’s what you need to brew café-quality espresso at home.",
+      "image": "https://tse1.explicit.bing.net/th/id/OIP.0vSsTSdmYDyxb0gskO6glwHaE8?cb=12&w=600&h=400&rs=1&pid=ImgDetMain&o=7&rm=3",
+      "status": "active",
+      "createdAt": "",
+      "updatedAt": ""
     }
   ],
   "feedbacks": [
     {
       "id": "1",
-      "userId": "minhlqhe161101@fpt.edu.vn",
-      "rating": 4,
-      "comment": "really good product",
-      "reply": "Thank you for the feedback"
+      "userId": "",
+      "rating": 0,
+      "comment": "",
+      "reply": "",
+      "createdAt": ""
+    },
+    {
+      "id": "70fa",
+      "userId": "guest@example.com",
+      "rating": 5,
+      "comment": "Very Good",
+      "reply": "Love You so much",
+      "createdAt": "2025-10-31T11:28:23.898Z"
+    },
+    {
+      "id": "17f4",
+      "userId": "guest@example.com",
+      "rating": 5,
+      "comment": "Nice",
+      "reply": "Thank you very much ",
+      "createdAt": "2025-10-31T11:37:11.827Z"
+    },
+    {
+      "id": "cb55",
+      "userId": "guest@example.com",
+      "rating": 5,
+      "comment": "Do uong rat ngon",
+      "reply": "",
+      "createdAt": "2025-10-31T12:02:26.215Z"
+    }
+  ],
+  "contacts": [
+    {
+      "id": "",
+      "userId": "",
+      "email": "",
+      "message": "",
+      "status": "new | resolved",
+      "createdAt": ""
+    }
+  ],
+  "stores": [
+    {
+      "id": "",
+      "name": "",
+      "address": "",
+      "city": "",
+      "country": "",
+      "zipcode": "",
+      "phone": "",
+      "mapUrl": ""
+    }
+  ],
+  "orders": [
+    {
+      "id": "",
+      "userId": "",
+      "receiver": {
+        "fullName": "",
+        "email": "",
+        "mobile": "",
+        "address": {
+          "country": "",
+          "city": "",
+          "zipcode": "",
+          "street": "",
+          "detailAddress": ""
+        }
+      },
+      "totalPrice": 0,
+      "status": "pending | confirmed | delivering | completed | cancelled",
+      "orderedDate": "",
+      "orderedTime": ""
+    }
+  ],
+  "orderItems": [
+    {
+      "id": "",
+      "orderId": "",
+      "productId": "",
+      "quantity": 0,
+      "unitPrice": 0,
+      "toppingIds": [
+        ""
+      ],
+      "iceLevel": "",
+      "sugarLevel": "",
+      "totalCost": 0
     }
   ]
 }

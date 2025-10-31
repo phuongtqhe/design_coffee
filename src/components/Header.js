@@ -21,10 +21,10 @@ const Header = () => {
         .then(res => res.json())
         .then(json => setThisUser(json))
     }
-  }, [isLogged]
-  )
+  }, [isLogged]);
 
-  
+  // ✅ Lấy user từ sessionStorage để kiểm tra role
+  const userData = JSON.parse(sessionStorage.getItem("data"));
 
   return (
     <>
@@ -51,38 +51,43 @@ const Header = () => {
                   <NavLink 
                     to="/" 
                     className="nav-link me-4 px-3 py-2 rounded text-decoration-none fw-medium"
-                    activeClassName="active"
                   >
                     HOME
                   </NavLink>
                   <NavLink 
                     to="/product" 
                     className="nav-link me-4 px-3 py-2 rounded text-decoration-none fw-medium"
-                    activeClassName="active"
                   >
                     PRODUCTS
                   </NavLink>
                   <NavLink 
                     to="/about" 
                     className="nav-link me-4 px-3 py-2 rounded text-decoration-none fw-medium"
-                    activeClassName="active"
                   >
                     ABOUT US
                   </NavLink>
                   <NavLink 
                     to="/blogs" 
                     className="nav-link me-4 px-3 py-2 rounded text-decoration-none fw-medium"
-                    activeClassName="active"
                   >
                     BLOGS
                   </NavLink>
                   <NavLink 
                     to="/contact" 
-                    className="nav-link px-3 py-2 rounded text-decoration-none fw-medium"
-                    activeClassName="active"
+                    className="nav-link me-4 px-3 py-2 rounded text-decoration-none fw-medium"
                   >
                     CONTACT US
                   </NavLink>
+
+                  {/* ✅ Thêm nút FEEDBACK nếu là customer */}
+                  {userData && userData.role === "customer" && (
+                    <NavLink 
+                      to="/feedback" 
+                      className="nav-link px-3 py-2 rounded text-decoration-none fw-medium text-success"
+                    >
+                      FEEDBACK
+                    </NavLink>
+                  )}
                 </nav>
               </div>
             </div>

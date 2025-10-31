@@ -69,6 +69,52 @@ function Login() {
     }
   };
 
+  // ✅ Google Login — có role, tự thêm user mới nếu chưa có
+  const handleGoogleLogin = async (credentialResponse) => {
+    try {
+      const decoded = jwtDecode(credentialResponse.credential);
+      const res = await fetch("http://localhost:9999/users");
+      const users = await res.json();
+      let foundUser = users.find((u) => u.email === decoded.email);
+
+      if (!foundUser) {
+        const newUser = {
+          id: decoded.email,
+          email: decoded.email,
+          name: decoded.name,
+          picture: decoded.picture,
+          role: "customer",
+        };
+
+        await fetch("http://localhost:9999/users", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(newUser),
+        });
+
+        foundUser = newUser;
+        toast.info("Tài khoản Google mới đã được thêm vào hệ thống!");
+      }
+
+      // Lưu có role vào sessionStorage
+      sessionStorage.setItem(
+        "data",
+        JSON.stringify({
+          email: foundUser.email,
+          name: foundUser.name,
+          picture: foundUser.picture,
+          role: foundUser.role,
+        })
+      );
+
+      toast.success("Đăng nhập Google thành công!");
+      navigate("/");
+    } catch (error) {
+      console.error(error);
+      toast.error("Đăng nhập Google thất bại!");
+    }
+  };
+
   return (
     <div
       style={{
@@ -176,24 +222,10 @@ function Login() {
                 </span>
               </div>
 
-              {/* Google Login */}
+              {/* ✅ Google Login (đã sửa) */}
               <div className="mb-3" style={{ padding: "10px 0" }}>
                 <GoogleLogin
-                  onSuccess={(credentialResponse) => {
-                    const decoded = jwtDecode(credentialResponse.credential);
-
-                    sessionStorage.setItem(
-                      "data",
-                      JSON.stringify({
-                        email: decoded.email,
-                        name: decoded.name,
-                        picture: decoded.picture,
-                      })
-                    );
-
-                    toast.success("Đăng nhập Google thành công!");
-                    navigate("/");
-                  }}
+                  onSuccess={handleGoogleLogin}
                   onError={() => toast.error("Đăng nhập Google thất bại!")}
                 />
               </div>
