@@ -8,7 +8,6 @@ import wishlistIcon from "../images/wishlist.svg";
 import compareIcon from "../images/compare.svg";
 import cartIcon from "../images/cart.svg";
 import { BiLogOut, BiUser } from "react-icons/bi";
-import { FaMoneyCheckDollar } from "react-icons/fa6";
 
 const btnStyle = {
   background: "linear-gradient(135deg, #ffffff, #f8f9fa)",
@@ -22,60 +21,67 @@ const btnStyle = {
 
 const UserMenu = () => {
   const navigate = useNavigate();
-  const { isLogged, currentUser } = useAuthentication();
+  const { isLogged, currentUser, refreshAuth } = useAuthentication();
   const { cartQuantity } = useContext(CartContext);
   const [thisUser, setThisUser] = useState(null);
 
-  useEffect(() => {
-    if (isLogged) {
-      const userData = JSON.parse(sessionStorage.getItem("data"));
-      if (!userData?.email) return;
+  // ✅ Lấy user từ DB hoặc tạo mới nếu chưa có (Google login lần đầu)
+  const fetchOrCreateUser = async (userData) => {
+    if (!userData?.email) return;
 
-      // ✅ Fetch user bằng email qua query string
-      fetch(
-        `http://localhost:9999/users?email=${encodeURIComponent(
-          userData.email
-        )}`
-      )
-        .then((res) => res.json())
-        .then(async (users) => {
-          if (users.length > 0) {
-            // Nếu user đã tồn tại trong DB
-            setThisUser(users[0]);
-          } else {
-            // Nếu là user Google login lần đầu → tạo mới
-            const newUser = {
-              id: userData.email,
-              email: userData.email,
-              name: userData.name || "Guest User",
-              picture: userData.picture || "",
-              role: "customer",
-            };
+    try {
+      const emailParam = encodeURIComponent(userData.email);
+      const res = await fetch(
+        `http://localhost:9999/users?email=${emailParam}`
+      );
+      const users = await res.json();
 
-            await fetch("http://localhost:9999/users", {
-              method: "POST",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify(newUser),
-            });
+      if (users.length > 0) {
+        // ✅ User đã tồn tại → sử dụng user đó
+        setThisUser(users[0]);
+      } else {
+        // ✅ User chưa có → tạo mới (id để JSON Server tự sinh)
+        const newUser = {
+          email: userData.email,
+          name: userData.name || "Guest User",
+          picture: userData.picture || "",
+          role: "customer",
+        };
 
-            setThisUser(newUser);
-            toast.info("Tài khoản Google mới đã được tạo tự động!");
-          }
-        })
-        .catch(() => {
-          setThisUser({
-            name: userData.name || "Guest User",
-            email: userData.email,
-            picture: userData.picture || null,
-          });
+        const createRes = await fetch("http://localhost:9999/users", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(newUser),
         });
-    }
-  }, [isLogged]);
 
+        if (createRes.ok) {
+          const createdUser = await createRes.json(); // JSON Server trả về user kèm id
+          setThisUser(createdUser);
+          toast.info("Tài khoản Google mới đã được tạo tự động!");
+        } else {
+          toast.error("Không thể tạo tài khoản mới!");
+        }
+      }
+    } catch (err) {
+      console.error("Error in fetchOrCreateUser:", err);
+      toast.error("Lỗi khi truy cập dữ liệu người dùng!");
+    }
+  };
+
+  // ✅ Khi đăng nhập, đồng bộ user trong DB
+  useEffect(() => {
+    if (isLogged && currentUser?.email) {
+      fetchOrCreateUser(currentUser);
+    }
+  }, [isLogged, currentUser]);
+
+  // ✅ Logout
   const handleLogout = () => {
     sessionStorage.removeItem("data");
     sessionStorage.removeItem("cart");
+    setThisUser(null);
     toast.success("Đã đăng xuất thành công!");
+    refreshAuth();
     navigate("/login");
   };
 
@@ -89,6 +95,7 @@ const UserMenu = () => {
 
   return (
     <div className="d-flex align-items-center gap-2">
+      {/* 🛒 Cart button */}
       {isLogged && (
         <Link to="/cart" className="position-relative">
           <button
@@ -113,6 +120,7 @@ const UserMenu = () => {
         </Link>
       )}
 
+      {/* 👤 Nếu chưa login */}
       {!isLogged ? (
         <Link
           to="/login"
@@ -125,11 +133,13 @@ const UserMenu = () => {
           <span className="d-none d-md-inline">Login</span>
         </Link>
       ) : (
+        // ✅ Nếu đã login
         <div className="dropdown">
           <button
             className="btn dropdown-toggle d-flex align-items-center gap-2"
             id="userDropdown"
             data-bs-toggle="dropdown"
+            data-bs-display="static"
             aria-expanded="false"
             style={btnStyle}
             onMouseEnter={(e) => handleHover(e, true)}
@@ -154,7 +164,7 @@ const UserMenu = () => {
                 textOverflow: "ellipsis",
               }}
             >
-              {thisUser?.name}
+              {thisUser?.name || "User"}
             </span>
           </button>
 
@@ -164,18 +174,10 @@ const UserMenu = () => {
           >
             <li>
               <Link
-                to={`/profile/${thisUser?.email}`}
+                to={`/profile/${thisUser?.id}`} // ✅ giờ dùng id (số tự sinh)
                 className="dropdown-item d-flex align-items-center gap-2"
               >
                 <BiUser /> My Profile
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/myOrder"
-                className="dropdown-item d-flex align-items-center gap-2"
-              >
-                <FaMoneyCheckDollar /> My Orders
               </Link>
             </li>
             <li>

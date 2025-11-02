@@ -10,66 +10,103 @@ import {
 } from "react-bootstrap";
 import bgImage from "../images/background/bg_3.jpg";
 import { useNavigate } from "react-router-dom";
+import { EyeFill, EyeSlashFill } from "react-bootstrap-icons";
+import bcrypt from "bcryptjs";
 
 function SignUp() {
   const navigate = useNavigate();
+
+  // ✅ Dữ liệu mặc định của người dùng mới
   const [formData, setFormData] = useState({
-    name: "",
+    id: "",
+    userName: "",
     email: "",
     password: "",
+    picture: "",
     phone: "",
+    role: "customer",
+    status: "active",
     address: {
       country: "",
-      state: "",
       city: "",
-      detailAddress: "",
       zipcode: "",
+      street: "",
+      detailAddress: "",
     },
-    role: "User",
+    createdAt: "",
+    updatedAt: "",
   });
 
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
-  // Xử lý khi người dùng nhập dữ liệu
+  // ✅ Cập nhật dữ liệu form (kể cả field trong address)
   const handleChange = (e) => {
     const { name, value } = e.target;
 
-    if (
-      ["country", "state", "city", "detailAddress", "zipcode"].includes(name)
-    ) {
-      setFormData((prev) => ({
+    setFormData((prev) => {
+      if (
+        ["country", "city", "zipcode", "street", "detailAddress"].includes(name)
+      ) {
+        return {
+          ...prev,
+          address: { ...prev.address, [name]: value },
+        };
+      }
+      return {
         ...prev,
-        address: { ...prev.address, [name]: value },
-      }));
-    } else {
-      setFormData((prev) => ({ ...prev, [name]: value }));
-    }
+        [name]: value,
+      };
+    });
   };
 
-  // Gửi dữ liệu đến json-server
   const handleSubmit = async () => {
     setError("");
     setSuccess("");
 
+    if (!formData.userName || !formData.email || !formData.password) {
+      setError("Vui lòng điền đầy đủ họ tên, email và mật khẩu!");
+      return;
+    }
+
+    setLoading(true);
     try {
-      // Kiểm tra email đã tồn tại chưa
+      // Kiểm tra email trùng
       const res = await fetch(
-        `http://localhost:9999/users?email=${formData.email}`
+        `http://localhost:9999/users?email=${encodeURIComponent(
+          formData.email
+        )}`
       );
       const existing = await res.json();
 
       if (existing.length > 0) {
         setError("Email đã tồn tại! Vui lòng sử dụng email khác.");
+        setLoading(false);
         return;
       }
 
-      // Tạo user mới
+      // 🔹 Lấy danh sách user để tạo ID tự động
+      const allUsersRes = await fetch("http://localhost:9999/users");
+      const allUsers = await allUsersRes.json();
+      const nextId =
+        allUsers.length > 0
+          ? Math.max(...allUsers.map((u) => Number(u.id) || 0)) + 1
+          : 1;
+
+      // Hash mật khẩu
+      const hashedPassword = await bcrypt.hash(formData.password, 10);
+
       const newUser = {
         ...formData,
-        id: formData.email, // dùng email làm id cho dễ truy xuất
+        id: nextId.toString(), // ✅ ID là số dạng chuỗi
+        password: hashedPassword,
+        createdAt: new Date().toISOString(),
+        updatedAt: new Date().toISOString(),
       };
 
+      // Gửi dữ liệu mới lên server
       const postRes = await fetch("http://localhost:9999/users", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -78,13 +115,15 @@ function SignUp() {
 
       if (postRes.ok) {
         setSuccess("Đăng ký thành công! Đang chuyển hướng...");
-        setTimeout(() => navigate("/login"), 1500);
+        setTimeout(() => navigate("/login"), 1000);
       } else {
         setError("Không thể tạo tài khoản. Vui lòng thử lại!");
       }
     } catch (err) {
       console.error(err);
       setError("Lỗi kết nối đến server!");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -117,10 +156,11 @@ function SignUp() {
             <Form.Label>Họ và tên</Form.Label>
             <Form.Control
               type="text"
-              name="name"
+              name="userName"
               placeholder="Nhập họ tên của bạn"
-              value={formData.name}
+              value={formData.userName}
               onChange={handleChange}
+              required
             />
           </Form.Group>
 
@@ -134,19 +174,38 @@ function SignUp() {
                   placeholder="Nhập email"
                   value={formData.email}
                   onChange={handleChange}
+                  required
                 />
               </Form.Group>
             </Col>
             <Col md={6}>
-              <Form.Group className="mb-3">
+              <Form.Group className="mb-3 position-relative">
                 <Form.Label>Mật khẩu</Form.Label>
                 <Form.Control
-                  type="password"
+                  type={showPassword ? "text" : "password"}
                   name="password"
                   placeholder="Nhập mật khẩu"
                   value={formData.password}
                   onChange={handleChange}
+                  required
                 />
+                <Button
+                  variant="link"
+                  className="p-0"
+                  onClick={() => setShowPassword(!showPassword)}
+                  style={{
+                    position: "absolute",
+                    right: "10px",
+                    top: "38px",
+                    color: "#6c757d",
+                  }}
+                >
+                  {showPassword ? (
+                    <EyeSlashFill size={20} />
+                  ) : (
+                    <EyeFill size={20} />
+                  )}
+                </Button>
               </Form.Group>
             </Col>
           </Row>
@@ -185,20 +244,8 @@ function SignUp() {
                 <Form.Control
                   type="text"
                   name="country"
-                  placeholder="US"
+                  placeholder="Việt Nam"
                   value={formData.address.country}
-                  onChange={handleChange}
-                />
-              </Form.Group>
-            </Col>
-            <Col md={4}>
-              <Form.Group className="mb-3">
-                <Form.Label>Bang / Tỉnh</Form.Label>
-                <Form.Control
-                  type="text"
-                  name="state"
-                  placeholder="Arizona"
-                  value={formData.address.state}
                   onChange={handleChange}
                 />
               </Form.Group>
@@ -209,8 +256,20 @@ function SignUp() {
                 <Form.Control
                   type="text"
                   name="city"
-                  placeholder="Wisokyburgh"
+                  placeholder="Hà Nội"
                   value={formData.address.city}
+                  onChange={handleChange}
+                />
+              </Form.Group>
+            </Col>
+            <Col md={4}>
+              <Form.Group className="mb-3">
+                <Form.Label>Đường / Phố</Form.Label>
+                <Form.Control
+                  type="text"
+                  name="street"
+                  placeholder="Nguyễn Trãi"
+                  value={formData.address.street}
                   onChange={handleChange}
                 />
               </Form.Group>
@@ -222,7 +281,7 @@ function SignUp() {
             <Form.Control
               type="text"
               name="detailAddress"
-              placeholder="Victor Plains"
+              placeholder="Số 123, Chung cư ABC..."
               value={formData.address.detailAddress}
               onChange={handleChange}
             />
@@ -233,15 +292,20 @@ function SignUp() {
             type="button"
             className="w-100 mt-3"
             onClick={handleSubmit}
+            disabled={loading}
           >
-            Đăng ký
+            {loading ? "Đang xử lý..." : "Đăng ký"}
           </Button>
 
           <p className="text-center mt-3 mb-0">
             Đã có tài khoản?{" "}
-            <a href="/login" style={{ textDecoration: "none" }}>
+            <Button
+              variant="link"
+              onClick={() => navigate("/login")}
+              style={{ textDecoration: "none", color: "#0d6efd", padding: 0 }}
+            >
               Đăng nhập
-            </a>
+            </Button>
           </p>
         </Form>
       </Card>
