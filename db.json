@@ -70,6 +70,21 @@
       "name": "Do Huy Thanh (K18 HL)",
       "picture": "https://lh3.googleusercontent.com/a/ACg8ocJ0S1guyU4Bn9cNTXVZPEV8MXCTPhWLE-oGJrRag2E75lxdpA=s96-c",
       "role": "customer"
+    },
+    {
+      "id": "thanhbeyond2004@gmail.com",
+      "name": "AdminZZZ",
+      "email": "thanhbeyond2004@gmail.com",
+      "password": "0988982558Thanh",
+      "phone": "0912345678",
+      "address": {
+        "country": "VietNam",
+        "state": "",
+        "city": "Hà Nội",
+        "detailAddress": "188 Quang Trung",
+        "zipcode": "100000000"
+      },
+      "role": "admin"
     }
   ],
   "categories": [
@@ -822,6 +837,14 @@
       "comment": "Do uong rat ngon",
       "reply": "",
       "createdAt": "2025-10-31T12:02:26.215Z"
+    },
+    {
+      "id": "e83a",
+      "userId": "thanhdhhe180811@fpt.edu.vn",
+      "rating": 5,
+      "comment": "Hello",
+      "reply": "XieXie",
+      "createdAt": "2025-11-02T17:55:30.674Z"
     }
   ],
   "contacts": [
@@ -832,7 +855,31 @@
       "message": "",
       "status": "new | resolved",
       "createdAt": ""
-    }
+    },
+    {
+    "id": "c001",
+    "userId": "thanhdhhe180811@fpt.edu.vn",
+    "email": "thanhdhhe180811@fpt.edu.vn",
+    "message": "Xin chào, tôi muốn hỏi về chương trình ưu đãi tháng này của quán?",
+    "status": "new",
+    "createdAt": "2025-11-03T08:15:00.000Z"
+  },
+  {
+    "id": "c002",
+    "userId": "nguyenhoanganh21003@gmail.com",
+    "email": "nguyenhoanganh21003@gmail.com",
+    "message": "Mình đặt hàng online mà chưa thấy xác nhận đơn, nhờ hỗ trợ giúp nhé.",
+    "status": "new",
+    "createdAt": "2025-11-03T09:20:00.000Z"
+  },
+  {
+    "id": "c003",
+    "userId": "anhnhhe172682@fpt.edu.vn",
+    "email": "anhnhhe172682@fpt.edu.vn",
+    "message": "Cà phê ở chi nhánh Hà Nội rất ngon, mong quán mở thêm chi nhánh ở Đà Nẵng!",
+    "status": "resolved",
+    "createdAt": "2025-11-02T16:40:00.000Z"
+  }
   ],
   "stores": [
     {

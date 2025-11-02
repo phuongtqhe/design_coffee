@@ -16,6 +16,7 @@ export default function adminRoutes() {
             { index: true, element: <Home /> },
             { path: 'admin/feedbacks', element: <FeedbackAdmin /> },
             { path: 'admin/customers', element: <CustomersList /> },
+            { path: "/admin/contacts", element: <AdminContactList /> },
         ]
     };
 }
