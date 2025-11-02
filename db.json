@@ -20,25 +20,6 @@
       "updatedAt": ""
     },
     {
-      "id": "anhnhhe172682@fpt.edu.vn",
-      "userName": "Chim Xanh",
-      "email": "anhnhhe172682@fpt.edu.vn",
-      "password": "$2b$10$GuqSxHOiFrEzFb6ZvH8uDeMBOe8SdOh2GAKSccScsxHpeFU7O4Nxu",
-      "picture": "",
-      "phone": "0123456789",
-      "role": "customer",
-      "status": "active",
-      "address": {
-        "country": "Việt Nam",
-        "city": "Hà Nội",
-        "zipcode": "10000",
-        "street": "Hoàng Mai",
-        "detailAddress": "Số 123, Đường ABC"
-      },
-      "createdAt": "2025-10-25T02:26:13.056Z",
-      "updatedAt": "2025-10-26T03:27:15.420Z"
-    },
-    {
       "id": "2",
       "userName": "Hoàng Anh Nguyễn",
       "email": "nguyenhoanganh21003@gmail.com",
@@ -56,6 +37,25 @@
       },
       "createdAt": "2025-10-25T03:29:05.449Z",
       "updatedAt": "2025-10-25T03:29:05.449Z"
+    },
+    {
+      "id": "3",
+      "userName": "Hoang Anh",
+      "email": "kbbgbro@gmail.com",
+      "password": "$2b$10$KOLMKFEHUfV5PmWIXH2U9uc1eSJ5PEYQtBXFbijidr5318kALNWFK",
+      "picture": "",
+      "phone": "0123456789",
+      "role": "customer",
+      "status": "active",
+      "address": {
+        "country": "Việt Nam",
+        "city": "Hà Nội",
+        "zipcode": "10000",
+        "street": "Hoàng Mai",
+        "detailAddress": "Số 123, Đường ABC"
+      },
+      "createdAt": "2025-11-02T02:36:24.228Z",
+      "updatedAt": "2025-11-02T02:36:24.228Z"
     }
   ],
   "categories": [
@@ -770,11 +770,10 @@
       "mapUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3404.423361684905!2d105.5232986748485!3d21.012776680632605!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135abc60e7d3f19%3A0x2be9d7d0b5abcbf4!2zVHLGsOG7nW5nIMSQ4bqhaSBo4buNYyBGUFQgSMOgIE7hu5lp!5e1!3m2!1svi!2s!4v1761970808735!5m2!1svi!2s"
     }
   ],
-
   "orders": [
     {
       "id": "ord_1",
-      "userId": "anhnhhe172682@fpt.edu.vn",
+      "userId": "3",
       "receiver": {
         "fullName": "Chim Xanh",
         "email": "anhnhhe172682@fpt.edu.vn",
@@ -794,7 +793,7 @@
     },
     {
       "id": "ord_2",
-      "userId": "anhnhhe172682@fpt.edu.vn",
+      "userId": "3",
       "receiver": {
         "fullName": "Chim Xanh",
         "email": "anhnhhe172682@fpt.edu.vn",
@@ -813,7 +812,6 @@
       "orderedTime": "09:40:10"
     }
   ],
-
   "orderItems": [
     {
       "id": "oi_1",
@@ -835,7 +833,7 @@
       "toppingIds": [],
       "iceLevel": "less ice",
       "sugarLevel": "half sugar",
-      "totalCost": 5.0
+      "totalCost": 5
     },
     {
       "id": "oi_3",

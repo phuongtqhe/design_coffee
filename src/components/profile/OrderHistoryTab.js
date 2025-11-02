@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Card, Button, Spinner, Badge } from "react-bootstrap";
+import { Card, Button, Spinner, Badge, Modal } from "react-bootstrap";
 import axios from "axios";
 import { FaMapMarkerAlt } from "react-icons/fa";
 
@@ -7,8 +7,9 @@ function OrderHistoryTab() {
   const [orders, setOrders] = useState([]);
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [selectedOrder, setSelectedOrder] = useState(null);
 
-  const userEmail = localStorage.getItem("email"); // user đang login
+  const userEmail = JSON.parse(sessionStorage.getItem("data"))?.id;
 
   useEffect(() => {
     const fetchData = async () => {
@@ -59,7 +60,6 @@ function OrderHistoryTab() {
               {order.orderedDate} • {order.orderedTime}
             </p>
 
-            {/* ITEMS */}
             {order.items.map((item) => {
               const product = products.find((p) => p.id === item.productId);
 
@@ -75,13 +75,13 @@ function OrderHistoryTab() {
                       backgroundColor: "#F5F5F5",
                       borderRadius: "10px",
                       marginRight: "15px",
-                      backgroundImage: `url(${product?.image})`,
+                      backgroundImage: `url(${product?.images?.[0]})`,
                       backgroundSize: "cover",
                       backgroundPosition: "center",
                     }}
                   ></div>
                   <div>
-                    <h6 className="fw-bold mb-1">{product?.name}</h6>
+                    <h6 className="fw-bold mb-1">{product?.title}</h6>
                     <p className="text-muted mb-0">
                       Ice: {item.iceLevel} • Sugar: {item.sugarLevel}
                     </p>
@@ -106,7 +106,11 @@ function OrderHistoryTab() {
             <div className="d-flex justify-content-between align-items-center mt-3">
               <h6>Total: ${order.totalPrice}</h6>
               <div>
-                <Button variant="secondary" className="me-2">
+                <Button
+                  variant="secondary"
+                  className="me-2"
+                  onClick={() => setSelectedOrder(order)}
+                >
                   View Details
                 </Button>
                 <Button variant="outline-secondary">Reorder</Button>
@@ -115,6 +119,45 @@ function OrderHistoryTab() {
           </Card.Body>
         </Card>
       ))}
+
+      {/* MODAL DETAIL */}
+      <Modal
+        show={!!selectedOrder}
+        onHide={() => setSelectedOrder(null)}
+        centered
+        size="lg"
+      >
+        <Modal.Header closeButton>
+          <Modal.Title>Order Detail #{selectedOrder?.id}</Modal.Title>
+        </Modal.Header>
+
+        <Modal.Body>
+          {selectedOrder &&
+            selectedOrder.items.map((item) => {
+              const prod = products.find((p) => p.id === item.productId);
+              return (
+                <div
+                  key={item.id}
+                  className="d-flex align-items-center justify-content-between border-bottom py-2"
+                >
+                  <div className="fw-bold">{prod?.title}</div>
+                  <div>x{item.quantity}</div>
+                  <div>${item.totalCost}</div>
+                </div>
+              );
+            })}
+
+          <div className="mt-3 fw-bold text-end">
+            Total: ${selectedOrder?.totalPrice}
+          </div>
+        </Modal.Body>
+
+        <Modal.Footer>
+          <Button variant="secondary" onClick={() => setSelectedOrder(null)}>
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </>
   );
 }
