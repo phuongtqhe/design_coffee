@@ -13,6 +13,7 @@ function Login() {
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
 
+  // Login: handleLogin (thay thế nguyên hàm của bạn)
   const handleLogin = async (e) => {
     e.preventDefault();
     if (!emailOrPhone || !password) {
@@ -25,13 +26,16 @@ function Login() {
       const res = await fetch("http://localhost:9999/users");
       const users = await res.json();
 
-      // Tìm người dùng theo email / username / phone
-      const foundUser = users.find(
-        (u) =>
-          u.email.toLowerCase() === emailOrPhone.toLowerCase() ||
-          u.id.toLowerCase() === emailOrPhone.toLowerCase() ||
-          u.phone === emailOrPhone
-      );
+      const input = emailOrPhone.trim().toLowerCase();
+
+      const foundUser = users.find((u) => {
+        const uEmail = u.email ? String(u.email).trim().toLowerCase() : "";
+        const uId = u.id ? String(u.id).trim().toLowerCase() : "";
+        const uPhone = u.phone ? String(u.phone).trim() : "";
+        return (
+          uEmail === input || uId === input || uPhone === emailOrPhone.trim()
+        );
+      });
 
       if (!foundUser) {
         toast.error("Không tìm thấy tài khoản!");
@@ -39,8 +43,17 @@ function Login() {
         return;
       }
 
-      // So sánh mật khẩu với hash trong DB
-      const passwordMatch = await bcrypt.compare(password, foundUser.password);
+      // debug: kiểm tra stored password (optional, xóa khi ổn)
+      // console.log("stored password:", foundUser.password);
+
+      // Nếu password tồn tại và là hash bcrypt (bắt đầu bằng $2)
+      const isBcryptHash =
+        typeof foundUser.password === "string" &&
+        /^\$2[aby]\$/.test(foundUser.password);
+
+      const passwordMatch = isBcryptHash
+        ? await bcrypt.compare(password, foundUser.password)
+        : password === foundUser.password;
 
       if (!passwordMatch) {
         toast.error("Sai mật khẩu!");
@@ -48,12 +61,12 @@ function Login() {
         return;
       }
 
-      // Lưu thông tin người dùng vào sessionStorage
       sessionStorage.setItem(
         "data",
         JSON.stringify({
+          id: foundUser.id,
           email: foundUser.email,
-          name: foundUser.name,
+          name: foundUser.userName,
           role: foundUser.role,
           phone: foundUser.phone,
         })
@@ -165,41 +178,44 @@ function Login() {
               Đăng nhập
             </h2>
             <Form onSubmit={handleLogin}>
-              <Form.Group className="mb-3">
-                <Form.Label>
-                  Email hoặc tên người dùng hoặc số điện thoại
-                </Form.Label>
-                <Form.Control
-                  type="text"
-                  placeholder="Nhập thông tin đăng nhập"
-                  value={emailOrPhone}
-                  onChange={(e) => setEmailOrPhone(e.target.value)}
-                  required
+              <fieldset disabled={loading}>
+                <Form.Group className="mb-3">
+                  <Form.Label>Email hoặc số điện thoại</Form.Label>
+                  <Form.Control
+                    type="text"
+                    placeholder="Nhập thông tin đăng nhập"
+                    value={emailOrPhone}
+                    onChange={(e) => setEmailOrPhone(e.target.value)}
+                    required
+                  />
+                </Form.Group>
+
+                <Form.Group className="mb-3">
+                  <Form.Label>Mật khẩu</Form.Label>
+                  <Form.Control
+                    type="password"
+                    placeholder="Nhập mật khẩu"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    required
+                  />
+                </Form.Group>
+
+                <Form.Check
+                  type="switch"
+                  label="Ghi nhớ tài khoản cho lần sử dụng sau"
+                  className="mb-3"
                 />
-              </Form.Group>
-              <Form.Group className="mb-3">
-                <Form.Label>Mật khẩu</Form.Label>
-                <Form.Control
-                  type="password"
-                  placeholder="Nhập mật khẩu"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  required
-                />
-              </Form.Group>
-              <Form.Check
-                type="switch"
-                label="Ghi nhớ tài khoản cho lần sử dụng sau"
-                className="mb-3"
-              />
-              <Button
-                variant="primary"
-                className="w-100 mb-3"
-                type="submit"
-                disabled={loading}
-              >
-                {loading ? "Đang đăng nhập..." : "Đăng nhập"}
-              </Button>
+
+                <Button
+                  variant="primary"
+                  className="w-100 mb-3"
+                  type="submit"
+                  disabled={loading}
+                >
+                  {loading ? "Đang đăng nhập..." : "Đăng nhập"}
+                </Button>
+              </fieldset>
 
               {/* Separator */}
               <div
@@ -233,19 +249,24 @@ function Login() {
               <Button
                 variant="outline-secondary"
                 className="w-100 mb-3"
-                href="/signup"
+                onClick={() => navigate("/signup")}
               >
                 Đăng ký tài khoản mới
               </Button>
 
               <p className="text-center mb-0">Bạn quên thông tin tài khoản?</p>
               <p className="text-center">
-                <a
-                  href="/reset-password"
-                  style={{ textDecoration: "none", color: "#0d6efd" }}
+                <Button
+                  variant="link"
+                  onClick={() => navigate("/reset-password")}
+                  style={{
+                    textDecoration: "none",
+                    color: "#0d6efd",
+                    padding: 0,
+                  }}
                 >
                   Quên mật khẩu
-                </a>
+                </Button>
               </p>
             </Form>
           </Col>

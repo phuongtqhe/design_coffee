@@ -82,14 +82,13 @@ const Footer = () => {
             </div>
           </div>
         </div>
-      </footer>
-      <footer className="py-4">
-        <div className="container-xxl">
+        <hr className="my-4 border-light" />
+        <div className="container-xxl bg-dark">
           <div className="row">
             <div className="col-12">
               <p className="text-center mb-0 text-white">
                 &copy; {new Date().getFullYear()} Copyright:{' '}
-                Made with <BsFire style={{ marginBottom: 0 }} size="20px" /> by group 3 FER201 from FPT University
+                Made with <BsFire style={{ marginBottom: 0 }} size="20px" /> by group 2 FER202.1 from FPT University
               </p>
             </div>
           </div>
