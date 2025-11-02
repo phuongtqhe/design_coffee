@@ -773,37 +773,80 @@
 
   "orders": [
     {
-      "id": "",
-      "userId": "",
+      "id": "ord_1",
+      "userId": "anhnhhe172682@fpt.edu.vn",
       "receiver": {
-        "fullName": "",
-        "email": "",
-        "mobile": "",
+        "fullName": "Chim Xanh",
+        "email": "anhnhhe172682@fpt.edu.vn",
+        "mobile": "0123456789",
         "address": {
-          "country": "",
-          "city": "",
-          "zipcode": "",
-          "street": "",
-          "detailAddress": ""
+          "country": "Việt Nam",
+          "city": "Hà Nội",
+          "zipcode": "10000",
+          "street": "Hoàng Mai",
+          "detailAddress": "Số 123, Đường ABC"
         }
       },
-      "totalPrice": 0,
-      "status": "pending | confirmed | delivering | completed | cancelled",
-      "orderedDate": "",
-      "orderedTime": ""
+      "totalPrice": 7.5,
+      "status": "completed",
+      "orderedDate": "2025-10-29",
+      "orderedTime": "15:23:55"
+    },
+    {
+      "id": "ord_2",
+      "userId": "anhnhhe172682@fpt.edu.vn",
+      "receiver": {
+        "fullName": "Chim Xanh",
+        "email": "anhnhhe172682@fpt.edu.vn",
+        "mobile": "0123456789",
+        "address": {
+          "country": "Việt Nam",
+          "city": "Hà Nội",
+          "zipcode": "10000",
+          "street": "Hoàng Mai",
+          "detailAddress": "Số 123, Đường ABC"
+        }
+      },
+      "totalPrice": 2.5,
+      "status": "pending",
+      "orderedDate": "2025-10-30",
+      "orderedTime": "09:40:10"
     }
   ],
+
   "orderItems": [
     {
-      "id": "",
-      "orderId": "",
-      "productId": "",
-      "quantity": 0,
-      "unitPrice": 0,
-      "toppingIds": [""],
-      "iceLevel": "",
-      "sugarLevel": "",
-      "totalCost": 0
+      "id": "oi_1",
+      "orderId": "ord_1",
+      "productId": "300",
+      "quantity": 1,
+      "unitPrice": 2.5,
+      "toppingIds": [],
+      "iceLevel": "normal",
+      "sugarLevel": "normal",
+      "totalCost": 2.5
+    },
+    {
+      "id": "oi_2",
+      "orderId": "ord_1",
+      "productId": "106",
+      "quantity": 2,
+      "unitPrice": 2.5,
+      "toppingIds": [],
+      "iceLevel": "less ice",
+      "sugarLevel": "half sugar",
+      "totalCost": 5.0
+    },
+    {
+      "id": "oi_3",
+      "orderId": "ord_2",
+      "productId": "300",
+      "quantity": 1,
+      "unitPrice": 2.5,
+      "toppingIds": [],
+      "iceLevel": "less ice",
+      "sugarLevel": "normal",
+      "totalCost": 2.5
     }
   ]
 }
