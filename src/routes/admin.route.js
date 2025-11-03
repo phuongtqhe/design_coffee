@@ -4,6 +4,7 @@ import Home from "../pages/Home";
 import FeedbackAdmin from "../pages/FeedbackAdmin";
 import CustomersList from "../pages/CustomersList";
 import BlogList from "../pages/BlogList";
+import AdminContactList from "../pages/AdminContactList";
 import { AuthorizationRoute } from "./authorization-route";
 
 export default function adminRoutes() {
