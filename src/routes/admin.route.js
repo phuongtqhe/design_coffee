@@ -14,15 +14,14 @@ export default function adminRoutes() {
   return {
     path: "/admin",
     element: (
-      <AuthorizationRoute roles={["Admin"]}>
+      <AuthorizationRoute roles={["admin"]}>
         <DefaultAdminLayout>
           <Outlet />
         </DefaultAdminLayout>
       </AuthorizationRoute>
     ),
     children: [
-      { index: true, element: <Home /> },
-      { path: "", element: <Dashboard /> },
+      { index: true, element: <Dashboard /> },
       { path: "contacts", element: <AdminContactList /> },
       { path: "feedbacks", element: <FeedbackAdmin /> },
       { path: "customers", element: <CustomersList /> },

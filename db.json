@@ -59,7 +59,7 @@
       "password": "$2b$10$JsXlQu7js3m7QEzGFOS3tOEatRkTY/nkbhEja43DIOlDu2PtTkHaO",
       "picture": "",
       "phone": "0904431642",
-      "role": "customer",
+      "role": "admin",
       "status": "active",
       "address": {
         "country": "Vietnam",

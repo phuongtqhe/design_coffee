@@ -12,7 +12,7 @@ export function customerRoutes() {
     path: "/",
     // errorElement: <ErrorPage />,
     element: (
-     <AuthorizationRoute roles={["Customer"]}>
+     <AuthorizationRoute roles={["customer", "admin"]}>
         <Layout>
           <Outlet />
         </Layout>
