@@ -1,6 +1,5 @@
 import { Navigate } from 'react-router-dom';
-import { useAuthorization } from '../util/use-authorization';
-
+import { useAuthorization } from '../utils/use-authorization';
 
 export function AuthorizationRoute(props) {
   const { roles, children } = props;
