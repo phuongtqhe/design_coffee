@@ -39,32 +39,21 @@
       "updatedAt": "2025-10-25T03:29:05.449Z"
     },
     {
-      "id": "3",
-      "userName": "Hoang Anh",
-      "email": "kbbgbro@gmail.com",
-      "password": "$2b$10$KOLMKFEHUfV5PmWIXH2U9uc1eSJ5PEYQtBXFbijidr5318kALNWFK",
-      "picture": "",
-      "phone": "0123456789",
-      "role": "admin",
-      "status": "active",
-      "address": {
-        "country": "Việt Nam",
-        "city": "Hà Nội",
-        "zipcode": "10000",
-        "street": "Hoàng Mai",
-        "detailAddress": "Số 123, Đường ABC"
-      },
-      "createdAt": "2025-11-02T02:36:24.228Z",
-      "updatedAt": "2025-11-02T02:36:24.228Z"
+      "id": "thanhdhhe180811@fpt.edu.vn",
+      "email": "thanhdhhe180811@fpt.edu.vn",
+      "name": "Do Huy Thanh (K18 HL)",
+      "picture": "https://lh3.googleusercontent.com/a/ACg8ocJ0S1guyU4Bn9cNTXVZPEV8MXCTPhWLE-oGJrRag2E75lxdpA=s96-c",
+      "role": "customer"
+    },
+    {
+      "id": "thanhdhhe180811@fpt.edu.vn",
+      "email": "thanhdhhe180811@fpt.edu.vn",
+      "name": "Do Huy Thanh (K18 HL)",
+      "picture": "https://lh3.googleusercontent.com/a/ACg8ocJ0S1guyU4Bn9cNTXVZPEV8MXCTPhWLE-oGJrRag2E75lxdpA=s96-c",
+      "role": "customer"
     }
   ],
   "categories": [
-    {
-      "id": "1",
-      "name": "Food",
-      "status": "active",
-      "createdAt": ""
-    },
     {
       "id": "2",
       "name": "Coffe",
@@ -80,6 +69,12 @@
     {
       "id": "4",
       "name": "Milk Tea",
+      "status": "active",
+      "createdAt": ""
+    },
+    {
+      "id": "1",
+      "name": "Food",
       "status": "active",
       "createdAt": ""
     }

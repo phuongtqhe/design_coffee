@@ -39,10 +39,13 @@ const AllProducts = () => {
   useEffect(() => {
     let tempProducts = [...products];
 
+    // Helper to safely get a product's name (fallback to title)
+    const getName = (p) => (p?.name ?? p?.title ?? "");
+
     // 1. Search
     if (searchTerm) {
       tempProducts = tempProducts.filter((p) =>
-        p.name.toLowerCase().includes(searchTerm.toLowerCase())
+        getName(p).toLowerCase().includes(searchTerm.toLowerCase())
       );
     }
 
@@ -54,10 +57,10 @@ const AllProducts = () => {
     // 3. Sort
     switch (sortOption) {
       case "name-asc":
-        tempProducts.sort((a, b) => a.name.localeCompare(b.name));
+        tempProducts.sort((a, b) => getName(a).localeCompare(getName(b)));
         break;
       case "name-desc":
-        tempProducts.sort((a, b) => b.name.localeCompare(a.name));
+        tempProducts.sort((a, b) => getName(b).localeCompare(getName(a)));
         break;
       case "price-asc":
         tempProducts.sort((a, b) => a.price - b.price);

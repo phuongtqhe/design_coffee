@@ -12,11 +12,11 @@ export default function adminRoutes() {
   return {
     path: "/admin",
     element: (
-      <AuthorizationRoute roles={["Admin"]}>
+      // <AuthorizationRoute roles={["Admin"]}>
         <DefaultAdminLayout>
           <Outlet />
         </DefaultAdminLayout>
-      </AuthorizationRoute>
+      // </AuthorizationRoute>
     ),
     children: [
       { index: true, element: <Home /> },
