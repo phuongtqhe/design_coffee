@@ -1,13 +1,16 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useAuthentication } from "../utils/use-authentication";
-import { CartContext } from "./CartContext";
+import { useCart } from "./CartContext";
 import userIcon from "../images/user.svg";
 import wishlistIcon from "../images/wishlist.svg";
 import compareIcon from "../images/compare.svg";
 import cartIcon from "../images/cart.svg";
 import { BiLogOut, BiUser } from "react-icons/bi";
+import { PiUserCircleDuotone } from "react-icons/pi";
+import { FaUser } from "react-icons/fa6";
+import { FaUserAlt } from "react-icons/fa";
 
 const btnStyle = {
   background: "linear-gradient(135deg, #ffffff, #f8f9fa)",
@@ -22,7 +25,7 @@ const btnStyle = {
 const UserMenu = () => {
   const navigate = useNavigate();
   const { isLogged, currentUser, refreshAuth } = useAuthentication();
-  const { cartQuantity } = useContext(CartContext);
+  const { cartCount } = useCart();
   const [thisUser, setThisUser] = useState(null);
 
   // ✅ Lấy user từ DB hoặc tạo mới nếu chưa có (Google login lần đầu)
@@ -95,32 +98,30 @@ const UserMenu = () => {
 
   return (
     <div className="d-flex align-items-center gap-2">
-      {/* 🛒 Cart button */}
-      {isLogged && (
-        <Link to="/cart" className="position-relative">
-          <button
-            type="button"
-            className="btn"
-            style={btnStyle}
-            onMouseEnter={(e) => handleHover(e, true)}
-            onMouseLeave={(e) => handleHover(e, false)}
+      {/* Cart button (always visible) */}
+      <Link to="/cart" className="position-relative">
+        <button
+          type="button"
+          className="btn"
+          style={btnStyle}
+          onMouseEnter={(e) => handleHover(e, true)}
+          onMouseLeave={(e) => handleHover(e, false)}
+        >
+          <img src={cartIcon} alt="cart" width="20" height="20" />
+          <span
+            className="position-absolute top-0 start-100 translate-middle badge rounded-pill"
+            style={{
+              fontSize: "0.7rem",
+              background: "linear-gradient(135deg, #DC143C, #B22222)",
+              color: "white",
+            }}
           >
-            <img src={cartIcon} alt="cart" width="20" height="20" />
-            <span
-              className="position-absolute top-0 start-100 translate-middle badge rounded-pill"
-              style={{
-                fontSize: "0.7rem",
-                background: "linear-gradient(135deg, #DC143C, #B22222)",
-                color: "white",
-              }}
-            >
-              {cartQuantity}
-            </span>
-          </button>
-        </Link>
-      )}
+            {cartCount}
+          </span>
+        </button>
+      </Link>
 
-      {/* 👤 Nếu chưa login */}
+      {/* User menu: login button or dropdown when logged in */}
       {!isLogged ? (
         <Link
           to="/login"
@@ -129,11 +130,10 @@ const UserMenu = () => {
           onMouseEnter={(e) => handleHover(e, true)}
           onMouseLeave={(e) => handleHover(e, false)}
         >
-          <img src={userIcon} alt="user" width="18" height="18" />
+          <FaUserAlt src={userIcon} alt="user" width="18" height="18" />
           <span className="d-none d-md-inline">Login</span>
         </Link>
       ) : (
-        // ✅ Nếu đã login
         <div className="dropdown">
           <button
             className="btn dropdown-toggle d-flex align-items-center gap-2"
@@ -174,7 +174,7 @@ const UserMenu = () => {
           >
             <li>
               <Link
-                to={`/profile/${thisUser?.id}`} // ✅ giờ dùng id (số tự sinh)
+                to={`/profile/${thisUser?.id}`}
                 className="dropdown-item d-flex align-items-center gap-2"
               >
                 <BiUser /> My Profile
