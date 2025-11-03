@@ -10,6 +10,7 @@ import cartIcon from "../images/cart.svg";
 import { BiLogOut, BiUser } from "react-icons/bi";
 import { PiUserCircleDuotone } from "react-icons/pi";
 import { FaUser } from "react-icons/fa6";
+import { FaUserAlt } from "react-icons/fa";
 
 const btnStyle = {
   background: "linear-gradient(135deg, #ffffff, #f8f9fa)",
@@ -129,7 +130,7 @@ const UserMenu = () => {
           onMouseEnter={(e) => handleHover(e, true)}
           onMouseLeave={(e) => handleHover(e, false)}
         >
-          <FaUser color="black" src={userIcon} alt="user" width="18" height="18" />
+          <FaUserAlt src={userIcon} alt="user" width="18" height="18" />
           <span className="d-none d-md-inline">Login</span>
         </Link>
       ) : (

@@ -88,43 +88,6 @@ const Header = () => {
             {/* Search + UserMenu */}
             <div className="col-12 col-lg-4 mt-3 mt-lg-0">
               <div className="d-flex align-items-center justify-content-end gap-3">
-                {/* Search Bar */}
-                <div
-                  className="search-container flex-grow-1"
-                  style={{ maxWidth: "300px" }}
-                >
-                  <form
-                    onSubmit={(e) => {
-                      e.preventDefault();
-                      navigate(
-                        searchKey
-                          ? `/products?search=${encodeURIComponent(searchKey)}`
-                          : "/products"
-                      );
-                    }}
-                  >
-                    <div className="input-group">
-                      <input
-                        style={{ height: "45px" }}
-                        value={searchKey}
-                        onChange={(e) => setSearchKey(e.target.value)}
-                        type="text"
-                        className="form-control border-0"
-                        placeholder="Search Coffee, Beans..."
-                        aria-label="Search Coffee, Beans..."
-                        aria-describedby="search-addon"
-                      />
-                      <button
-                        className="btn"
-                        type="submit"
-                        id="search-addon"
-                        style={{ height: "45px" }}
-                      >
-                        <BsSearch className="fs-6" />
-                      </button>
-                    </div>
-                  </form>
-                </div>
                 {/* Search */}
                 <form
                   className="input-group"
