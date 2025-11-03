@@ -8,6 +8,8 @@ import Login from "../pages/Login";
 import SignUp from "../pages/SignUp";
 import AllProducts from "../pages/AllProducts";
 import ForgotPassword from "../pages/ForgotPassword";
+import ProductDetail from "../pages/ProductDetail";
+import UserProfile from "../pages/UserProfile";
 
 export function publicRoutes() {
   return [
