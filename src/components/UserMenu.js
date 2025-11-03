@@ -145,16 +145,21 @@ const UserMenu = () => {
             onMouseEnter={(e) => handleHover(e, true)}
             onMouseLeave={(e) => handleHover(e, false)}
           >
-            <img
-              src={thisUser?.picture || userIcon}
-              alt="user"
-              style={{
-                width: "28px",
-                height: "28px",
-                borderRadius: "50%",
-                objectFit: "cover",
-              }}
-            />
+            {thisUser?.picture ? (
+              <img
+                src={thisUser?.picture}
+                alt="user"
+                style={{
+                  width: "28px",
+                  height: "28px",
+                  borderRadius: "50%",
+                  objectFit: "cover",
+                }}
+              />
+            ) : (
+              <FaUserAlt width="18" height="18" />
+            )}
+
             <span
               className="d-none d-md-inline"
               style={{
