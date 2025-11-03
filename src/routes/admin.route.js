@@ -6,6 +6,7 @@ import CustomersList from "../pages/CustomersList";
 import BlogList from "../pages/BlogList";
 import AdminContactList from "../pages/AdminContactList";
 import { AuthorizationRoute } from "./authorization-route";
+import AdminOrderList from "../pages/AdminOrderList";
 
 export default function adminRoutes() {
   // Admin routes live under /admin and use DefaultAdminLayout
@@ -24,6 +25,7 @@ export default function adminRoutes() {
       { path: "feedbacks", element: <FeedbackAdmin /> },
       { path: "customers", element: <CustomersList /> },
       { path: "blogs", element: <BlogList /> },
+      { path: "order-list", element: <AdminOrderList /> },
     ],
   };
 }
