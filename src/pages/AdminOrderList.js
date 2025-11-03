@@ -5,6 +5,10 @@ import { toast } from 'react-toastify';
 
 
 export default function AdminOrderList() {
+  // Status filter and pagination
+  const [statusFilter, setStatusFilter] = useState(0); // 0 = all, else statusId
+  const [page, setPage] = useState(1);
+  const ITEMS_PER_PAGE = 12;
   const [orders, setOrders] = useState([]);
   const [orderItems, setOrderItems] = useState([]);
   const [statusList, setStatusList] = useState([]);
@@ -32,17 +36,33 @@ export default function AdminOrderList() {
   const [searchEmail, setSearchEmail] = useState("");
   const [searchDate, setSearchDate] = useState("");
 
+  // Sort orders by latest first (assuming orderedDate is ISO string or comparable)
+  const sortedOrders = [...orders].sort((a, b) => {
+    // If orderedDate is missing, treat as oldest
+    if (!a.orderedDate && !b.orderedDate) return 0;
+    if (!a.orderedDate) return 1;
+    if (!b.orderedDate) return -1;
+    // Compare date strings (YYYY-MM-DD)
+    return b.orderedDate.localeCompare(a.orderedDate);
+  });
+
   // Filtered orders
-  const filteredOrders = orders.filter(o => {
+  const filteredOrders = sortedOrders.filter(o => {
     const name = o.receiver?.fullName?.toLowerCase() || "";
     const email = o.receiver?.email?.toLowerCase() || "";
     const date = o.orderedDate || "";
+    const statusId = o.statusId || (statusNames.indexOf(o.status) + 1) || 1;
     return (
       (!searchName || name.includes(searchName.toLowerCase())) &&
       (!searchEmail || email.includes(searchEmail.toLowerCase())) &&
-      (!searchDate || date === searchDate)
+      (!searchDate || date === searchDate) &&
+      (statusFilter === 0 || statusId === statusFilter)
     );
   });
+
+  // Pagination
+  const totalPages = Math.ceil(filteredOrders.length / ITEMS_PER_PAGE);
+  const pagedOrders = filteredOrders.slice((page - 1) * ITEMS_PER_PAGE, page * ITEMS_PER_PAGE);
 
   const openDetail = (order) => {
     setCurrentDetail(order);
@@ -68,36 +88,49 @@ export default function AdminOrderList() {
         <Col md={3}>
           <Form.Group>
             <Form.Label>Tìm theo tên</Form.Label>
-            <Form.Control type="text" placeholder="Tên khách hàng" value={searchName} onChange={e => setSearchName(e.target.value)} />
+            <Form.Control type="text" placeholder="Tên khách hàng" value={searchName} onChange={e => { setSearchName(e.target.value); setPage(1); }} />
           </Form.Group>
         </Col>
         <Col md={3}>
           <Form.Group>
             <Form.Label>Tìm theo email</Form.Label>
-            <Form.Control type="text" placeholder="Email" value={searchEmail} onChange={e => setSearchEmail(e.target.value)} />
+            <Form.Control type="text" placeholder="Email" value={searchEmail} onChange={e => { setSearchEmail(e.target.value); setPage(1); }} />
           </Form.Group>
         </Col>
         <Col md={3}>
           <Form.Group>
             <Form.Label>Lọc theo ngày</Form.Label>
-            <Form.Control type="date" value={searchDate} onChange={e => setSearchDate(e.target.value)} />
+            <Form.Control type="date" value={searchDate} onChange={e => { setSearchDate(e.target.value); setPage(1); }} />
+          </Form.Group>
+        </Col>
+        <Col md={3}>
+          <Form.Group>
+            <Form.Label>Lọc theo trạng thái</Form.Label>
+            <Form.Select value={statusFilter} onChange={e => { setStatusFilter(Number(e.target.value)); setPage(1); }}>
+              <option value={0}>Tất cả</option>
+              {(statusList.length > 0 ? statusList : statusNames.map((name, i) => ({ id: i + 1, name }))).map((s, i) => (
+                <option key={s.id || i + 1} value={s.id || i + 1}>{s.name || s}</option>
+              ))}
+            </Form.Select>
           </Form.Group>
         </Col>
       </Row>
       <h3 className="mb-4">Orders</h3>
       <Row>
-        {filteredOrders.length === 0 && (
+        {pagedOrders.length === 0 && (
           <Col><div className="text-center text-muted">Không có đơn hàng phù hợp.</div></Col>
         )}
-        {filteredOrders.map((o, idx) => {
+        {pagedOrders.map((o, idx) => {
           const itemsForOrder = orderItems.filter(oi => oi.orderId === o.id);
+          // Ensure statusId is set for color mapping
+          const statusId = o.statusId || (statusNames.indexOf(o.status) + 1) || 1;
           return (
             <Col md={6} lg={4} key={o.id} className="mb-4">
-              <Card className="shadow-sm" style={{ background: colorBadge[o.statusId - 1] }}>
+              <Card className="shadow-sm" style={{ background: colorBadge[statusId - 1] }}>
                 <Card.Header className="d-flex justify-content-between align-items-center">
                   <div>
                     <span className="fw-bold" style={{ color: "#333" }}>ID: {o.id}</span>
-                    <Badge className="ms-2" bg={effectBadge[o.statusId - 1]}>{statusList[o.statusId - 1]?.name || o.status}</Badge>
+                    <Badge className="ms-2" bg={effectBadge[statusId - 1]}>{statusList[statusId - 1]?.name || o.status}</Badge>
                   </div>
                   <Button size="sm" variant="outline-dark" onClick={() => openDetail(o)}>Chi tiết</Button>
                 </Card.Header>
@@ -124,7 +157,7 @@ export default function AdminOrderList() {
                   <InputGroup className="mt-3">
                     <InputGroup.Text>Thay đổi trạng thái</InputGroup.Text>
                     <Form.Select
-                      value={o.statusId || (statusNames.indexOf(o.status) + 1) || 1}
+                      value={statusId}
                       onChange={e => updateStatus(o, e.target.value)}
                     >
                       {(statusList.length > 0 ? statusList : statusNames.map((name, i) => ({ id: i + 1, name }))).map((s, i) => (
@@ -138,6 +171,28 @@ export default function AdminOrderList() {
           );
         })}
       </Row>
+      {/* Pagination controls */}
+      {totalPages > 1 && (
+        <Row className="mt-4">
+          <Col className="d-flex justify-content-center">
+            <nav>
+              <ul className="pagination">
+                <li className={`page-item${page === 1 ? ' disabled' : ''}`}>
+                  <button className="page-link" onClick={() => setPage(page - 1)} disabled={page === 1}>Trước</button>
+                </li>
+                {Array.from({ length: totalPages }, (_, i) => (
+                  <li key={i + 1} className={`page-item${page === i + 1 ? ' active' : ''}`}>
+                    <button className="page-link" onClick={() => setPage(i + 1)}>{i + 1}</button>
+                  </li>
+                ))}
+                <li className={`page-item${page === totalPages ? ' disabled' : ''}`}>
+                  <button className="page-link" onClick={() => setPage(page + 1)} disabled={page === totalPages}>Sau</button>
+                </li>
+              </ul>
+            </nav>
+          </Col>
+        </Row>
+      )}
       <Modal
         size="lg"
         show={lgShow}
