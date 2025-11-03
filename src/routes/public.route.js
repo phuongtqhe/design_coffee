@@ -14,6 +14,8 @@ import AllProducts from "../pages/AllProducts";
 import UserProfile from "../pages/UserProfile";
 import ForgotPassword from "../pages/ForgotPassword";
 import BlogList from "../pages/BlogList";
+import Cart from "../pages/Cart";
+import Checkout from "../pages/Checkout";
 
 export function publicRoutes() {
   return [
@@ -32,13 +34,14 @@ export function publicRoutes() {
         { path: "feedback", element: <Feedback /> },
         { path: "products", element: <AllProducts /> },
         { path: "/profile/:id", element: <UserProfile /> },
+        { path: "cart", element: <Cart /> },
+        { path: "checkout", element: <Checkout /> },
       ],
     },
 
     // Các trang riêng biệt (không dùng Layout)
     { path: "/login", element: <Login /> },
     { path: "/signup", element: <SignUp /> },
-
     { path: "/admin/feedbacks", element: <FeedbackAdmin /> },
     { path: "/admin/customers", element: <CustomersList /> },
     { path: "/admin/contacts", element: <AdminContactList /> },
