@@ -6,9 +6,12 @@ import wish from "../images/wish.svg";
 import addcart from "../images/add-cart.svg";
 import view from "../images/view.svg";
 import axios from "axios";
+import AddToCartModal from "./AddToCartModal";
+
 const ProductCard = (props) => {
   const { grid, product } = props;
   const [brands, setBrands] = useState([]);
+  const [showAddToCartModal, setShowAddToCartModal] = useState(false);
   let location = useLocation();
 
   useEffect(() => {
@@ -36,43 +39,39 @@ const ProductCard = (props) => {
             </button>
             
             {/* Product Image */}
-            <Link to={`/product/${product.id}`} className="text-decoration-none">
-              <div className="product-image-container" style={{ height: "250px", overflow: "hidden" }}>
-                <img
-                  src={(product.images && product.images[0]) || "/logo192.png"}
-                  className="img-fluid w-100 h-100"
-                  alt={product.name || "product image"}
-                  style={{ objectFit: "cover", transition: "transform 0.3s ease" }}
-                  onMouseEnter={(e) => e.target.style.transform = "scale(1.05)"}
-                  onMouseLeave={(e) => e.target.style.transform = "scale(1)"}
-                />
-              </div>
-            </Link>
+            <div className="product-image-container" style={{ height: "250px", overflow: "hidden" }}>
+              <img
+                src={(product.images && product.images[0]) || "/logo192.png"}
+                className="img-fluid w-100 h-100"
+                alt={product.title || product.name || "product image"}
+                style={{ objectFit: "cover", transition: "transform 0.3s ease" }}
+                onMouseEnter={(e) => e.target.style.transform = "scale(1.05)"}
+                onMouseLeave={(e) => e.target.style.transform = "scale(1)"}
+              />
+            </div>
           </div>
           
           {/* Product Details */}
           <div className="card-body d-flex flex-column">
             <div className="mb-2">
               <small className="text-muted text-uppercase fw-medium">
-                {brands.find((b) => b.id === product.brand)?.name || product.name || "Coffee"}
+                {brands.find((b) => b.id === product.brand)?.name || product.title || product.name || "Coffee"}
               </small>
             </div>
             
-            <Link to={`/product/${product.id}`} className="text-decoration-none text-dark">
-              <h5
-                className="card-title mb-2"
-                style={{
-                  overflow: "hidden",
-                  whiteSpace: "nowrap",
-                  textOverflow: "ellipsis",
-                  fontSize: "1.1rem",
-                  fontWeight: "600"
-                }}
-                title={product.describe || product.name}
-              >
-                {product.describe || product.name}
-              </h5>
-            </Link>
+            <h5
+              className="card-title mb-2"
+              style={{
+                overflow: "hidden",
+                whiteSpace: "nowrap",
+                textOverflow: "ellipsis",
+                fontSize: "1.1rem",
+                fontWeight: "600"
+              }}
+              title={product.description || product.describe || product.title || product.name}
+            >
+              {product.description || product.describe || product.title || product.name}
+            </h5>
             
             <div className="mb-2">
               <ReactStars
@@ -108,6 +107,7 @@ const ProductCard = (props) => {
                 <button 
                   className="btn btn-success btn-sm flex-fill fw-bold"
                   title="Add to Cart"
+                  onClick={() => setShowAddToCartModal(true)}
                   style={{ 
                     background: "linear-gradient(135deg, #28a745, #20c997)",
                     border: "none",
@@ -132,6 +132,13 @@ const ProductCard = (props) => {
         </div>
       </div>
       )}
+
+      {/* Add to Cart Modal */}
+      <AddToCartModal 
+        show={showAddToCartModal}
+        onHide={() => setShowAddToCartModal(false)}
+        product={product}
+      />
     </>
   );
 };

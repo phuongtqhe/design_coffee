@@ -1,14 +1,14 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import { NavLink, Link, useNavigate } from "react-router-dom";
 import { BsSearch } from "react-icons/bs";
 import { useAuthentication } from "../utils/use-authentication";
-import { CartContext } from "./CartContext";
+import { useCart } from "./CartContext";
 import UserMenu from "./UserMenu";
 
 const Header = () => {
   const navigate = useNavigate();
   const {isLogged, currentUser} = useAuthentication();
-  const {cartQuantity} = useContext(CartContext);
+  const { cartCount } = useCart();
   const [thisUser, setThisUser] = useState(null);
   const [searchKey, setSearchKey] = useState("");
 
@@ -26,7 +26,7 @@ const Header = () => {
 
   const handleSearch = (e) => {
     e.preventDefault();
-    navigate(searchKey ? `/product?search=${searchKey}` : "/product");
+    navigate(searchKey ? `/products?search=${encodeURIComponent(searchKey)}` : "/products");
   };
   // ✅ Lấy user từ sessionStorage để kiểm tra role
   const userData = JSON.parse(sessionStorage.getItem("data"));
@@ -125,6 +125,44 @@ const Header = () => {
                     </div>
                   </form>
                 </div>
+                {/* Search */}
+                <form
+                  className="input-group"
+                  style={{
+                    maxWidth: "300px",
+                    border: "1px solid #e9ecef",
+                    borderRadius: "1000px",
+                    overflow: "hidden",
+                    height: "45px",
+                  }}
+                  onSubmit={handleSearch}
+                >
+                  <input
+                    type="text"
+                    className="form-control border-0"
+                    style={{
+                      height: "45px",
+                      border: "none",
+                      borderRadius: 0,
+                      boxShadow: "none",
+                    }}
+                    placeholder="Search Coffee, Beans..."
+                    value={searchKey}
+                    onChange={(e) => setSearchKey(e.target.value)}
+                  />
+                  <button
+                    className="btn"
+                    type="submit"
+                    style={{
+                      height: "45px",
+                      border: "none",
+                      background: "transparent",
+                      padding: "0 12px",
+                    }}
+                  >
+                    <BsSearch className="fs-6" />
+                  </button>
+                </form>
 
                 {/* User Menu */}
                 <UserMenu />

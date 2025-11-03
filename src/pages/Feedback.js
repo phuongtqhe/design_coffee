@@ -6,14 +6,19 @@ const Feedback = () => {
   const [comment, setComment] = useState("");
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
+  const [showHistory, setShowHistory] = useState(false);
+  const [feedbackHistory, setFeedbackHistory] = useState([]);
 
+  const userId = JSON.parse(sessionStorage.getItem("data"))?.email || "guest@example.com";
+
+  // Gửi feedback mới
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
     setMessage("");
 
     const newFeedback = {
-      userId: localStorage.getItem("userEmail") || "guest@example.com",
+      userId,
       rating,
       comment,
       reply: "",
@@ -42,10 +47,25 @@ const Feedback = () => {
     }
   };
 
+  // Hiển thị lịch sử feedback
+  const handleShowHistory = async () => {
+    try {
+      const res = await fetch(`http://localhost:9999/feedbacks?userId=${userId}`);
+      const data = await res.json();
+      setFeedbackHistory(data);
+      setShowHistory(!showHistory);
+    } catch (error) {
+      console.error("Error fetching feedback history:", error);
+      setMessage("❌ Failed to load history.");
+    }
+  };
+
   return (
-    <div className="container mt-5" style={{ maxWidth: "600px" }}>
+    <div className="container mt-5" style={{ maxWidth: "700px" }}>
       <h2 className="text-center mb-4">Customer Feedback</h2>
+
       <form onSubmit={handleSubmit}>
+        {/* Rating Stars */}
         <div className="mb-3 text-center">
           {[...Array(5)].map((_, index) => {
             const currentRating = index + 1;
@@ -54,9 +74,10 @@ const Feedback = () => {
                 key={index}
                 style={{
                   fontSize: "2rem",
-                  color: currentRating <= (hover || rating)
-                    ? "#ffc107"
-                    : "#e4e5e9",
+                  color:
+                    currentRating <= (hover || rating)
+                      ? "#ffc107"
+                      : "#e4e5e9",
                   cursor: "pointer",
                 }}
                 onClick={() => setRating(currentRating)}
@@ -69,6 +90,7 @@ const Feedback = () => {
           })}
         </div>
 
+        {/* Comment box */}
         <div className="mb-3">
           <label className="form-label">Your Comment:</label>
           <textarea
@@ -80,14 +102,26 @@ const Feedback = () => {
           ></textarea>
         </div>
 
-        <button
-          type="submit"
-          className="btn btn-success w-100"
-          disabled={loading}
-        >
-          {loading ? "Sending..." : "Send Feedback"}
-        </button>
+        {/* Buttons */}
+        <div className="d-flex flex-column gap-3">
+          <button
+            type="submit"
+            className="btn btn-success w-100"
+            disabled={loading}
+          >
+            {loading ? "Sending..." : "Send Feedback"}
+          </button>
 
+          <button
+            type="button"
+            className="btn btn-outline-primary w-100"
+            onClick={handleShowHistory}
+          >
+            {showHistory ? "Hide History" : "History List"}
+          </button>
+        </div>
+
+        {/* Message */}
         {message && (
           <p
             className={`mt-3 text-center ${
@@ -98,6 +132,45 @@ const Feedback = () => {
           </p>
         )}
       </form>
+
+      {/* History Table */}
+      {showHistory && (
+        <div className="mt-4">
+          <h4 className="text-center mb-3">Your Feedback History</h4>
+          {feedbackHistory.length === 0 ? (
+            <p className="text-center text-muted">No feedback found.</p>
+          ) : (
+            <div className="table-responsive">
+              <table className="table table-striped table-bordered align-middle text-center">
+                <thead className="table-light">
+                  <tr>
+                    <th>#</th>
+                    <th>Rating</th>
+                    <th>Comment</th>
+                    <th>Created At</th>
+                    <th>Reply</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {feedbackHistory.map((fb, index) => (
+                    <tr key={fb.id}>
+                      <td>{index + 1}</td>
+                      <td>{fb.rating} ★</td>
+                      <td>{fb.comment}</td>
+                      <td>
+                        {new Date(fb.createdAt).toLocaleString("en-GB", {
+                          hour12: false,
+                        })}
+                      </td>
+                      <td>{fb.reply || "—"}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          )}
+        </div>
+      )}
     </div>
   );
 };
