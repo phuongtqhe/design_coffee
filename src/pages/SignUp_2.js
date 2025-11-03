@@ -10,7 +10,7 @@ const SignUp = () => {
     email: "",
     password: "",
     confirmPassword: "",
-    phone: ""
+    phone: "",
   });
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
@@ -18,13 +18,13 @@ const SignUp = () => {
   const handleChange = (e) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     if (formData.password !== formData.confirmPassword) {
       toast.error("Passwords do not match");
       return;
@@ -46,16 +46,16 @@ const SignUp = () => {
           state: "",
           city: "",
           detailAddress: "",
-          zipcode: ""
-        }
+          zipcode: "",
+        },
       };
 
       // For demo purposes, we'll just show success message
       // In a real app, you'd POST to create the user
       console.log("New user:", newUser);
-      
+
       toast.success("Account created successfully! Please sign in.");
-      navigate('/login');
+      navigate("/login");
     } catch (error) {
       toast.error("Failed to create account. Please try again.");
     } finally {
@@ -78,7 +78,9 @@ const SignUp = () => {
                 <form onSubmit={handleSubmit}>
                   <div className="row">
                     <div className="col-12 col-md-6 mb-3">
-                      <label htmlFor="name" className="form-label">Full Name</label>
+                      <label htmlFor="name" className="form-label">
+                        Full Name
+                      </label>
                       <input
                         type="text"
                         className="form-control"
@@ -92,7 +94,9 @@ const SignUp = () => {
                     </div>
 
                     <div className="col-12 col-md-6 mb-3">
-                      <label htmlFor="phone" className="form-label">Phone Number</label>
+                      <label htmlFor="phone" className="form-label">
+                        Phone Number
+                      </label>
                       <input
                         type="tel"
                         className="form-control"
@@ -106,7 +110,9 @@ const SignUp = () => {
                   </div>
 
                   <div className="mb-3">
-                    <label htmlFor="email" className="form-label">Email Address</label>
+                    <label htmlFor="email" className="form-label">
+                      Email Address
+                    </label>
                     <input
                       type="email"
                       className="form-control"
@@ -121,7 +127,9 @@ const SignUp = () => {
 
                   <div className="row">
                     <div className="col-12 col-md-6 mb-3">
-                      <label htmlFor="password" className="form-label">Password</label>
+                      <label htmlFor="password" className="form-label">
+                        Password
+                      </label>
                       <input
                         type="password"
                         className="form-control"
@@ -135,7 +143,9 @@ const SignUp = () => {
                     </div>
 
                     <div className="col-12 col-md-6 mb-4">
-                      <label htmlFor="confirmPassword" className="form-label">Confirm Password</label>
+                      <label htmlFor="confirmPassword" className="form-label">
+                        Confirm Password
+                      </label>
                       <input
                         type="password"
                         className="form-control"
@@ -149,14 +159,18 @@ const SignUp = () => {
                     </div>
                   </div>
 
-                  <button 
-                    type="submit" 
+                  <button
+                    type="submit"
                     className="btn btn-primary w-100 mb-3"
                     disabled={loading}
                   >
                     {loading ? (
                       <>
-                        <span className="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+                        <span
+                          className="spinner-border spinner-border-sm me-2"
+                          role="status"
+                          aria-hidden="true"
+                        ></span>
                         Creating Account...
                       </>
                     ) : (
@@ -167,7 +181,10 @@ const SignUp = () => {
                   <div className="text-center">
                     <p className="mb-0">
                       Already have an account?{" "}
-                      <Link to="/login" className="text-primary text-decoration-none">
+                      <Link
+                        to="/login"
+                        className="text-primary text-decoration-none"
+                      >
                         Sign in here
                       </Link>
                     </p>

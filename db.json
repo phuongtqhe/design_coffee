@@ -20,25 +20,6 @@
       "updatedAt": ""
     },
     {
-      "id": "anhnhhe172682@fpt.edu.vn",
-      "userName": "Chim Xanh",
-      "email": "anhnhhe172682@fpt.edu.vn",
-      "password": "$2b$10$GuqSxHOiFrEzFb6ZvH8uDeMBOe8SdOh2GAKSccScsxHpeFU7O4Nxu",
-      "picture": "",
-      "phone": "0123456789",
-      "role": "customer",
-      "status": "active",
-      "address": {
-        "country": "Việt Nam",
-        "city": "Hà Nội",
-        "zipcode": "10000",
-        "street": "Hoàng Mai",
-        "detailAddress": "Số 123, Đường ABC"
-      },
-      "createdAt": "2025-10-25T02:26:13.056Z",
-      "updatedAt": "2025-10-26T03:27:15.420Z"
-    },
-    {
       "id": "2",
       "userName": "Hoàng Anh Nguyễn",
       "email": "nguyenhoanganh21003@gmail.com",
@@ -58,33 +39,23 @@
       "updatedAt": "2025-10-25T03:29:05.449Z"
     },
     {
-      "id": "thanhdhhe180811@fpt.edu.vn",
-      "email": "thanhdhhe180811@fpt.edu.vn",
-      "name": "Do Huy Thanh (K18 HL)",
-      "picture": "https://lh3.googleusercontent.com/a/ACg8ocJ0S1guyU4Bn9cNTXVZPEV8MXCTPhWLE-oGJrRag2E75lxdpA=s96-c",
-      "role": "customer"
-    },
-    {
-      "id": "thanhdhhe180811@fpt.edu.vn",
-      "email": "thanhdhhe180811@fpt.edu.vn",
-      "name": "Do Huy Thanh (K18 HL)",
-      "picture": "https://lh3.googleusercontent.com/a/ACg8ocJ0S1guyU4Bn9cNTXVZPEV8MXCTPhWLE-oGJrRag2E75lxdpA=s96-c",
-      "role": "customer"
-    },
-    {
-      "id": "thanhbeyond2004@gmail.com",
-      "name": "AdminZZZ",
-      "email": "thanhbeyond2004@gmail.com",
-      "password": "0988982558Thanh",
-      "phone": "0912345678",
+      "id": "3",
+      "userName": "Hoang Anh",
+      "email": "kbbgbro@gmail.com",
+      "password": "$2b$10$KOLMKFEHUfV5PmWIXH2U9uc1eSJ5PEYQtBXFbijidr5318kALNWFK",
+      "picture": "",
+      "phone": "0123456789",
+      "role": "admin",
+      "status": "active",
       "address": {
-        "country": "VietNam",
-        "state": "",
+        "country": "Việt Nam",
         "city": "Hà Nội",
-        "detailAddress": "188 Quang Trung",
-        "zipcode": "100000000"
+        "zipcode": "10000",
+        "street": "Hoàng Mai",
+        "detailAddress": "Số 123, Đường ABC"
       },
-      "role": "admin"
+      "createdAt": "2025-11-02T02:36:24.228Z",
+      "updatedAt": "2025-11-02T02:36:24.228Z"
     }
   ],
   "categories": [
@@ -135,9 +106,7 @@
         "https://product.hstatic.net/1000075078/product/1746441451_caramel-coffee_dc2004f6d8144f2f8b7512ba95319ef7_large.png",
         "/logo192.png"
       ],
-      "toppings": [
-        ""
-      ],
+      "toppings": [""],
       "details": [],
       "createdAt": "",
       "updatedAt": ""
@@ -155,9 +124,7 @@
         "https://product.hstatic.net/1000075078/product/1746441372_halzenut-latte_3ef994056c3b4765a600e853f6cca72d_large.png",
         "/logo192.png"
       ],
-      "toppings": [
-        ""
-      ],
+      "toppings": [""],
       "details": [],
       "createdAt": "",
       "updatedAt": ""
@@ -175,9 +142,7 @@
         "https://product.hstatic.net/1000075078/product/1746441267_latte-bac-xiu_a6fe420fef6f4ec7a2e4f87e9e03ef4b_large.png",
         "/logo192.png"
       ],
-      "toppings": [
-        ""
-      ],
+      "toppings": [""],
       "details": [],
       "createdAt": "",
       "updatedAt": ""
@@ -195,9 +160,7 @@
         "https://product.hstatic.net/1000075078/product/1737357108_cappucino-nong_f78c106928fe4c418906763d3dfa4b29_large.png",
         "/logo192.png"
       ],
-      "toppings": [
-        ""
-      ],
+      "toppings": [""],
       "details": [],
       "createdAt": "",
       "updatedAt": ""
@@ -215,9 +178,7 @@
         "https://product.hstatic.net/1000075078/product/1737357135_caramel-macchiato-da_d0a3250162e6427ab8808d8bc35012ec_large.png",
         "/logo192.png"
       ],
-      "toppings": [
-        ""
-      ],
+      "toppings": [""],
       "details": [],
       "createdAt": "",
       "updatedAt": ""
@@ -235,9 +196,7 @@
         "https://product.hstatic.net/1000075078/product/1737357444_espresso-nong_2ac99445a9fc4619a45761a5023b538c_large.png",
         "/logo192.png"
       ],
-      "toppings": [
-        ""
-      ],
+      "toppings": [""],
       "details": [],
       "createdAt": "",
       "updatedAt": ""
@@ -255,9 +214,7 @@
         "https://product.hstatic.net/1000075078/product/1737357451_latte-nong_5072d19ea4af4c28a1f9f307e49d3af9_large.png",
         "/logo192.png"
       ],
-      "toppings": [
-        ""
-      ],
+      "toppings": [""],
       "details": [],
       "createdAt": "",
       "updatedAt": ""
@@ -275,9 +232,7 @@
         "https://product.hstatic.net/1000075078/product/1737357020_bac-xiu-da_43a593b61b8e44379111a9ebb00904d9_large.png",
         "/logo192.png"
       ],
-      "toppings": [
-        ""
-      ],
+      "toppings": [""],
       "details": [],
       "createdAt": "",
       "updatedAt": ""
@@ -295,9 +250,7 @@
         "https://product.hstatic.net/1000075078/product/1737357029_bac-xiu-nong_e0a0732dee144dfda4e3cb43949ce065_large.png",
         "/logo192.png"
       ],
-      "toppings": [
-        ""
-      ],
+      "toppings": [""],
       "details": [],
       "createdAt": "",
       "updatedAt": ""
@@ -315,9 +268,7 @@
         "https://product.hstatic.net/1000075078/product/1737356988_cf-den-da_25422ed38d5a4696bc1af22266ac7589_large.png",
         "/logo192.png"
       ],
-      "toppings": [
-        ""
-      ],
+      "toppings": [""],
       "details": [],
       "createdAt": "",
       "updatedAt": ""
@@ -335,9 +286,7 @@
         "https://gongcha.com.vn/wp-content/uploads/2021/03/ALISAN-TRÁI-CÂY-768x768.png",
         "/logo192.png"
       ],
-      "toppings": [
-        ""
-      ],
+      "toppings": [""],
       "details": [],
       "createdAt": "",
       "updatedAt": ""
@@ -355,9 +304,7 @@
         "https://gongcha.com.vn/wp-content/uploads/2018/02/Chanh-Aiyu-trân-châu-trắng-2-768x768.png",
         "/logo192.png"
       ],
-      "toppings": [
-        ""
-      ],
+      "toppings": [""],
       "details": [],
       "createdAt": "",
       "updatedAt": ""
@@ -375,9 +322,7 @@
         "https://gongcha.com.vn/wp-content/uploads/2018/02/Đào-hồng-mận-hột-é-1-768x768.png",
         "/logo192.png"
       ],
-      "toppings": [
-        ""
-      ],
+      "toppings": [""],
       "details": [],
       "createdAt": "",
       "updatedAt": ""
@@ -395,9 +340,7 @@
         "https://gongcha.com.vn/wp-content/uploads/2018/02/Oolong-vải-2-768x768.png",
         "/logo192.png"
       ],
-      "toppings": [
-        ""
-      ],
+      "toppings": [""],
       "details": [],
       "createdAt": "",
       "updatedAt": ""
@@ -415,9 +358,7 @@
         "https://gongcha.com.vn/wp-content/uploads/2018/02/Alisan-vải-2-768x768.png",
         "/logo192.png"
       ],
-      "toppings": [
-        ""
-      ],
+      "toppings": [""],
       "details": [],
       "createdAt": "",
       "updatedAt": ""
@@ -435,9 +376,7 @@
         "https://gongcha.com.vn/wp-content/uploads/2018/02/Đen-đào-2-768x768.png",
         "/logo192.png"
       ],
-      "toppings": [
-        ""
-      ],
+      "toppings": [""],
       "details": [],
       "createdAt": "",
       "updatedAt": ""
@@ -455,9 +394,7 @@
         "https://gongcha.com.vn/wp-content/uploads/2024/12/STAWBERRY-8.png",
         "/logo192.png"
       ],
-      "toppings": [
-        ""
-      ],
+      "toppings": [""],
       "details": [],
       "createdAt": "",
       "updatedAt": ""
@@ -475,9 +412,7 @@
         "https://gongcha.com.vn/wp-content/uploads/2024/12/OKINAWA-8.png",
         "/logo192.png"
       ],
-      "toppings": [
-        ""
-      ],
+      "toppings": [""],
       "details": [],
       "createdAt": "",
       "updatedAt": ""
@@ -495,9 +430,7 @@
         "https://gongcha.com.vn/wp-content/uploads/2024/07/Tra-sua-Earl-Grey-Carvia_web.png",
         "/logo192.png"
       ],
-      "toppings": [
-        ""
-      ],
+      "toppings": [""],
       "details": [],
       "createdAt": "",
       "updatedAt": ""
@@ -515,9 +448,7 @@
         "https://gongcha.com.vn/wp-content/uploads/2023/11/Tra-sua-Earl-Grey-768x768.png",
         "/logo192.png"
       ],
-      "toppings": [
-        ""
-      ],
+      "toppings": [""],
       "details": [],
       "createdAt": "",
       "updatedAt": ""
@@ -535,9 +466,7 @@
         "https://gongcha.com.vn/wp-content/uploads/2021/12/Tra-Sua-Dao.png",
         "/logo192.png"
       ],
-      "toppings": [
-        ""
-      ],
+      "toppings": [""],
       "details": [],
       "createdAt": "",
       "updatedAt": ""
@@ -555,9 +484,7 @@
         "https://gongcha.com.vn/wp-content/uploads/2019/06/Tra-Sua-Xoai.png",
         "/logo192.png"
       ],
-      "toppings": [
-        ""
-      ],
+      "toppings": [""],
       "details": [],
       "createdAt": "",
       "updatedAt": ""
@@ -575,9 +502,7 @@
         "https://gongcha.com.vn/wp-content/uploads/2018/02/Trà-sữa-Oolong-3J-2-768x768.png",
         "/logo192.png"
       ],
-      "toppings": [
-        ""
-      ],
+      "toppings": [""],
       "details": [],
       "createdAt": "",
       "updatedAt": ""
@@ -595,9 +520,7 @@
         "https://gongcha.com.vn/wp-content/uploads/2018/02/Trà-sữa-Pudding-đậu-đỏ-2-768x768.png",
         "/logo192.png"
       ],
-      "toppings": [
-        ""
-      ],
+      "toppings": [""],
       "details": [],
       "createdAt": "",
       "updatedAt": ""
@@ -615,9 +538,7 @@
         "https://gongcha.com.vn/wp-content/uploads/2018/02/Trà-sữa-Chocolate-2-768x768.png",
         "/logo192.png"
       ],
-      "toppings": [
-        ""
-      ],
+      "toppings": [""],
       "details": [],
       "createdAt": "",
       "updatedAt": ""
@@ -635,9 +556,7 @@
         "https://gongcha.com.vn/wp-content/uploads/2018/02/Trà-sữa-Trân-châu-đen-1.png",
         "/logo192.png"
       ],
-      "toppings": [
-        ""
-      ],
+      "toppings": [""],
       "details": [],
       "createdAt": "",
       "updatedAt": ""
@@ -655,9 +574,7 @@
         "https://gongcha.com.vn/wp-content/uploads/2018/01/Trà-sữa-Khoai-môn-2-768x768.png",
         "/logo192.png"
       ],
-      "toppings": [
-        ""
-      ],
+      "toppings": [""],
       "details": [],
       "createdAt": "",
       "updatedAt": ""
@@ -675,9 +592,7 @@
         "https://tse4.mm.bing.net/th/id/OIP.U-otG2TFJ3hvCSN-Qa0k4AHaFj?cb=12&w=768&h=576&rs=1&pid=ImgDetMain&o=7&rm=3",
         "/logo192.png"
       ],
-      "toppings": [
-        ""
-      ],
+      "toppings": [""],
       "details": [],
       "createdAt": "",
       "updatedAt": ""
@@ -695,9 +610,7 @@
         "https://tse3.mm.bing.net/th/id/OIP.ptp9yUIDiWwKfTsy4-NiyAHaE8?cb=12&w=900&h=600&rs=1&pid=ImgDetMain&o=7&rm=3",
         "/logo192.png"
       ],
-      "toppings": [
-        ""
-      ],
+      "toppings": [""],
       "details": [],
       "createdAt": "",
       "updatedAt": ""
@@ -883,51 +796,111 @@
   ],
   "stores": [
     {
-      "id": "",
-      "name": "",
-      "address": "",
-      "city": "",
-      "country": "",
-      "zipcode": "",
-      "phone": "",
-      "mapUrl": ""
+      "id": "1",
+      "name": "Design Coffe 1",
+      "address": "Số 1 ABC",
+      "city": "Hà Nội",
+      "country": "Việt Nam",
+      "zipcode": "10000",
+      "phone": "0243456789",
+      "mapUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3404.423361684905!2d105.5232986748485!3d21.012776680632605!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135abc60e7d3f19%3A0x2be9d7d0b5abcbf4!2zVHLGsOG7nW5nIMSQ4bqhaSBo4buNYyBGUFQgSMOgIE7hu5lp!5e1!3m2!1svi!2s!4v1761970808735!5m2!1svi!2s"
+    },
+    {
+      "id": "2",
+      "name": "Design Coffe 2",
+      "address": "Số 2 ABC",
+      "city": "Hà Nội",
+      "country": "Việt Nam",
+      "zipcode": "10000",
+      "phone": "0243456789",
+      "mapUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3404.423361684905!2d105.5232986748485!3d21.012776680632605!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135abc60e7d3f19%3A0x2be9d7d0b5abcbf4!2zVHLGsOG7nW5nIMSQ4bqhaSBo4buNYyBGUFQgSMOgIE7hu5lp!5e1!3m2!1svi!2s!4v1761970808735!5m2!1svi!2s"
+    },
+    {
+      "id": "3",
+      "name": "Design Coffe 3",
+      "address": "Số 3 ABC",
+      "city": "Hà Nội",
+      "country": "Việt Nam",
+      "zipcode": "10000",
+      "phone": "0243456789",
+      "mapUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3404.423361684905!2d105.5232986748485!3d21.012776680632605!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135abc60e7d3f19%3A0x2be9d7d0b5abcbf4!2zVHLGsOG7nW5nIMSQ4bqhaSBo4buNYyBGUFQgSMOgIE7hu5lp!5e1!3m2!1svi!2s!4v1761970808735!5m2!1svi!2s"
     }
   ],
   "orders": [
     {
-      "id": "",
-      "userId": "",
+      "id": "ord_1",
+      "userId": "3",
       "receiver": {
-        "fullName": "",
-        "email": "",
-        "mobile": "",
+        "fullName": "Chim Xanh",
+        "email": "anhnhhe172682@fpt.edu.vn",
+        "mobile": "0123456789",
         "address": {
-          "country": "",
-          "city": "",
-          "zipcode": "",
-          "street": "",
-          "detailAddress": ""
+          "country": "Việt Nam",
+          "city": "Hà Nội",
+          "zipcode": "10000",
+          "street": "Hoàng Mai",
+          "detailAddress": "Số 123, Đường ABC"
         }
       },
-      "totalPrice": 0,
-      "status": "pending | confirmed | delivering | completed | cancelled",
-      "orderedDate": "",
-      "orderedTime": ""
+      "totalPrice": 7.5,
+      "status": "completed",
+      "orderedDate": "2025-10-29",
+      "orderedTime": "15:23:55"
+    },
+    {
+      "id": "ord_2",
+      "userId": "3",
+      "receiver": {
+        "fullName": "Chim Xanh",
+        "email": "anhnhhe172682@fpt.edu.vn",
+        "mobile": "0123456789",
+        "address": {
+          "country": "Việt Nam",
+          "city": "Hà Nội",
+          "zipcode": "10000",
+          "street": "Hoàng Mai",
+          "detailAddress": "Số 123, Đường ABC"
+        }
+      },
+      "totalPrice": 2.5,
+      "status": "pending",
+      "orderedDate": "2025-10-30",
+      "orderedTime": "09:40:10"
     }
   ],
   "orderItems": [
     {
-      "id": "",
-      "orderId": "",
-      "productId": "",
-      "quantity": 0,
-      "unitPrice": 0,
-      "toppingIds": [
-        ""
-      ],
-      "iceLevel": "",
-      "sugarLevel": "",
-      "totalCost": 0
+      "id": "oi_1",
+      "orderId": "ord_1",
+      "productId": "300",
+      "quantity": 1,
+      "unitPrice": 2.5,
+      "toppingIds": [],
+      "iceLevel": "normal",
+      "sugarLevel": "normal",
+      "totalCost": 2.5
+    },
+    {
+      "id": "oi_2",
+      "orderId": "ord_1",
+      "productId": "106",
+      "quantity": 2,
+      "unitPrice": 2.5,
+      "toppingIds": [],
+      "iceLevel": "less ice",
+      "sugarLevel": "half sugar",
+      "totalCost": 5
+    },
+    {
+      "id": "oi_3",
+      "orderId": "ord_2",
+      "productId": "300",
+      "quantity": 1,
+      "unitPrice": 2.5,
+      "toppingIds": [],
+      "iceLevel": "less ice",
+      "sugarLevel": "normal",
+      "totalCost": 2.5
     }
   ]
 }
