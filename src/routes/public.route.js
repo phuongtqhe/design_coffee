@@ -13,6 +13,7 @@ import AdminContactList from "../pages/AdminContactList";
 import AllProducts from "../pages/AllProducts";
 import UserProfile from "../pages/UserProfile";
 import ForgotPassword from "../pages/ForgotPassword";
+import BlogList from "../pages/BlogList";
 
 export function publicRoutes() {
   return [
@@ -34,14 +35,14 @@ export function publicRoutes() {
       ],
     },
 
-    // 🔹 Các trang riêng biệt (không dùng Layout)
+    // Các trang riêng biệt (không dùng Layout)
     { path: "/login", element: <Login /> },
     { path: "/signup", element: <SignUp /> },
 
-    // 🔹 Thêm route admin (vì bạn không muốn đổi router.js)
     { path: "/admin/feedbacks", element: <FeedbackAdmin /> },
     { path: "/admin/customers", element: <CustomersList /> },
     { path: "/admin/contacts", element: <AdminContactList /> },
+    { path: "/admin/blogs", element: <BlogList /> },
     { path: "/reset-password", element: <ForgotPassword /> },
   ];
 }
