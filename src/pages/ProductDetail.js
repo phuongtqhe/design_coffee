@@ -3,8 +3,10 @@ import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import ReactStars from "react-rating-stars-component";
 import Container from "../components/Container";
+import ProductCard from "../components/ProductCard";
 import addcart from "../images/add-cart.svg";
-import wish from "../images/wish.svg";
+import { useCart } from "../components/CartContext";
+import { toast } from "react-toastify";
 
 const ProductDetail = () => {
   const { id } = useParams();
@@ -14,6 +16,38 @@ const ProductDetail = () => {
   const [loading, setLoading] = useState(true);
   const [selectedImage, setSelectedImage] = useState(0);
   const [selectedSize, setSelectedSize] = useState("medium");
+  const [relatedProducts, setRelatedProducts] = useState([]);
+
+  const sizes = [
+    { label: "Nhỏ", value: "small", price: 0 },
+    { label: "Vừa", value: "medium", price: 10000 },
+    { label: "Lớn", value: "large", price: 20000 },
+  ];
+
+  // Options similar to AddToCartModal
+  const [options, setOptions] = useState({
+    iceLevel: "Bình thường",
+    sugarLevel: "100%",
+    toppings: [],
+    quantity: 1,
+    size: selectedSize,
+  });
+
+  const availableToppings = [
+    { name: "Trân châu đen", price: 5000 },
+    { name: "Trân châu trắng", price: 5000 },
+    { name: "Thạch trái cây", price: 7000 },
+    { name: "Pudding", price: 8000 },
+    { name: "Kem cheese", price: 10000 },
+    { name: "Whipped cream", price: 6000 }
+  ];
+
+  const { addToCart } = useCart();
+
+  // Sync size into options when selectedSize changes
+  useEffect(() => {
+    setOptions(prev => ({ ...prev, size: selectedSize }));
+  }, [selectedSize]);
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -28,6 +62,17 @@ const ProductDetail = () => {
             `http://localhost:9999/categories/${productRes.data.categoryId}`
           );
           setCategory(categoryRes.data);
+          // Fetch related products in same category (exclude current product)
+          try {
+            const relRes = await axios.get(
+              `http://localhost:9999/products?categoryId=${productRes.data.categoryId}`
+            );
+            const rel = (relRes.data || []).filter(p => String(p.id) !== String(productRes.data.id)).slice(0,4);
+            setRelatedProducts(rel);
+          } catch (err) {
+            console.error('Error fetching related products', err);
+            setRelatedProducts([]);
+          }
         }
       } catch (error) {
         console.error("Error fetching product:", error);
@@ -64,14 +109,47 @@ const ProductDetail = () => {
     );
   }
 
-  const sizes = [
-    { label: "Nhỏ", value: "small", price: 0 },
-    { label: "Vừa", value: "medium", price: 10000 },
-    { label: "Lớn", value: "large", price: 20000 },
-  ];
-
   const currentSize = sizes.find((s) => s.value === selectedSize);
   const finalPrice = product.price + (currentSize?.price || 0);
+
+  const handleToppingChange = (topping) => {
+    setOptions(prev => ({
+      ...prev,
+      toppings: prev.toppings.includes(topping.name)
+        ? prev.toppings.filter(t => t !== topping.name)
+        : [...prev.toppings, topping.name]
+    }));
+  };
+
+  const calculateToppingPrice = () => {
+    return options.toppings.reduce((sum, name) => {
+      const t = availableToppings.find(x => x.name === name);
+      return sum + (t ? t.price : 0);
+    }, 0);
+  };
+
+  const calculateTotalPrice = () => {
+    const sizeExtra = sizes.find(s => s.value === options.size)?.price || 0;
+    const base = (product.price + sizeExtra + calculateToppingPrice()) * (options.quantity || 1);
+    return base;
+  };
+
+  const handleAddToCart = () => {
+    // Build options object expected by CartContext
+    const cartOptions = {
+      iceLevel: options.iceLevel,
+      sugarLevel: options.sugarLevel,
+      toppings: options.toppings,
+      quantity: options.quantity
+    };
+    addToCart(product, cartOptions);
+    toast.success(`Đã thêm ${product.name || product.title} vào giỏ hàng!`);
+  };
+
+  const handleBuyNow = () => {
+    handleAddToCart();
+    navigate('/checkout');
+  };
 
   return (
     <Container class1="product-detail-wrapper py-5">
@@ -135,7 +213,8 @@ const ProductDetail = () => {
             </nav>
 
             {/* Product Title */}
-            <h1 className="h2 fw-bold mb-3">{product.name}</h1>
+            <h1 className="h2 fw-bold mb-3">{product.title}</h1>
+            <i className="mt-3">{product.description}</i>
 
             {/* Rating */}
             <div className="d-flex align-items-center gap-3 mb-3">
@@ -202,25 +281,110 @@ const ProductDetail = () => {
               </div>
             </div>
 
-            {/* Action Buttons */}
-            <div className="d-flex gap-3 mb-4">
-              <button
-                className="btn btn-success btn-lg flex-grow-1 d-flex align-items-center justify-content-center gap-2"
-                style={{
-                  background: "linear-gradient(135deg, #28a745, #20c997)",
-                  border: "none",
-                  boxShadow: "0 4px 12px rgba(40, 167, 69, 0.3)",
-                }}
-              >
-                <img src={addcart} alt="add to cart" style={{ width: "20px", height: "20px" }} />
-                <span className="fw-bold">MUA NGAY</span>
-              </button>
-              <button
-                className="btn btn-outline-danger btn-lg"
-                style={{ width: "60px", height: "60px" }}
-              >
-                <img src={wish} alt="wishlist" style={{ width: "24px", height: "24px" }} />
-              </button>
+            {/* Options & Action Buttons (same features as AddToCartModal) */}
+            <div className="mb-4">
+              <h5 className="mb-2">Tùy chọn</h5>
+
+              {/* Ice Level */}
+              <div className="mb-3">
+                <div className="fw-bold mb-2">Độ đá</div>
+                <div>
+                  {["Không đá", "Ít đá", "Bình thường", "Nhiều đá"].map((level) => (
+                    <button
+                      key={level}
+                      className={`btn btn-sm me-2 ${options.iceLevel === level ? 'btn-primary' : 'btn-outline-secondary'}`}
+                      onClick={() => setOptions(prev => ({ ...prev, iceLevel: level }))}
+                    >
+                      {level}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {/* Sugar Level */}
+              <div className="mb-3">
+                <div className="fw-bold mb-2">Độ ngọt</div>
+                <div>
+                  {["0%", "30%", "50%", "70%", "100%"].map((level) => (
+                    <button
+                      key={level}
+                      className={`btn btn-sm me-2 ${options.sugarLevel === level ? 'btn-primary' : 'btn-outline-secondary'}`}
+                      onClick={() => setOptions(prev => ({ ...prev, sugarLevel: level }))}
+                    >
+                      {level}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {/* Toppings */}
+              <div className="mb-3">
+                <div className="fw-bold mb-2">Topping (tùy chọn)</div>
+                <div className="d-flex flex-wrap gap-2">
+                  {availableToppings.map((t) => (
+                    <label key={t.name} className="btn btn-sm btn-outline-secondary d-flex align-items-center gap-2">
+                      <input
+                        type="checkbox"
+                        checked={options.toppings.includes(t.name)}
+                        onChange={() => handleToppingChange(t)}
+                        className="form-check-input me-2"
+                      />
+                      {t.name} (+{t.price.toLocaleString('vi-VN')} ₫)
+                    </label>
+                  ))}
+                </div>
+              </div>
+
+              {/* Quantity & Size */}
+              <div className="mb-3 d-flex align-items-center gap-3">
+                <div>
+                  <div className="fw-bold mb-2">Số lượng</div>
+                  <div className="d-flex align-items-center">
+                    <button className="btn btn-outline-secondary" onClick={() => setOptions(prev => ({ ...prev, quantity: Math.max(1, prev.quantity - 1) }))}>-</button>
+                    <input
+                      type="number"
+                      value={options.quantity}
+                      onChange={(e) => setOptions(prev => ({ ...prev, quantity: Math.max(1, parseInt(e.target.value) || 1) }))}
+                      min="1"
+                      className="form-control mx-2 text-center"
+                      style={{ width: '80px' }}
+                    />
+                    <button className="btn btn-outline-secondary" onClick={() => setOptions(prev => ({ ...prev, quantity: prev.quantity + 1 }))}>+</button>
+                  </div>
+                </div>
+
+                <div>
+                  <div className="fw-bold mb-2">Size</div>
+                  <div className="d-flex gap-2">
+                    {sizes.map(s => (
+                      <button
+                        key={s.value}
+                        className={`btn btn-sm ${selectedSize === s.value ? 'btn-primary' : 'btn-outline-secondary'}`}
+                        onClick={() => setSelectedSize(s.value)}
+                      >
+                        {s.label}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              <div className="d-flex justify-content-between align-items-center mt-3">
+                <div>
+                  <div className="small text-muted">Tạm tính:</div>
+                  <div className="fw-bold text-primary">{calculateTotalPrice().toLocaleString('vi-VN')} ₫</div>
+                </div>
+                <div className="d-flex gap-2">
+                  <button
+                    className="btn btn-success d-flex align-items-center gap-2"
+                    style={{ background: 'linear-gradient(135deg, #28a745, #20c997)', border: 'none' }}
+                    onClick={handleAddToCart}
+                  >
+                    <img src={addcart} alt="add to cart" style={{ width: 18, height: 18 }} /> Add to cart
+                  </button>
+                  <button className="btn btn-primary" onClick={handleBuyNow}>Buy now</button>
+                </div>
+              </div>
             </div>
 
             {/* Additional Info */}
@@ -248,6 +412,22 @@ const ProductDetail = () => {
           </div>
         </div>
       </div>
+
+      {/* Related products (same category) */}
+      {relatedProducts && relatedProducts.length > 0 && (
+        <div className="row mt-5">
+          <div className="col-12">
+            <h4 className="mb-4">Sản phẩm cùng danh mục</h4>
+          </div>
+          <div className="col-12">
+            <div className="row">
+              {relatedProducts.map((p) => (
+                <ProductCard key={p.id} product={p} grid={4} />
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Back Button */}
       <div className="row mt-4">

@@ -9,7 +9,7 @@ const AllProducts = () => {
   const [categories, setCategories] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [sortOption, setSortOption] = useState("name-asc");
-  const [priceFilter, setPriceFilter] = useState({ min: 0, max: 100 });
+  const [priceFilter, setPriceFilter] = useState({ min: 0, max: 1000000 });
   const [filteredProducts, setFilteredProducts] = useState([]);
   const location = useLocation();
 
