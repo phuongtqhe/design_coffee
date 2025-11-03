@@ -12,11 +12,11 @@ export function customerRoutes() {
     path: "/",
     // errorElement: <ErrorPage />,
     element: (
-     // <AuthorizationRoute roles={["Customer"]}>
+     <AuthorizationRoute roles={["Customer"]}>
         <Layout>
           <Outlet />
         </Layout>
-     // </AuthorizationRoute>
+     </AuthorizationRoute>
     ),
     children: [
       { path: "cart", element: <Cart /> },

@@ -88,26 +88,28 @@ export default function Checkout() {
     setLoading(true);
 
     try {
-      // Prepare order data (without items - will be in separate orderItems table)
+      // Prepare order data to match required output
+      const now = new Date();
+      const orderedDate = now.toISOString().slice(0, 10); // YYYY-MM-DD
+      const orderedTime = now.toTimeString().slice(0, 8); // HH:mm:ss
       const orderData = {
-        customerInfo: {
-          name: form.name,
-          phone: form.phone,
-          email: currentUser?.email || "",
+        userId: currentUser?.id ? String(currentUser.id) : null,
+        receiver: {
+          fullName: form.name,
+          email: currentUser?.email || form.email || "",
+          mobile: form.phone,
+          address: {
+            country: form.country,
+            city: form.city,
+            zipcode: form.postalCode,
+            street: form.street,
+            detailAddress: form.addressDetail
+          }
         },
-        shippingAddress: {
-          country: form.country,
-          city: form.city,
-          postalCode: form.postalCode,
-          street: form.street,
-          addressDetail: form.addressDetail,
-          fullAddress: `${form.addressDetail}, ${form.street}, ${form.city}, ${form.country} ${form.postalCode}`
-        },
-        totalAmount: total,
-        orderDate: new Date().toISOString(),
+        totalPrice: total,
         status: "pending",
-        paymentMethod: "cash",
-        userId: currentUser?.id || null
+        orderedDate,
+        orderedTime
       };
 
       // Create order first
@@ -133,12 +135,11 @@ export default function Checkout() {
           productId: item.productId,
           quantity: item.quantity,
           unitPrice: item.price,
-          toppingIds: item.toppings || [], // Store as array of topping names
+          toppingIds: item.toppings || [],
           iceLevel: item.iceLevel,
           sugarLevel: item.sugarLevel,
           totalCost: item.totalPrice
         };
-
         return fetch("http://localhost:9999/orderItems", {
           method: "POST",
           headers: {

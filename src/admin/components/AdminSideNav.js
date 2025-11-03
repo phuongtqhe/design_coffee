@@ -11,84 +11,67 @@ import Nav from 'react-bootstrap/Nav';
 import Accordion from 'react-bootstrap/Accordion';
 
 export default function AdminSideNav(props) {
-    const location = useLocation();
-    console.log(location.pathname);
-    return (
-        <Nav fill variant="tabs" defaultActiveKey="/home" style={{
-            border: "none",
-            background: "white",
-            position: "sticky",
-            top: 0,
-            minHeight: "100vh",
-        }} className={props.className}>
-            <Link className={location.pathname === '/' ? 'active' : ''} to={"/"}>
-                <div className='d-flex justify-content-center'>
-                    <img className='p-2' style={{ width: "70%" }} src="/logo_main.png" alt='logo'></img>
-                </div>
-            </Link>
-            <div className='mt-3 mb-3' style={{ width: "100%", height: "2px", background: "#00000038" }}></div>
+        const location = useLocation();
+        // Route mapping for admin pages
+        const navLinks = [
+            {
+                to: "/admin/dashboard",
+                icon: <AiOutlineStock size="22" className="me-2" />,
+                label: "Dashboard"
+            },
+            {
+                to: "/admin/order-list",
+                icon: <AiOutlineShopping size="22" className="me-2" />,
+                label: "Orders"
+            },
+            {
+                to: "/admin/customers",
+                icon: <BiUser size="22" className="me-2" />,
+                label: "Customers"
+            },
+            {
+                to: "/admin/contacts",
+                icon: <BsTelephone size="22" className="me-2" />,
+                label: "Contacts"
+            },
+            {
+                to: "/admin/feedbacks",
+                icon: <BiLogoTelegram size="22" className="me-2" />,
+                label: "Feedbacks"
+            },
+            {
+                to: "/admin/blogs",
+                icon: <AiOutlinePicRight size="22" className="me-2" />,
+                label: "Blogs"
+            },
+        ];
 
-            <Accordion>
-                <Link style={{ width: "100%" }} to={"/admin/dashboard"}>
-                    <Accordion.Item eventKey="0">
-                        <Accordion.Header>
-                            <AiOutlineStock size="30px" style={{ marginBottom: 0, marginRight: "10px" }} />Dashboard
-                        </Accordion.Header>
-                    </Accordion.Item>
-                </Link>
-                <Link style={{ width: "100%" }} to={"/admin/order"}>
-                    <Accordion.Item eventKey="1">
-                        <Accordion.Header>
-                            <AiOutlineShopping style={{ marginBottom: 0, marginRight: "10px" }} size="30px" />Orders
-                        </Accordion.Header>
-                    </Accordion.Item>
-                </Link>
-                <div style={{ width: "100%" }} >
-                    <Accordion.Item eventKey="2">
-                        <Accordion.Header>
-                            <AiOutlineShoppingCart style={{ marginBottom: 0, marginRight: "10px" }} size="30px" />Products
-                        </Accordion.Header>
-                        <Accordion.Body>
-                            <Link style={{ width: "100%" }} to={"/admin/product"}> Product list</Link>
-                            <Link style={{ width: "100%" }} to={"/admin/product/add-product"}> Add new product</Link>
-                            <Link style={{ width: "100%" }} to={"/admin/product/add-brand"}> Brand</Link>
-                            <Link style={{ width: "100%" }} to={"/admin/product/category-list"}> Category</Link>
-                        </Accordion.Body>
-                    </Accordion.Item>
-                </div>
-                <div style={{ width: "100%" }}>
-                    <Accordion.Item eventKey="3">
-                        <Accordion.Header>
-                            <AiOutlinePicRight style={{ marginBottom: 0, marginRight: "10px" }} size="30px" />Blogs
-                        </Accordion.Header>
-                        <Accordion.Body>
-                            <Link style={{ width: "100%" }} to={"/admin/blog"}> Blog list</Link>
-                            <Link style={{ width: "100%" }} to={"/admin/blog/add-blog"}> Blog add new</Link>
-                        </Accordion.Body>
-                    </Accordion.Item>
-                </div>
-                <Link style={{ width: "100%" }} to={"/admin/contact"}>
-                    <Accordion.Item eventKey="4">
-                        <Accordion.Header>
-                            <BsTelephone style={{ marginBottom: 0, marginRight: "10px" }} size="30px" />Contacts
-                        </Accordion.Header>
-                    </Accordion.Item>
-                </Link>
-                <Link style={{ width: "100%" }} to={"/admin/customer"}>
-                    <Accordion.Item eventKey="5">
-                        <Accordion.Header>
-                            <BiUser style={{ marginBottom: 0, marginRight: "10px" }} size="30px" />Customers
-                        </Accordion.Header>
-                    </Accordion.Item>
-                </Link>
-                <Link style={{ width: "100%" }} to={"/admin/feedback"}>
-                    <Accordion.Item eventKey="6">
-                        <Accordion.Header>
-                            <BiLogoTelegram style={{ marginBottom: 0, marginRight: "10px" }} size="30px" />Feedbacks
-                        </Accordion.Header>
-                    </Accordion.Item>
-                </Link>
-            </Accordion>
-        </Nav>
-    )
+        return (
+            <Card className={props.className} style={{position:"sticky", top: 0, minHeight: "100vh", border: "none", background: "#f8f9fa" }}>
+                <Card.Body className="p-0">
+                    <div className="d-flex flex-column align-items-center py-4">
+                        <Link to="/admin/dashboard" className="mb-3">
+                            <img src="/logo_main.png" alt="logo" style={{ width: "120px" }} />
+                        </Link>
+                        <div className="w-100 mb-3" style={{ height: "2px", background: "#dee2e6" }} />
+                        <Nav className="flex-column w-100">
+                            {navLinks.map((item, idx) => (
+                                <Nav.Item key={idx} className="mb-2">
+                                    <Nav.Link
+                                        as={Link}
+                                        to={item.to}
+                                        active={location.pathname === item.to}
+                                        className="d-flex align-items-center px-3 py-2 rounded"
+                                        style={{ fontWeight: location.pathname === item.to ? "bold" : "normal", color: location.pathname === item.to ? "#0d6efd" : "#333" }}
+                                    >
+                                        {item.icon}
+                                        {item.label}
+                                    </Nav.Link>
+                                </Nav.Item>
+                            ))}
+                        </Nav>
+                    </div>
+                </Card.Body>
+            </Card>
+        );
 }

@@ -11,6 +11,7 @@ export default function AdminTopNav(props) {
                 background: "white",
                 borderRadius: "100px",
                 position: "sticky",
+                zIndex:1000,
                 top: 0,
                 alignItems: "center",
                 justifyContent: "space-between"
