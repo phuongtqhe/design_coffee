@@ -19,6 +19,7 @@ export default function adminRoutes() {
     ),
     children: [
       { index: true, element: <Home /> },
+      { path: "contacts", element: <AdminContactList /> },
       { path: "feedbacks", element: <FeedbackAdmin /> },
       { path: "customers", element: <CustomersList /> },
       { path: "blogs", element: <BlogList /> },
