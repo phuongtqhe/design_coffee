@@ -7,7 +7,7 @@ import BlogList from "../pages/BlogList";
 
 export default function adminRoutes() {
   return {
-    path: "/",
+    path: "/", 
     element: (
       <DefaultAdminLayout>
         <Outlet />
@@ -17,6 +17,7 @@ export default function adminRoutes() {
       { index: true, element: <Home /> },
       { path: "admin/feedbacks", element: <FeedbackAdmin /> },
       { path: "admin/customers", element: <CustomersList /> },
+      { path: "/admin/contacts", element: <AdminContactList /> },
       { path: "admin/blogs", element: <BlogList /> },
     ],
   };
