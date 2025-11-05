@@ -7,6 +7,7 @@ import { AiOutlinePicRight } from "react-icons/ai";
 import { BsTelephone } from "react-icons/bs";
 import { BiLogoTelegram } from "react-icons/bi";
 import { BiUser } from "react-icons/bi";
+import { BiPackage } from "react-icons/bi";
 import Nav from 'react-bootstrap/Nav';
 import Accordion from 'react-bootstrap/Accordion';
 
@@ -18,6 +19,11 @@ export default function AdminSideNav(props) {
                 to: "/admin/dashboard",
                 icon: <AiOutlineStock size="22" className="me-2" />,
                 label: "Dashboard"
+            },
+            {
+                to: "/admin/product",
+                icon: <BiPackage size="22" className="me-2" />,
+                label: "Products"
             },
             {
                 to: "/admin/order-list",
@@ -60,9 +66,9 @@ export default function AdminSideNav(props) {
                                     <Nav.Link
                                         as={Link}
                                         to={item.to}
-                                        active={location.pathname === item.to}
+                                        active={location.pathname === item.to || (item.to === "/admin/product" && location.pathname.startsWith("/admin/product"))}
                                         className="d-flex align-items-center px-3 py-2 rounded"
-                                        style={{ fontWeight: location.pathname === item.to ? "bold" : "normal", color: location.pathname === item.to ? "#0d6efd" : "#333" }}
+                                        style={{ fontWeight: (location.pathname === item.to || (item.to === "/admin/product" && location.pathname.startsWith("/admin/product"))) ? "bold" : "normal", color: (location.pathname === item.to || (item.to === "/admin/product" && location.pathname.startsWith("/admin/product"))) ? "#0d6efd" : "#333" }}
                                     >
                                         {item.icon}
                                         {item.label}

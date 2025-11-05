@@ -8,6 +8,8 @@ import AdminContactList from "../pages/AdminContactList";
 import { AuthorizationRoute } from "./authorization-route";
 import AdminOrderList from "../pages/AdminOrderList";
 import Dashboard from "../pages/AdminDashboard";
+import AddProduct from "../pages/Addproduct";
+import AdminProductlist from "../pages/AdminProductlist";
 
 export default function adminRoutes() {
   // Admin routes live under /admin and use DefaultAdminLayout
@@ -22,12 +24,14 @@ export default function adminRoutes() {
     ),
     children: [
       { index: true, element: <Dashboard /> },
+      { path: "dashboard", element: <Dashboard /> },
+      { path: "product", element: <AdminProductlist /> },
+      { path: "product/add-product", element: <AddProduct /> },
       { path: "contacts", element: <AdminContactList /> },
       { path: "feedbacks", element: <FeedbackAdmin /> },
       { path: "customers", element: <CustomersList /> },
       { path: "blogs", element: <BlogList /> },
       { path: "order-list", element: <AdminOrderList /> },
-      { path: "dashboard", element: <Dashboard /> },
     ],
   };
 }
