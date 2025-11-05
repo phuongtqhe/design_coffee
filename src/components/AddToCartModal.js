@@ -16,7 +16,7 @@ const AddToCartModal = ({ show, onHide, product }) => {
   const [availableToppings, setAvailableToppings] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  const iceLevels = ["Không đá", "Ít đá", "Bình thường", "Nhiều đá"];
+  const iceLevels = ["0%", "30%", "50%", "70%", "100%"];
   const sugarLevels = ["0%", "30%", "50%", "70%", "100%"];
 
   useEffect(() => {
@@ -78,7 +78,7 @@ const AddToCartModal = ({ show, onHide, product }) => {
     
     // Reset form
     setOptions({
-      iceLevel: "Bình thường",
+      iceLevel: "100%",
       sugarLevel: "100%",
       toppings: [],
       quantity: 1
@@ -90,7 +90,7 @@ const AddToCartModal = ({ show, onHide, product }) => {
   const handleClose = () => {
     // Reset form when closing
     setOptions({
-      iceLevel: "Bình thường",
+      iceLevel: "100%",
       sugarLevel: "100%",
       toppings: [],
       quantity: 1

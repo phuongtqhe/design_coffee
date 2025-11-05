@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useCart } from "../components/CartContext";
 import { useNavigate } from "react-router-dom";
 import { Container, Row, Col, Card, Form, Button, Alert, Spinner } from "react-bootstrap";
@@ -22,6 +22,20 @@ export default function Checkout() {
   
   const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState({});
+  const [allToppings, setAllToppings] = useState([]);
+
+  useEffect(() => {
+      const fetchToppings = async () => {
+          try {
+              const res = await fetch("http://localhost:9999/toppings");
+              const json = await res.json();
+              setAllToppings(json);
+          } catch (error) {
+              console.error("Error fetching toppings:", error);
+          }
+      };
+      fetchToppings();
+  }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -130,12 +144,18 @@ export default function Checkout() {
 
       // Create order items separately
       const orderItemPromises = cartItems.map(item => {
+        // Convert topping names to IDs
+        const convertedToppingIds = (item.toppings || []).map(toppingName => {
+            const topping = allToppings.find(t => t.name === toppingName);
+            return topping ? String(topping.id) : null;
+        }).filter(id => id !== null);
+
         const orderItemData = {
           orderId: orderId,
-          productId: item.productId,
+          productId: String(item.productId),
           quantity: item.quantity,
           unitPrice: item.price,
-          toppingIds: item.toppings || [],
+          toppingIds: convertedToppingIds,
           iceLevel: item.iceLevel,
           sugarLevel: item.sugarLevel,
           totalCost: item.totalPrice
