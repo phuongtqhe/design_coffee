@@ -186,24 +186,6 @@ const UserMenu = () => {
               </Link>
             </li>
             <li>
-              <Link
-                to="/wishlist"
-                className="dropdown-item d-flex align-items-center gap-2"
-              >
-                <img src={wishlistIcon} width="16" height="16" alt="wishlist" />
-                Wishlist
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/compare-product"
-                className="dropdown-item d-flex align-items-center gap-2"
-              >
-                <img src={compareIcon} width="16" height="16" alt="compare" />
-                Compare Products
-              </Link>
-            </li>
-            <li>
               <hr className="dropdown-divider" />
             </li>
             <li>

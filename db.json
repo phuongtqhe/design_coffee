@@ -70,6 +70,25 @@
       },
       "createdAt": "2025-11-03T21:13:30.438Z",
       "updatedAt": "2025-11-03T21:13:30.438Z"
+    },
+    {
+      "id": "kbbgbro@gmail.com",
+      "userName": "Hoàng Anh Nguyễn",
+      "email": "kbbgbro@gmail.com",
+      "password": "",
+      "picture": "https://lh3.googleusercontent.com/a/ACg8ocJEjFhbQVu1wjJi3_-cFeJ8CsRn_eL5Yw26mUawiHE_9a2RAw=s96-c",
+      "phone": "",
+      "role": "customer",
+      "status": "active",
+      "address": {
+        "country": "",
+        "city": "",
+        "zipcode": "",
+        "street": "",
+        "detailAddress": ""
+      },
+      "createdAt": "2025-11-05T13:45:21.943Z",
+      "updatedAt": "2025-11-05T13:45:21.943Z"
     }
   ],
   "categories": [
@@ -165,6 +184,7 @@
         "/logo192.png"
       ],
       "toppings": [""],
+      "toppings": [""],
       "details": [],
       "createdAt": "",
       "updatedAt": ""
@@ -182,6 +202,7 @@
         "https://product.hstatic.net/1000075078/product/1746441372_halzenut-latte_3ef994056c3b4765a600e853f6cca72d_large.png",
         "/logo192.png"
       ],
+      "toppings": [""],
       "toppings": [""],
       "details": [],
       "createdAt": "",
@@ -201,6 +222,7 @@
         "/logo192.png"
       ],
       "toppings": [""],
+      "toppings": [""],
       "details": [],
       "createdAt": "",
       "updatedAt": ""
@@ -218,6 +240,7 @@
         "https://product.hstatic.net/1000075078/product/1737357108_cappucino-nong_f78c106928fe4c418906763d3dfa4b29_large.png",
         "/logo192.png"
       ],
+      "toppings": [""],
       "toppings": [""],
       "details": [],
       "createdAt": "",
@@ -237,6 +260,7 @@
         "/logo192.png"
       ],
       "toppings": [""],
+      "toppings": [""],
       "details": [],
       "createdAt": "",
       "updatedAt": ""
@@ -254,6 +278,7 @@
         "https://product.hstatic.net/1000075078/product/1737357444_espresso-nong_2ac99445a9fc4619a45761a5023b538c_large.png",
         "/logo192.png"
       ],
+      "toppings": [""],
       "toppings": [""],
       "details": [],
       "createdAt": "",
@@ -273,6 +298,7 @@
         "/logo192.png"
       ],
       "toppings": [""],
+      "toppings": [""],
       "details": [],
       "createdAt": "",
       "updatedAt": ""
@@ -290,6 +316,7 @@
         "https://product.hstatic.net/1000075078/product/1737357020_bac-xiu-da_43a593b61b8e44379111a9ebb00904d9_large.png",
         "/logo192.png"
       ],
+      "toppings": [""],
       "toppings": [""],
       "details": [],
       "createdAt": "",
@@ -309,6 +336,7 @@
         "/logo192.png"
       ],
       "toppings": [""],
+      "toppings": [""],
       "details": [],
       "createdAt": "",
       "updatedAt": ""
@@ -326,6 +354,7 @@
         "https://product.hstatic.net/1000075078/product/1737356988_cf-den-da_25422ed38d5a4696bc1af22266ac7589_large.png",
         "/logo192.png"
       ],
+      "toppings": [""],
       "toppings": [""],
       "details": [],
       "createdAt": "",
@@ -345,6 +374,7 @@
         "/logo192.png"
       ],
       "toppings": [""],
+      "toppings": [""],
       "details": [],
       "createdAt": "",
       "updatedAt": ""
@@ -362,6 +392,7 @@
         "https://gongcha.com.vn/wp-content/uploads/2018/02/Chanh-Aiyu-trân-châu-trắng-2-768x768.png",
         "/logo192.png"
       ],
+      "toppings": [""],
       "toppings": [""],
       "details": [],
       "createdAt": "",
@@ -381,6 +412,7 @@
         "/logo192.png"
       ],
       "toppings": [""],
+      "toppings": [""],
       "details": [],
       "createdAt": "",
       "updatedAt": ""
@@ -398,6 +430,7 @@
         "https://gongcha.com.vn/wp-content/uploads/2018/02/Oolong-vải-2-768x768.png",
         "/logo192.png"
       ],
+      "toppings": [""],
       "toppings": [""],
       "details": [],
       "createdAt": "",
@@ -417,6 +450,7 @@
         "/logo192.png"
       ],
       "toppings": [""],
+      "toppings": [""],
       "details": [],
       "createdAt": "",
       "updatedAt": ""
@@ -434,6 +468,7 @@
         "https://gongcha.com.vn/wp-content/uploads/2018/02/Đen-đào-2-768x768.png",
         "/logo192.png"
       ],
+      "toppings": [""],
       "toppings": [""],
       "details": [],
       "createdAt": "",
@@ -453,6 +488,7 @@
         "/logo192.png"
       ],
       "toppings": [""],
+      "toppings": [""],
       "details": [],
       "createdAt": "",
       "updatedAt": ""
@@ -470,6 +506,7 @@
         "https://gongcha.com.vn/wp-content/uploads/2024/12/OKINAWA-8.png",
         "/logo192.png"
       ],
+      "toppings": [""],
       "toppings": [""],
       "details": [],
       "createdAt": "",
@@ -489,6 +526,7 @@
         "/logo192.png"
       ],
       "toppings": [""],
+      "toppings": [""],
       "details": [],
       "createdAt": "",
       "updatedAt": ""
@@ -506,6 +544,7 @@
         "https://gongcha.com.vn/wp-content/uploads/2023/11/Tra-sua-Earl-Grey-768x768.png",
         "/logo192.png"
       ],
+      "toppings": [""],
       "toppings": [""],
       "details": [],
       "createdAt": "",
@@ -525,6 +564,7 @@
         "/logo192.png"
       ],
       "toppings": [""],
+      "toppings": [""],
       "details": [],
       "createdAt": "",
       "updatedAt": ""
@@ -542,6 +582,7 @@
         "https://gongcha.com.vn/wp-content/uploads/2019/06/Tra-Sua-Xoai.png",
         "/logo192.png"
       ],
+      "toppings": [""],
       "toppings": [""],
       "details": [],
       "createdAt": "",
@@ -561,6 +602,7 @@
         "/logo192.png"
       ],
       "toppings": [""],
+      "toppings": [""],
       "details": [],
       "createdAt": "",
       "updatedAt": ""
@@ -578,6 +620,7 @@
         "https://gongcha.com.vn/wp-content/uploads/2018/02/Trà-sữa-Pudding-đậu-đỏ-2-768x768.png",
         "/logo192.png"
       ],
+      "toppings": [""],
       "toppings": [""],
       "details": [],
       "createdAt": "",
@@ -597,6 +640,7 @@
         "/logo192.png"
       ],
       "toppings": [""],
+      "toppings": [""],
       "details": [],
       "createdAt": "",
       "updatedAt": ""
@@ -614,6 +658,7 @@
         "https://gongcha.com.vn/wp-content/uploads/2018/02/Trà-sữa-Trân-châu-đen-1.png",
         "/logo192.png"
       ],
+      "toppings": [""],
       "toppings": [""],
       "details": [],
       "createdAt": "",
@@ -633,6 +678,7 @@
         "/logo192.png"
       ],
       "toppings": [""],
+      "toppings": [""],
       "details": [],
       "createdAt": "",
       "updatedAt": ""
@@ -651,6 +697,7 @@
         "/logo192.png"
       ],
       "toppings": [""],
+      "toppings": [""],
       "details": [],
       "createdAt": "",
       "updatedAt": ""
@@ -668,6 +715,7 @@
         "https://tse3.mm.bing.net/th/id/OIP.ptp9yUIDiWwKfTsy4-NiyAHaE8?cb=12&w=900&h=600&rs=1&pid=ImgDetMain&o=7&rm=3",
         "http://res.cloudinary.com/dck2nnfja/image/upload/v1762364602/otnqh147ugpv15raiu3e.jpg"
       ],
+      "toppings": [""],
       "toppings": [""],
       "details": [],
       "createdAt": "",
