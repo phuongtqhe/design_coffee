@@ -7,7 +7,7 @@ import { toast } from "react-toastify";
 const Login = () => {
   const [formData, setFormData] = useState({
     email: "",
-    password: ""
+    password: "",
   });
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
@@ -15,7 +15,7 @@ const Login = () => {
   const handleChange = (e) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
@@ -24,19 +24,24 @@ const Login = () => {
     setLoading(true);
 
     try {
-      const response = await axios.get(`http://localhost:9999/users/${formData.email}`);
+      const response = await axios.get(
+        `http://localhost:9999/users/${formData.email}`
+      );
       const user = response.data;
 
       if (user && user.password === formData.password) {
         // Store user data in session storage
-        sessionStorage.setItem('data', JSON.stringify({
-          email: user.email,
-          name: user.name,
-          role: user.role
-        }));
-        
+        sessionStorage.setItem(
+          "data",
+          JSON.stringify({
+            email: user.email,
+            name: user.name,
+            role: user.role,
+          })
+        );
+
         toast.success("Login successful!");
-        navigate('/');
+        navigate("/");
       } else {
         toast.error("Invalid email or password");
       }
@@ -61,7 +66,9 @@ const Login = () => {
 
                 <form onSubmit={handleSubmit}>
                   <div className="mb-3">
-                    <label htmlFor="email" className="form-label">Email Address</label>
+                    <label htmlFor="email" className="form-label">
+                      Email Address
+                    </label>
                     <input
                       type="email"
                       className="form-control"
@@ -75,7 +82,9 @@ const Login = () => {
                   </div>
 
                   <div className="mb-4">
-                    <label htmlFor="password" className="form-label">Password</label>
+                    <label htmlFor="password" className="form-label">
+                      Password
+                    </label>
                     <input
                       type="password"
                       className="form-control"
@@ -88,14 +97,18 @@ const Login = () => {
                     />
                   </div>
 
-                  <button 
-                    type="submit" 
+                  <button
+                    type="submit"
                     className="btn btn-primary w-100 mb-3"
                     disabled={loading}
                   >
                     {loading ? (
                       <>
-                        <span className="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+                        <span
+                          className="spinner-border spinner-border-sm me-2"
+                          role="status"
+                          aria-hidden="true"
+                        ></span>
                         Signing In...
                       </>
                     ) : (
@@ -106,7 +119,10 @@ const Login = () => {
                   <div className="text-center">
                     <p className="mb-0">
                       Don't have an account?{" "}
-                      <Link to="/signup" className="text-primary text-decoration-none">
+                      <Link
+                        to="/signup"
+                        className="text-primary text-decoration-none"
+                      >
                         Sign up here
                       </Link>
                     </p>
@@ -117,7 +133,8 @@ const Login = () => {
                 <div className="mt-4 p-3 bg-light rounded">
                   <h6 className="text-muted mb-2">Demo Credentials:</h6>
                   <small className="text-muted">
-                    Email: Sincere@april.biz<br />
+                    Email: Sincere@april.biz
+                    <br />
                     Password: admin123
                   </small>
                 </div>
