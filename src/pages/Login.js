@@ -89,6 +89,16 @@ function Login() {
       const res = await fetch("http://localhost:9999/users");
       const users = await res.json();
       let foundUser = users.find((u) => u.email === decoded.email);
+      // Nếu user từ database cũ không có userName => đồng bộ lại format
+      if (foundUser && !foundUser.userName) {
+        foundUser = { ...foundUser, userName: foundUser.name };
+
+        await fetch(`http://localhost:9999/users/${foundUser.id}`, {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(foundUser),
+        });
+      }
 
       if (!foundUser) {
         const newUser = {
