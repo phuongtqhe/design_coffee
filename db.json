@@ -73,10 +73,22 @@
     },
     {
       "id": "kbbgbro@gmail.com",
+      "userName": "Hoàng Anh Nguyễn",
       "email": "kbbgbro@gmail.com",
-      "name": "Hoàng Anh Nguyễn",
+      "password": "",
       "picture": "https://lh3.googleusercontent.com/a/ACg8ocJEjFhbQVu1wjJi3_-cFeJ8CsRn_eL5Yw26mUawiHE_9a2RAw=s96-c",
-      "role": "admin"
+      "phone": "",
+      "role": "customer",
+      "status": "active",
+      "address": {
+        "country": "",
+        "city": "",
+        "zipcode": "",
+        "street": "",
+        "detailAddress": ""
+      },
+      "createdAt": "2025-11-05T13:45:21.943Z",
+      "updatedAt": "2025-11-05T13:45:21.943Z"
     }
   ],
   "categories": [

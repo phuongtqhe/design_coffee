@@ -93,10 +93,22 @@ function Login() {
       if (!foundUser) {
         const newUser = {
           id: decoded.email,
+          userName: decoded.name, // CHUẨN giống user local
           email: decoded.email,
-          name: decoded.name,
+          password: "",
           picture: decoded.picture,
+          phone: "",
           role: "customer",
+          status: "active",
+          address: {
+            country: "",
+            city: "",
+            zipcode: "",
+            street: "",
+            detailAddress: "",
+          },
+          createdAt: new Date().toISOString(),
+          updatedAt: new Date().toISOString(),
         };
 
         await fetch("http://localhost:9999/users", {
@@ -113,10 +125,12 @@ function Login() {
       sessionStorage.setItem(
         "data",
         JSON.stringify({
+          id: foundUser.id,
           email: foundUser.email,
-          name: foundUser.name,
+          name: foundUser.userName || foundUser.name, // fix mismatch
           picture: foundUser.picture,
           role: foundUser.role,
+          phone: foundUser.phone,
         })
       );
 
