@@ -272,7 +272,7 @@ export default function Dashboard() {
                   </div>
                 )
               ) : (
-                <div style={{ color: "gray" }}>N/A</div>
+                <div style={{ color: "gray" }}></div>
               )}
             </h6>
             <p className="mb-0  desc">
@@ -318,7 +318,7 @@ export default function Dashboard() {
                   </div>
                 )
               ) : (
-                <div style={{ color: "gray" }}>N/A</div>
+                <div style={{ color: "gray" }}></div>
               )}
             </h6>
             <p className="mb-0  desc">
