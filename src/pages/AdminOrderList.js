@@ -12,6 +12,7 @@ export default function AdminOrderList() {
   const [orders, setOrders] = useState([]);
   const [orderItems, setOrderItems] = useState([]);
   const [statusList, setStatusList] = useState([]);
+  const [toppings, setToppings] = useState([]);
   const [lgShow, setLgShow] = useState(false);
   const [currentDetail, setCurrentDetail] = useState(null);
   // 5 statuses: pending, onGoing, success, fail, canceled
@@ -29,21 +30,67 @@ export default function AdminOrderList() {
     fetch(`http://localhost:9999/status`)
       .then(res => res.json())
       .then(json => setStatusList(json));
+    fetch(`http://localhost:9999/toppings`)
+      .then(res => res.json())
+      .then(json => setToppings(json));
   }, []);
 
   // Filter states
   const [searchName, setSearchName] = useState("");
   const [searchEmail, setSearchEmail] = useState("");
   const [searchDate, setSearchDate] = useState("");
+  
+  // Sort states
+  const [sortBy, setSortBy] = useState("date"); // date, id, totalPrice, customerName, status
+  const [sortOrder, setSortOrder] = useState("desc"); // asc, desc
 
-  // Sort orders by latest first (assuming orderedDate is ISO string or comparable)
+  // Sort orders based on selected criteria
   const sortedOrders = [...orders].sort((a, b) => {
-    // If orderedDate is missing, treat as oldest
-    if (!a.orderedDate && !b.orderedDate) return 0;
-    if (!a.orderedDate) return 1;
-    if (!b.orderedDate) return -1;
-    // Compare date strings (YYYY-MM-DD)
-    return b.orderedDate.localeCompare(a.orderedDate);
+    let comparison = 0;
+    
+    switch (sortBy) {
+      case "id":
+        // Sort by ID (convert to string for consistent comparison)
+        const idA = String(a.id || "").toLowerCase();
+        const idB = String(b.id || "").toLowerCase();
+        comparison = idA.localeCompare(idB);
+        break;
+        
+      case "date":
+        // Sort by date
+        if (!a.orderedDate && !b.orderedDate) comparison = 0;
+        else if (!a.orderedDate) comparison = 1;
+        else if (!b.orderedDate) comparison = -1;
+        else comparison = a.orderedDate.localeCompare(b.orderedDate);
+        break;
+        
+      case "totalPrice":
+        // Sort by total price
+        const priceA = a.totalPrice || 0;
+        const priceB = b.totalPrice || 0;
+        comparison = priceA - priceB;
+        break;
+        
+      case "customerName":
+        // Sort by customer name
+        const nameA = (a.receiver?.fullName || a.name || "").toLowerCase();
+        const nameB = (b.receiver?.fullName || b.name || "").toLowerCase();
+        comparison = nameA.localeCompare(nameB);
+        break;
+        
+      case "status":
+        // Sort by status
+        const statusIdA = a.statusId || (statusNames.indexOf(a.status) + 1) || 1;
+        const statusIdB = b.statusId || (statusNames.indexOf(b.status) + 1) || 1;
+        comparison = statusIdA - statusIdB;
+        break;
+        
+      default:
+        comparison = 0;
+    }
+    
+    // Reverse order if sortOrder is 'desc'
+    return sortOrder === "desc" ? -comparison : comparison;
   });
 
   // Filtered orders
@@ -111,6 +158,29 @@ export default function AdminOrderList() {
               {(statusList.length > 0 ? statusList : statusNames.map((name, i) => ({ id: i + 1, name }))).map((s, i) => (
                 <option key={s.id || i + 1} value={s.id || i + 1}>{s.name || s}</option>
               ))}
+            </Form.Select>
+          </Form.Group>
+        </Col>
+      </Row>
+      <Row className="mb-3 align-items-end">
+        <Col md={4}>
+          <Form.Group>
+            <Form.Label>Sắp xếp theo</Form.Label>
+            <Form.Select value={sortBy} onChange={e => { setSortBy(e.target.value); setPage(1); }}>
+              <option value="date">Ngày đặt hàng</option>
+              <option value="id">ID đơn hàng</option>
+              <option value="totalPrice">Tổng tiền</option>
+              <option value="customerName">Tên khách hàng</option>
+              <option value="status">Trạng thái</option>
+            </Form.Select>
+          </Form.Group>
+        </Col>
+        <Col md={3}>
+          <Form.Group>
+            <Form.Label>Thứ tự</Form.Label>
+            <Form.Select value={sortOrder} onChange={e => { setSortOrder(e.target.value); setPage(1); }}>
+              <option value="desc">Giảm dần</option>
+              <option value="asc">Tăng dần</option>
             </Form.Select>
           </Form.Group>
         </Col>
@@ -230,21 +300,45 @@ export default function AdminOrderList() {
                         <tr>
                           <th>No.</th>
                           <th>Product ID</th>
-                          <th>Name</th>
-                          <th>Quantity</th>
-                          <th>Price</th>
+                          <th>Tên sản phẩm</th>
+                          <th>Số lượng</th>
+                          <th>Độ đá</th>
+                          <th>Độ ngọt</th>
+                          <th>Topping</th>
+                          <th>Giá</th>
                         </tr>
                       </thead>
                       <tbody>
-                        {itemsForOrder.map((p, index) => (
-                          <tr key={index}>
-                            <td>{index + 1}</td>
-                            <td><Button onClick={() => { window.location = `/product/${p.productId}` }} type='button' style={{ minWidth: "10ch" }} className='btn btn-dark'>{p.productId} <AiFillCaretRight className='m-0' /></Button></td>
-                            <td>{p.productName || p.name || ''}</td>
-                            <td>{p.quantity}</td>
-                            <td>{p.unitPrice ? (p.unitPrice * p.quantity).toLocaleString('vi-VN') + ' ₫' : ''}</td>
-                          </tr>
-                        ))}
+                        {itemsForOrder.map((p, index) => {
+                          // Get topping names from toppingIds
+                          const toppingNames = (p.toppingIds || []).map(id => {
+                            const topping = toppings.find(t => String(t.id) === String(id));
+                            return topping ? topping.name : `ID: ${id}`;
+                          });
+                          
+                          return (
+                            <tr key={index}>
+                              <td>{index + 1}</td>
+                              <td><Button onClick={() => { window.location = `/product/${p.productId}` }} type='button' style={{ minWidth: "10ch" }} className='btn btn-dark'>{p.productId} <AiFillCaretRight className='m-0' /></Button></td>
+                              <td>{p.productName || p.name || ''}</td>
+                              <td>{p.quantity}</td>
+                              <td>{p.iceLevel || 'N/A'}</td>
+                              <td>{p.sugarLevel || 'N/A'}</td>
+                              <td>
+                                {toppingNames.length > 0 ? (
+                                  <div>
+                                    {toppingNames.map((name, idx) => (
+                                      <Badge key={idx} bg="secondary" className="me-1 mb-1">{name}</Badge>
+                                    ))}
+                                  </div>
+                                ) : (
+                                  <span className="text-muted">Không có</span>
+                                )}
+                              </td>
+                              <td>{p.unitPrice ? (p.unitPrice * p.quantity).toLocaleString('vi-VN') + ' ₫' : ''}</td>
+                            </tr>
+                          );
+                        })}
                       </tbody>
                     </Table>
                   </Card.Text>

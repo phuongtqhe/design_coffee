@@ -51,12 +51,11 @@ const Header = () => {
 
                 {/* Navigation */}
                 <nav className="d-flex align-items-center flex-wrap">
-                  {["/", "/products", "/about", "/blogs", "/contact"].map(
+                  {["/", "/products", "/blogs", "/contact"].map(
                     (path, i) => {
                       const labels = [
                         "HOME",
                         "PRODUCTS",
-                        "ABOUT US",
                         "BLOGS",
                         "CONTACT US",
                       ];

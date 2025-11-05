@@ -1,75 +1,88 @@
-import { Button } from 'react-bootstrap';
+import { Pagination } from 'react-bootstrap';
 
-export default function Paginate({ currentPage, totalPages, handlePageChange, handlePrevPage, handleNextPage }) {
-  const renderPaginationButtons = () => {
-    const buttons = [];
+export default function Paginate({ currentPage, totalPages, handlePageChange }) {
+  if (totalPages === 0) {
+    return null;
+  }
 
-    buttons.push(
-      <Button
-        variant="light"
-        className='border'
-        onClick={handlePrevPage}
-        disabled={currentPage === 1}
-        key="prev"
-      >
-        Prev
-      </Button>
-    );
+  const maxVisiblePages = 5;
+  let startPage = Math.max(1, currentPage - Math.floor(maxVisiblePages / 2));
+  let endPage = Math.min(totalPages, startPage + maxVisiblePages - 1);
+  if (endPage - startPage < maxVisiblePages - 1) {
+    startPage = Math.max(1, endPage - maxVisiblePages + 1);
+  }
 
-    // Add previous page button if available
-    if (currentPage > 1) {
-      buttons.push(
-        <Button
-          key={currentPage - 1}
-          className='mx-2 border'
-          variant="light"
-          onClick={() => handlePageChange(currentPage - 1)}
-        >
-          {currentPage - 1}
-        </Button>
-      );
+  const onPageChange = (page) => {
+    if (page !== currentPage && page >= 1 && page <= totalPages) {
+      handlePageChange(page);
     }
-
-    // Add current page button
-    buttons.push(
-      <Button
-        key={currentPage}
-        variant="primary"
-        className='border'
-        onClick={() => handlePageChange(currentPage)}
-      >
-        {currentPage}
-      </Button>
-    );
-
-    // Add next page button if available
-    if (currentPage < totalPages) {
-      buttons.push(
-        <Button
-          key={currentPage + 1}
-          variant="light"
-          className='mx-2 border'
-          onClick={() => handlePageChange(currentPage + 1)}
-        >
-          {currentPage + 1}
-        </Button>
-      );
-    }
-
-    buttons.push(
-      <Button
-        variant="light"
-        className='border'
-        onClick={handleNextPage}
-        disabled={currentPage === totalPages}
-        key="next"
-      >
-        Next
-      </Button>
-    );
-
-    return buttons;
   };
 
-  return <div className="pagination mb-3 justify-content-end">{renderPaginationButtons()}</div>;
+  const items = [];
+  // Previous
+  items.push(
+    <Pagination.Prev
+      key="prev"
+      onClick={() => onPageChange(currentPage - 1)}
+      disabled={currentPage === 1}
+    />
+  );
+  // First page
+  if (startPage > 1) {
+    items.push(
+      <Pagination.Item
+        key={1}
+        active={currentPage === 1}
+        onClick={() => onPageChange(1)}
+      >
+        {1}
+      </Pagination.Item>
+    );
+    if (startPage > 2) {
+      items.push(<Pagination.Ellipsis key="ellipsis-start" disabled />);
+    }
+  }
+  // Page numbers
+  for (let i = startPage; i <= endPage; i++) {
+    items.push(
+      <Pagination.Item
+        key={i}
+        active={currentPage === i}
+        onClick={() => onPageChange(i)}
+      >
+        {i}
+      </Pagination.Item>
+    );
+  }
+  // Last page
+  if (endPage < totalPages) {
+    if (endPage < totalPages - 1) {
+      items.push(<Pagination.Ellipsis key="ellipsis-end" disabled />);
+    }
+    items.push(
+      <Pagination.Item
+        key={totalPages}
+        active={currentPage === totalPages}
+        onClick={() => onPageChange(totalPages)}
+      >
+        {totalPages}
+      </Pagination.Item>
+    );
+  }
+  // Next
+  items.push(
+    <Pagination.Next
+      key="next"
+      onClick={() => onPageChange(currentPage + 1)}
+      disabled={currentPage === totalPages}
+    />
+  );
+
+  return (
+    <div className="d-flex justify-content-end mb-3">
+      <Pagination className="mb-0">
+        {items}
+      </Pagination>
+    </div>
+  );
 }
