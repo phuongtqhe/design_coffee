@@ -75,37 +75,81 @@
   "categories": [
     {
       "id": "2",
-      "name": "Coffe",
+      "name": "Coffee",
       "status": "active",
+      "hasIceLevel": true,
+      "hasSugarLevel": true,
       "createdAt": ""
     },
     {
       "id": "3",
       "name": "Tea",
       "status": "active",
+      "hasIceLevel": true,
+      "hasSugarLevel": true,
       "createdAt": ""
     },
     {
       "id": "4",
       "name": "Milk Tea",
       "status": "active",
+      "hasIceLevel": true,
+      "hasSugarLevel": true,
       "createdAt": ""
     },
     {
       "id": "1",
       "name": "Food",
       "status": "active",
+      "hasIceLevel": false,
+      "hasSugarLevel": false,
       "createdAt": ""
     }
   ],
   "toppings": [
     {
       "id": "1",
-      "name": "",
-      "price": 0,
+      "name": "Trân châu đen",
+      "price": 5000,
+      "status": "active"
+    },
+    {
+      "id": "2",
+      "name": "Trân châu trắng",
+      "price": 7000,
+      "status": "active"
+    },
+    {
+      "id": "3",
+      "name": "Thạch trái cây",
+      "price": 5000,
+      "status": "active"
+    },
+    {
+      "id": "4",
+      "name": "Pudding",
+      "price": 7000,
+      "status": "active"
+    },
+    {
+      "id": "5",
+      "name": "Kem cheese",
+      "price": 10000,
+      "status": "active"
+    },
+    {
+      "id": "6",
+      "name": "Whipped cream",
+      "price": 8000,
       "status": "active"
     }
   ],
+  "categories_topping": {
+    "2": [ "5", "6" ],
+    "3": [ "2", "3", "5" ],
+    "4": [ "1", "2", "3", "4", "5" ],
+    "1": [ "6" ]
+  },
   "products": [
     {
       "id": "300",
@@ -678,14 +722,14 @@
       "status": "active",
       "images": [
         "https://tse3.mm.bing.net/th/id/OIP.ptp9yUIDiWwKfTsy4-NiyAHaE8?cb=12&w=900&h=600&rs=1&pid=ImgDetMain&o=7&rm=3",
-        "/logo192.png"
+        "http://res.cloudinary.com/dck2nnfja/image/upload/v1762364602/otnqh147ugpv15raiu3e.jpg"
       ],
       "toppings": [
         ""
       ],
       "details": [],
       "createdAt": "",
-      "updatedAt": ""
+      "updatedAt": "2025-11-05T17:43:23.142Z"
     },
     {
       "id": "19db",

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Modal, Button, Form, Row, Col, Card } from "react-bootstrap";
 import { useCart } from "./CartContext";
 import { toast } from "react-toastify";
@@ -12,16 +12,40 @@ const AddToCartModal = ({ show, onHide, product }) => {
     quantity: 1
   });
 
+  const [category, setCategory] = useState(null);
+  const [availableToppings, setAvailableToppings] = useState([]);
+  const [loading, setLoading] = useState(false);
+
   const iceLevels = ["Không đá", "Ít đá", "Bình thường", "Nhiều đá"];
   const sugarLevels = ["0%", "30%", "50%", "70%", "100%"];
-  const availableToppings = [
-    { name: "Trân châu đen", price: 0.5 },
-    { name: "Trân châu trắng", price: 0.5 },
-    { name: "Thạch trái cây", price: 0.7 },
-    { name: "Pudding", price: 0.8 },
-    { name: "Kem cheese", price: 1.0 },
-    { name: "Whipped cream", price: 0.6 }
-  ];
+
+  useEffect(() => {
+    const fetchData = async () => {
+      if (show && product?.categoryId) {
+        setLoading(true);
+        try {
+          const [categoryRes, toppingsRes, catToppingRes] = await Promise.all([
+            fetch(`http://localhost:9999/categories/${product.categoryId}`).then(res => res.json()),
+            fetch(`http://localhost:9999/toppings`).then(res => res.json()),
+            fetch(`http://localhost:9999/categories_topping`).then(res => res.json()),
+          ]);
+
+          setCategory(categoryRes);
+
+          const allowedToppingIds = catToppingRes[product.categoryId] || [];
+          const filteredToppings = toppingsRes.filter(t => allowedToppingIds.includes(String(t.id)));
+          setAvailableToppings(filteredToppings);
+
+        } catch (error) {
+          console.error("Error fetching options for modal", error);
+        } finally {
+          setLoading(false);
+        }
+      }
+    };
+
+    fetchData();
+  }, [show, product]);
 
   const handleToppingChange = (topping) => {
     setOptions(prev => ({
@@ -82,92 +106,105 @@ const AddToCartModal = ({ show, onHide, product }) => {
         <Modal.Title>Thêm vào giỏ hàng</Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <Row>
-          {/* Product Info */}
-          <Col md={5}>
-            <Card className="border-0">
-              <Card.Img 
-                variant="top" 
-                src={(product.images && product.images[0]) || "/logo192.png"} 
-                style={{ height: "200px", objectFit: "cover" }}
-              />
-              <Card.Body className="p-3">
-                <Card.Title className="h6">{product.title || product.name}</Card.Title>
-                <Card.Text className="small text-muted">
-                  {product.description || product.describe}
-                </Card.Text>
-                <div className="fw-bold text-primary">
-                  Giá gốc: ${product.price?.toFixed(2)}
-                </div>
-                {calculateToppingPrice() > 0 && (
-                  <div className="small text-muted">
-                    Phụ phí topping: +${calculateToppingPrice().toFixed(2)}
+        {loading ? (
+          <div className="text-center">
+            <div className="spinner-border text-primary" role="status">
+              <span className="visually-hidden">Đang tải...</span>
+            </div>
+          </div>
+        ) : (
+          <Row>
+            {/* Product Info */}
+            <Col md={5}>
+              <Card className="border-0">
+                <Card.Img 
+                  variant="top" 
+                  src={(product.images && product.images[0]) || "/logo192.png"} 
+                  style={{ height: "200px", objectFit: "cover" }}
+                />
+                <Card.Body className="p-3">
+                  <Card.Title className="h6">{product.title || product.name}</Card.Title>
+                  <Card.Text className="small text-muted">
+                    {product.description || product.describe}
+                  </Card.Text>
+                  <div className="fw-bold text-primary">
+                    Giá gốc: {product.price?.toLocaleString('vi-VN')} ₫
                   </div>
-                )}
-                <div className="fw-bold text-success mt-2">
-                  Tổng: ${calculateTotalPrice().toFixed(2)}
-                </div>
-              </Card.Body>
-            </Card>
-          </Col>
+                  {calculateToppingPrice() > 0 && (
+                    <div className="small text-muted">
+                      Phụ phí topping: +{calculateToppingPrice().toLocaleString('vi-VN')} ₫
+                    </div>
+                  )}
+                  <div className="fw-bold text-success mt-2">
+                    Tổng: {calculateTotalPrice().toLocaleString('vi-VN')} ₫
+                  </div>
+                </Card.Body>
+              </Card>
+            </Col>
 
-          {/* Options */}
-          <Col md={7}>
-            <Form>
+            {/* Options */}
+            <Col md={7}>
+              <Form>
               {/* Ice Level */}
-              <Form.Group className="mb-3">
-                <Form.Label className="fw-bold">Độ đá</Form.Label>
-                <div>
-                  {iceLevels.map((level) => (
-                    <Form.Check
-                      key={level}
-                      type="radio"
-                      name="iceLevel"
-                      label={level}
-                      checked={options.iceLevel === level}
-                      onChange={() => setOptions(prev => ({ ...prev, iceLevel: level }))}
-                      inline
-                      className="me-3"
-                    />
-                  ))}
-                </div>
-              </Form.Group>
+              {category?.hasIceLevel && (
+                <Form.Group className="mb-3">
+                  <Form.Label className="fw-bold">Độ đá</Form.Label>
+                  <div>
+                    {iceLevels.map((level) => (
+                      <Form.Check
+                        key={level}
+                        type="radio"
+                        name="iceLevel"
+                        label={level}
+                        checked={options.iceLevel === level}
+                        onChange={() => setOptions(prev => ({ ...prev, iceLevel: level }))}
+                        inline
+                        className="me-3"
+                      />
+                    ))}
+                  </div>
+                </Form.Group>
+              )}
 
               {/* Sugar Level */}
-              <Form.Group className="mb-3">
-                <Form.Label className="fw-bold">Độ ngọt</Form.Label>
-                <div>
-                  {sugarLevels.map((level) => (
-                    <Form.Check
-                      key={level}
-                      type="radio"
-                      name="sugarLevel"
-                      label={level}
-                      checked={options.sugarLevel === level}
-                      onChange={() => setOptions(prev => ({ ...prev, sugarLevel: level }))}
-                      inline
-                      className="me-3"
-                    />
-                  ))}
-                </div>
-              </Form.Group>
+              {category?.hasSugarLevel && (
+                <Form.Group className="mb-3">
+                  <Form.Label className="fw-bold">Độ ngọt</Form.Label>
+                  <div>
+                    {sugarLevels.map((level) => (
+                      <Form.Check
+                        key={level}
+                        type="radio"
+                        name="sugarLevel"
+                        label={level}
+                        checked={options.sugarLevel === level}
+                        onChange={() => setOptions(prev => ({ ...prev, sugarLevel: level }))}
+                        inline
+                        className="me-3"
+                      />
+                    ))}
+                  </div>
+                </Form.Group>
+              )}
 
               {/* Toppings */}
-              <Form.Group className="mb-3">
-                <Form.Label className="fw-bold">Topping (tùy chọn)</Form.Label>
-                <div>
-                  {availableToppings.map((topping) => (
-                    <Form.Check
-                      key={topping.name}
-                      type="checkbox"
-                      label={`${topping.name} (+$${topping.price.toFixed(2)})`}
-                      checked={options.toppings.includes(topping.name)}
-                      onChange={() => handleToppingChange(topping)}
-                      className="mb-1"
-                    />
-                  ))}
-                </div>
-              </Form.Group>
+              {availableToppings.length > 0 && (
+                <Form.Group className="mb-3">
+                  <Form.Label className="fw-bold">Topping (tùy chọn)</Form.Label>
+                  <div>
+                    {availableToppings.map((topping) => (
+                      <Form.Check
+                        key={topping.name}
+                        type="checkbox"
+                        label={`${topping.name} (+${topping.price.toLocaleString('vi-VN')} ₫)`}
+                        checked={options.toppings.includes(topping.name)}
+                        onChange={() => handleToppingChange(topping)}
+                        className="mb-1"
+                      />
+                    ))}
+                  </div>
+                </Form.Group>
+              )}
 
               {/* Quantity */}
               <Form.Group className="mb-3">
@@ -213,13 +250,14 @@ const AddToCartModal = ({ show, onHide, product }) => {
             </Form>
           </Col>
         </Row>
+        )}
       </Modal.Body>
       <Modal.Footer>
         <Button variant="secondary" onClick={handleClose}>
           Hủy
         </Button>
         <Button variant="success" onClick={handleAddToCart}>
-          Thêm vào giỏ hàng - ${calculateTotalPrice().toFixed(2)}
+          Thêm vào giỏ hàng - {calculateTotalPrice().toLocaleString('vi-VN')} ₫
         </Button>
       </Modal.Footer>
     </Modal>

@@ -54,7 +54,7 @@ const ProductCard = (props) => {
               {/* Action Buttons */}
               <div className="d-flex gap-2 align-items-center">
                 <div className="flex-grow-1">
-                  <h6 className="price mb-0 text-primary fw-bold fs-5">
+                  <h6 style={{ color: "#b18c00" }} className="price mb-0 fw-bold fs-5">
                     {product.price ? product.price.toLocaleString('vi-VN') + ' ₫' : ''}
                   </h6>
                 </div>

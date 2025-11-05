@@ -17,6 +17,7 @@ const ProductDetail = () => {
   const [selectedImage, setSelectedImage] = useState(0);
   const [selectedSize, setSelectedSize] = useState("medium");
   const [relatedProducts, setRelatedProducts] = useState([]);
+  const [availableToppings, setAvailableToppings] = useState([]);
 
   const sizes = [
     { label: "Nhỏ", value: "small", price: 0 },
@@ -33,15 +34,6 @@ const ProductDetail = () => {
     size: selectedSize,
   });
 
-  const availableToppings = [
-    { name: "Trân châu đen", price: 5000 },
-    { name: "Trân châu trắng", price: 5000 },
-    { name: "Thạch trái cây", price: 7000 },
-    { name: "Pudding", price: 8000 },
-    { name: "Kem cheese", price: 10000 },
-    { name: "Whipped cream", price: 6000 }
-  ];
-
   const { addToCart } = useCart();
 
   // Sync size into options when selectedSize changes
@@ -50,24 +42,34 @@ const ProductDetail = () => {
   }, [selectedSize]);
 
   useEffect(() => {
-    const fetchProduct = async () => {
+    const fetchProductData = async () => {
       try {
         setLoading(true);
-        const productRes = await axios.get(`http://localhost:9999/products/${id}`);
-        setProduct(productRes.data);
+        const [productRes, toppingsRes, catToppingRes, categoriesRes] = await Promise.all([
+          axios.get(`http://localhost:9999/products/${id}`),
+          axios.get(`http://localhost:9999/toppings`),
+          axios.get(`http://localhost:9999/categories_topping`),
+          axios.get(`http://localhost:9999/categories`),
+        ]);
 
-        // Fetch category info
-        if (productRes.data.categoryId) {
-          const categoryRes = await axios.get(
-            `http://localhost:9999/categories/${productRes.data.categoryId}`
-          );
-          setCategory(categoryRes.data);
-          // Fetch related products in same category (exclude current product)
+        const currentProduct = productRes.data;
+        setProduct(currentProduct);
+
+        if (currentProduct.categoryId) {
+          const currentCategory = categoriesRes.data.find(c => String(c.id) === String(currentProduct.categoryId));
+          setCategory(currentCategory);
+
+          // Filter toppings
+          const allowedToppingIds = catToppingRes.data[currentProduct.categoryId] || [];
+          const filteredToppings = toppingsRes.data.filter(t => allowedToppingIds.includes(String(t.id)));
+          setAvailableToppings(filteredToppings);
+
+          // Fetch related products
           try {
             const relRes = await axios.get(
-              `http://localhost:9999/products?categoryId=${productRes.data.categoryId}`
+              `http://localhost:9999/products?categoryId=${currentProduct.categoryId}`
             );
-            const rel = (relRes.data || []).filter(p => String(p.id) !== String(productRes.data.id)).slice(0,4);
+            const rel = (relRes.data || []).filter(p => String(p.id) !== String(currentProduct.id)).slice(0, 4);
             setRelatedProducts(rel);
           } catch (err) {
             console.error('Error fetching related products', err);
@@ -75,13 +77,13 @@ const ProductDetail = () => {
           }
         }
       } catch (error) {
-        console.error("Error fetching product:", error);
+        console.error("Error fetching product data:", error);
       } finally {
         setLoading(false);
       }
     };
 
-    fetchProduct();
+    fetchProductData();
   }, [id]);
 
   if (loading) {
@@ -286,36 +288,40 @@ const ProductDetail = () => {
               <h5 className="mb-2">Tùy chọn</h5>
 
               {/* Ice Level */}
-              <div className="mb-3">
-                <div className="fw-bold mb-2">Độ đá</div>
-                <div>
-                  {["Không đá", "Ít đá", "Bình thường", "Nhiều đá"].map((level) => (
-                    <button
-                      key={level}
-                      className={`btn btn-sm me-2 ${options.iceLevel === level ? 'btn-primary' : 'btn-outline-secondary'}`}
-                      onClick={() => setOptions(prev => ({ ...prev, iceLevel: level }))}
-                    >
-                      {level}
-                    </button>
-                  ))}
+              {category?.hasIceLevel && (
+                <div className="mb-3">
+                  <div className="fw-bold mb-2">Độ đá</div>
+                  <div>
+                    {["Không đá", "Ít đá", "Bình thường", "Nhiều đá"].map((level) => (
+                      <button
+                        key={level}
+                        className={`btn btn-sm me-2 ${options.iceLevel === level ? 'btn-primary' : 'btn-outline-secondary'}`}
+                        onClick={() => setOptions(prev => ({ ...prev, iceLevel: level }))}
+                      >
+                        {level}
+                      </button>
+                    ))}
+                  </div>
                 </div>
-              </div>
+              )}
 
               {/* Sugar Level */}
-              <div className="mb-3">
-                <div className="fw-bold mb-2">Độ ngọt</div>
-                <div>
-                  {["0%", "30%", "50%", "70%", "100%"].map((level) => (
-                    <button
-                      key={level}
-                      className={`btn btn-sm me-2 ${options.sugarLevel === level ? 'btn-primary' : 'btn-outline-secondary'}`}
-                      onClick={() => setOptions(prev => ({ ...prev, sugarLevel: level }))}
-                    >
-                      {level}
-                    </button>
-                  ))}
+              {category?.hasSugarLevel && (
+                <div className="mb-3">
+                  <div className="fw-bold mb-2">Độ ngọt</div>
+                  <div>
+                    {["0%", "30%", "50%", "70%", "100%"].map((level) => (
+                      <button
+                        key={level}
+                        className={`btn btn-sm me-2 ${options.sugarLevel === level ? 'btn-primary' : 'btn-outline-secondary'}`}
+                        onClick={() => setOptions(prev => ({ ...prev, sugarLevel: level }))}
+                      >
+                        {level}
+                      </button>
+                    ))}
+                  </div>
                 </div>
-              </div>
+              )}
 
               {/* Toppings */}
               <div className="mb-3">
@@ -350,21 +356,6 @@ const ProductDetail = () => {
                       style={{ width: '80px' }}
                     />
                     <button className="btn btn-outline-secondary" onClick={() => setOptions(prev => ({ ...prev, quantity: prev.quantity + 1 }))}>+</button>
-                  </div>
-                </div>
-
-                <div>
-                  <div className="fw-bold mb-2">Size</div>
-                  <div className="d-flex gap-2">
-                    {sizes.map(s => (
-                      <button
-                        key={s.value}
-                        className={`btn btn-sm ${selectedSize === s.value ? 'btn-primary' : 'btn-outline-secondary'}`}
-                        onClick={() => setSelectedSize(s.value)}
-                      >
-                        {s.label}
-                      </button>
-                    ))}
                   </div>
                 </div>
               </div>
