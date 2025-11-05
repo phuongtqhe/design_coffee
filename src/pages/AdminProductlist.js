@@ -188,7 +188,7 @@ const AdminProductlist = () => {
           <Form.Select
             aria-label="category"
             value={categoryId}
-            onChange={(e) => { setCategoryId(Number(e.target.value)); setCurrentPage(1); }}
+            onChange={(e) => { setCategoryId(e.target.value); setCurrentPage(1); }}
           >
             <option value="">Select category</option>
             {categories.map((c) => (

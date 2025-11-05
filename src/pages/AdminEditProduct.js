@@ -16,11 +16,8 @@ const productSchema = yup.object({
     .typeError('Must be a number')
     .required('This field is required')
     .positive('Must be a positive value'),
-  categoryId: yup.number()
-    .typeError('Must be a number')
-    .required('This field is required')
-    .positive('Must be a positive value')
-    .integer('Must be an integer'),
+  categoryId: yup.string()
+    .required('This field is required'),
   description: yup.string().required('This field is required'),
   product: yup.array().of(
     yup.object().shape({
@@ -64,7 +61,7 @@ const AdminEditProduct = () => {
                 const { title, price, categoryId, featured, status, description } = json
                 formik.setFieldValue('title', title)
                 formik.setFieldValue('price', price)
-                formik.setFieldValue('categoryId', categoryId)
+                formik.setFieldValue('categoryId', String(categoryId))
                 formik.setFieldValue('featured', featured)
                 formik.setFieldValue('status', status === 'active' || status === true)
                 formik.setFieldValue('description', description)
@@ -296,7 +293,7 @@ const AdminEditProduct = () => {
                           size='lg'
                           placeholder="Select a category"
                           name="categoryId"
-                          onChange={(e) => formik.setFieldValue('categoryId', Number(e.target.value))}
+                          onChange={formik.handleChange('categoryId')}
                           onBlur={formik.handleBlur('categoryId')}
                           value={formik.values?.categoryId || ''}
                         >

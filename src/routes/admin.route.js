@@ -12,6 +12,7 @@ import AddProduct from "../pages/Addproduct";
 import AdminProductlist from "../pages/AdminProductlist";
 import AdminProductDetail from "../pages/AdminProductDetail";
 import AdminEditProduct from "../pages/AdminEditProduct";
+import AdminCategory from "../pages/AdminCategory";
 
 export default function adminRoutes() {
   // Admin routes live under /admin and use DefaultAdminLayout
@@ -29,6 +30,7 @@ export default function adminRoutes() {
       { path: "dashboard", element: <Dashboard /> },
       { path: "product", element: <AdminProductlist /> },
       { path: "product/add-product", element: <AddProduct /> },
+      { path: "categories", element: <AdminCategory /> },
       { path: "contacts", element: <AdminContactList /> },
       { path: "feedbacks", element: <FeedbackAdmin /> },
       { path: "customers", element: <CustomersList /> },

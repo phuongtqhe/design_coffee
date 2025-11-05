@@ -8,6 +8,7 @@ import { BsTelephone } from "react-icons/bs";
 import { BiLogoTelegram } from "react-icons/bi";
 import { BiUser } from "react-icons/bi";
 import { BiPackage } from "react-icons/bi";
+import { BiCategory } from "react-icons/bi";
 import Nav from 'react-bootstrap/Nav';
 import Accordion from 'react-bootstrap/Accordion';
 
@@ -24,6 +25,11 @@ export default function AdminSideNav(props) {
                 to: "/admin/product",
                 icon: <BiPackage size="22" className="me-2" />,
                 label: "Products"
+            },
+            {
+                to: "/admin/categories",
+                icon: <BiCategory size="22" className="me-2" />,
+                label: "Categories"
             },
             {
                 to: "/admin/order-list",
