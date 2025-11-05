@@ -11,10 +11,19 @@ const AdminProductlist = () => {
   const [products, setProducts] = useState([]);
   const [categories, setCategories] = useState([]);
   const [nameSearch, setNameSearch] = useState("");
+  const [searchTerm, setSearchTerm] = useState("");
   const [statusFilter, setStatusFilter] = useState();
   const [categoryId, setCategoryId] = useState();
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
+
+  useEffect(() => {
+    const handler = setTimeout(() => {
+      setNameSearch(searchTerm);
+      setCurrentPage(1);
+    }, 500);
+    return () => clearTimeout(handler);
+  }, [searchTerm, setCurrentPage]);
 
   useEffect(() => {
     axios.get("http://localhost:9999/categories")
@@ -156,8 +165,8 @@ const AdminProductlist = () => {
             <Form.Control
               type="text"
               placeholder="Search by name..."
-              value={nameSearch}
-              onChange={(e) => { setNameSearch(e.target.value); setCurrentPage(1); }}
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
             />
           </Form.Group>
         </Col>

@@ -686,6 +686,23 @@
       "details": [],
       "createdAt": "",
       "updatedAt": ""
+    },
+    {
+      "id": "19db",
+      "title": "PHINDI Xoài Dứa",
+      "description": "Sự kết hợp hoàn hảo giữa hạt cà phê Robusta & Arabica thượng hạng được trồng trên những vùng cao nguyên Việt Nam màu mỡ, qua những bí quyết rang xay độc đáo, Highlands Coffee chúng tôi tự hào giới thiệu những dòng sản phẩm Cà phê mang hương vị đậm đà và tinh tế.",
+      "price": 60000,
+      "originPrice": 60000,
+      "categoryId": 2,
+      "featured": false,
+      "status": "active",
+      "images": [
+        "http://res.cloudinary.com/dck2nnfja/image/upload/v1762363483/see7jksf4hq6mijmkmta.png"
+      ],
+      "toppings": [],
+      "details": [],
+      "createdAt": "2025-11-05T17:24:44.723Z",
+      "updatedAt": "2025-11-05T17:24:44.723Z"
     }
   ],
   "reviews": [
