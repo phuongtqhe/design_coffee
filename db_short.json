@@ -51,42 +51,105 @@
       "name": "Do Huy Thanh (K18 HL)",
       "picture": "https://lh3.googleusercontent.com/a/ACg8ocJ0S1guyU4Bn9cNTXVZPEV8MXCTPhWLE-oGJrRag2E75lxdpA=s96-c",
       "role": "customer"
+    },
+    {
+      "id": "3",
+      "userName": "Thân Quang Phương",
+      "email": "garenaobama@gmail.com",
+      "password": "$2b$10$JsXlQu7js3m7QEzGFOS3tOEatRkTY/nkbhEja43DIOlDu2PtTkHaO",
+      "picture": "",
+      "phone": "0904431642",
+      "role": "admin",
+      "status": "active",
+      "address": {
+        "country": "Vietnam",
+        "city": "Bắc Giang",
+        "zipcode": "21000",
+        "street": "Zip/Postal: 21000, Zip/Postal: 21000, Zip/Postal: 21000, Zip/Postal: 21000, Zip/Postal: 21000, Zip/Postal: 21000, Zip/Postal: dsa, việt yên -số nhà 302 - duong nguyen tri thanh. nhaf thuoc thu y thuc an chan nuoi hoa binh so 28 duoing 295b, dsa, Bắc Giang, Vietnam, Coordinate: 21° 1' 2''N 105° 51' 26''E, Bắc Giang, Bắc Giang, Vietnam, Bắc Giang, Bắc Giang, Vietnam, Bắc Giang, Bắc Giang, Vietnam, Bắc Giang, Bắc Giang, Vietnam, Bắc Giang, Bắc Giang, Vietnam, Bắc Giang, Bắc Giang, Vietnam",
+        "detailAddress": "sss"
+      },
+      "createdAt": "2025-11-03T21:13:30.438Z",
+      "updatedAt": "2025-11-03T21:13:30.438Z"
     }
   ],
   "categories": [
     {
       "id": "2",
-      "name": "Coffe",
+      "name": "Coffee",
       "status": "active",
+      "hasIceLevel": true,
+      "hasSugarLevel": true,
       "createdAt": ""
     },
     {
       "id": "3",
       "name": "Tea",
       "status": "active",
+      "hasIceLevel": true,
+      "hasSugarLevel": true,
       "createdAt": ""
     },
     {
       "id": "4",
       "name": "Milk Tea",
       "status": "active",
+      "hasIceLevel": true,
+      "hasSugarLevel": true,
       "createdAt": ""
     },
     {
       "id": "1",
       "name": "Food",
       "status": "active",
+      "hasIceLevel": false,
+      "hasSugarLevel": false,
       "createdAt": ""
     }
   ],
   "toppings": [
     {
       "id": "1",
-      "name": "",
-      "price": 0,
+      "name": "Trân châu đen",
+      "price": 5000,
+      "status": "active"
+    },
+    {
+      "id": "2",
+      "name": "Trân châu trắng",
+      "price": 7000,
+      "status": "active"
+    },
+    {
+      "id": "3",
+      "name": "Thạch trái cây",
+      "price": 5000,
+      "status": "active"
+    },
+    {
+      "id": "4",
+      "name": "Pudding",
+      "price": 7000,
+      "status": "active"
+    },
+    {
+      "id": "5",
+      "name": "Kem cheese",
+      "price": 10000,
+      "status": "active"
+    },
+    {
+      "id": "6",
+      "name": "Whipped cream",
+      "price": 8000,
       "status": "active"
     }
   ],
+  "categories_topping": {
+    "1": ["6"],
+    "2": ["5", "6"],
+    "3": ["2", "3", "5"],
+    "4": ["1", "2", "3", "4", "5"]
+  },
   "products": [
     {
       "id": "300",
@@ -101,9 +164,7 @@
         "https://product.hstatic.net/1000075078/product/1746441451_caramel-coffee_dc2004f6d8144f2f8b7512ba95319ef7_large.png",
         "/logo192.png"
       ],
-      "toppings": [
-        ""
-      ],
+      "toppings": [""],
       "details": [],
       "createdAt": "",
       "updatedAt": ""
@@ -121,9 +182,7 @@
         "https://product.hstatic.net/1000075078/product/1746441372_halzenut-latte_3ef994056c3b4765a600e853f6cca72d_large.png",
         "/logo192.png"
       ],
-      "toppings": [
-        ""
-      ],
+      "toppings": [""],
       "details": [],
       "createdAt": "",
       "updatedAt": ""
@@ -141,9 +200,7 @@
         "https://product.hstatic.net/1000075078/product/1746441267_latte-bac-xiu_a6fe420fef6f4ec7a2e4f87e9e03ef4b_large.png",
         "/logo192.png"
       ],
-      "toppings": [
-        ""
-      ],
+      "toppings": [""],
       "details": [],
       "createdAt": "",
       "updatedAt": ""
@@ -161,9 +218,7 @@
         "https://product.hstatic.net/1000075078/product/1737357108_cappucino-nong_f78c106928fe4c418906763d3dfa4b29_large.png",
         "/logo192.png"
       ],
-      "toppings": [
-        ""
-      ],
+      "toppings": [""],
       "details": [],
       "createdAt": "",
       "updatedAt": ""
@@ -181,9 +236,7 @@
         "https://product.hstatic.net/1000075078/product/1737357135_caramel-macchiato-da_d0a3250162e6427ab8808d8bc35012ec_large.png",
         "/logo192.png"
       ],
-      "toppings": [
-        ""
-      ],
+      "toppings": [""],
       "details": [],
       "createdAt": "",
       "updatedAt": ""
@@ -201,9 +254,7 @@
         "https://product.hstatic.net/1000075078/product/1737357444_espresso-nong_2ac99445a9fc4619a45761a5023b538c_large.png",
         "/logo192.png"
       ],
-      "toppings": [
-        ""
-      ],
+      "toppings": [""],
       "details": [],
       "createdAt": "",
       "updatedAt": ""
@@ -221,9 +272,7 @@
         "https://product.hstatic.net/1000075078/product/1737357451_latte-nong_5072d19ea4af4c28a1f9f307e49d3af9_large.png",
         "/logo192.png"
       ],
-      "toppings": [
-        ""
-      ],
+      "toppings": [""],
       "details": [],
       "createdAt": "",
       "updatedAt": ""
@@ -241,9 +290,7 @@
         "https://product.hstatic.net/1000075078/product/1737357020_bac-xiu-da_43a593b61b8e44379111a9ebb00904d9_large.png",
         "/logo192.png"
       ],
-      "toppings": [
-        ""
-      ],
+      "toppings": [""],
       "details": [],
       "createdAt": "",
       "updatedAt": ""
@@ -261,9 +308,7 @@
         "https://product.hstatic.net/1000075078/product/1737357029_bac-xiu-nong_e0a0732dee144dfda4e3cb43949ce065_large.png",
         "/logo192.png"
       ],
-      "toppings": [
-        ""
-      ],
+      "toppings": [""],
       "details": [],
       "createdAt": "",
       "updatedAt": ""
@@ -281,9 +326,7 @@
         "https://product.hstatic.net/1000075078/product/1737356988_cf-den-da_25422ed38d5a4696bc1af22266ac7589_large.png",
         "/logo192.png"
       ],
-      "toppings": [
-        ""
-      ],
+      "toppings": [""],
       "details": [],
       "createdAt": "",
       "updatedAt": ""
@@ -301,9 +344,7 @@
         "https://gongcha.com.vn/wp-content/uploads/2021/03/ALISAN-TRÁI-CÂY-768x768.png",
         "/logo192.png"
       ],
-      "toppings": [
-        ""
-      ],
+      "toppings": [""],
       "details": [],
       "createdAt": "",
       "updatedAt": ""
@@ -321,9 +362,7 @@
         "https://gongcha.com.vn/wp-content/uploads/2018/02/Chanh-Aiyu-trân-châu-trắng-2-768x768.png",
         "/logo192.png"
       ],
-      "toppings": [
-        ""
-      ],
+      "toppings": [""],
       "details": [],
       "createdAt": "",
       "updatedAt": ""
@@ -341,9 +380,7 @@
         "https://gongcha.com.vn/wp-content/uploads/2018/02/Đào-hồng-mận-hột-é-1-768x768.png",
         "/logo192.png"
       ],
-      "toppings": [
-        ""
-      ],
+      "toppings": [""],
       "details": [],
       "createdAt": "",
       "updatedAt": ""
@@ -361,9 +398,7 @@
         "https://gongcha.com.vn/wp-content/uploads/2018/02/Oolong-vải-2-768x768.png",
         "/logo192.png"
       ],
-      "toppings": [
-        ""
-      ],
+      "toppings": [""],
       "details": [],
       "createdAt": "",
       "updatedAt": ""
@@ -381,9 +416,7 @@
         "https://gongcha.com.vn/wp-content/uploads/2018/02/Alisan-vải-2-768x768.png",
         "/logo192.png"
       ],
-      "toppings": [
-        ""
-      ],
+      "toppings": [""],
       "details": [],
       "createdAt": "",
       "updatedAt": ""
@@ -401,9 +434,7 @@
         "https://gongcha.com.vn/wp-content/uploads/2018/02/Đen-đào-2-768x768.png",
         "/logo192.png"
       ],
-      "toppings": [
-        ""
-      ],
+      "toppings": [""],
       "details": [],
       "createdAt": "",
       "updatedAt": ""
@@ -421,9 +452,7 @@
         "https://gongcha.com.vn/wp-content/uploads/2024/12/STAWBERRY-8.png",
         "/logo192.png"
       ],
-      "toppings": [
-        ""
-      ],
+      "toppings": [""],
       "details": [],
       "createdAt": "",
       "updatedAt": ""
@@ -441,9 +470,7 @@
         "https://gongcha.com.vn/wp-content/uploads/2024/12/OKINAWA-8.png",
         "/logo192.png"
       ],
-      "toppings": [
-        ""
-      ],
+      "toppings": [""],
       "details": [],
       "createdAt": "",
       "updatedAt": ""
@@ -461,9 +488,7 @@
         "https://gongcha.com.vn/wp-content/uploads/2024/07/Tra-sua-Earl-Grey-Carvia_web.png",
         "/logo192.png"
       ],
-      "toppings": [
-        ""
-      ],
+      "toppings": [""],
       "details": [],
       "createdAt": "",
       "updatedAt": ""
@@ -481,9 +506,7 @@
         "https://gongcha.com.vn/wp-content/uploads/2023/11/Tra-sua-Earl-Grey-768x768.png",
         "/logo192.png"
       ],
-      "toppings": [
-        ""
-      ],
+      "toppings": [""],
       "details": [],
       "createdAt": "",
       "updatedAt": ""
@@ -501,9 +524,7 @@
         "https://gongcha.com.vn/wp-content/uploads/2021/12/Tra-Sua-Dao.png",
         "/logo192.png"
       ],
-      "toppings": [
-        ""
-      ],
+      "toppings": [""],
       "details": [],
       "createdAt": "",
       "updatedAt": ""
@@ -521,9 +542,7 @@
         "https://gongcha.com.vn/wp-content/uploads/2019/06/Tra-Sua-Xoai.png",
         "/logo192.png"
       ],
-      "toppings": [
-        ""
-      ],
+      "toppings": [""],
       "details": [],
       "createdAt": "",
       "updatedAt": ""
@@ -541,9 +560,7 @@
         "https://gongcha.com.vn/wp-content/uploads/2018/02/Trà-sữa-Oolong-3J-2-768x768.png",
         "/logo192.png"
       ],
-      "toppings": [
-        ""
-      ],
+      "toppings": [""],
       "details": [],
       "createdAt": "",
       "updatedAt": ""
@@ -561,9 +578,7 @@
         "https://gongcha.com.vn/wp-content/uploads/2018/02/Trà-sữa-Pudding-đậu-đỏ-2-768x768.png",
         "/logo192.png"
       ],
-      "toppings": [
-        ""
-      ],
+      "toppings": [""],
       "details": [],
       "createdAt": "",
       "updatedAt": ""
@@ -581,9 +596,7 @@
         "https://gongcha.com.vn/wp-content/uploads/2018/02/Trà-sữa-Chocolate-2-768x768.png",
         "/logo192.png"
       ],
-      "toppings": [
-        ""
-      ],
+      "toppings": [""],
       "details": [],
       "createdAt": "",
       "updatedAt": ""
@@ -601,9 +614,7 @@
         "https://gongcha.com.vn/wp-content/uploads/2018/02/Trà-sữa-Trân-châu-đen-1.png",
         "/logo192.png"
       ],
-      "toppings": [
-        ""
-      ],
+      "toppings": [""],
       "details": [],
       "createdAt": "",
       "updatedAt": ""
@@ -621,9 +632,7 @@
         "https://gongcha.com.vn/wp-content/uploads/2018/01/Trà-sữa-Khoai-môn-2-768x768.png",
         "/logo192.png"
       ],
-      "toppings": [
-        ""
-      ],
+      "toppings": [""],
       "details": [],
       "createdAt": "",
       "updatedAt": ""
@@ -641,9 +650,7 @@
         "https://tse4.mm.bing.net/th/id/OIP.U-otG2TFJ3hvCSN-Qa0k4AHaFj?cb=12&w=768&h=576&rs=1&pid=ImgDetMain&o=7&rm=3",
         "/logo192.png"
       ],
-      "toppings": [
-        ""
-      ],
+      "toppings": [""],
       "details": [],
       "createdAt": "",
       "updatedAt": ""
@@ -659,14 +666,29 @@
       "status": "active",
       "images": [
         "https://tse3.mm.bing.net/th/id/OIP.ptp9yUIDiWwKfTsy4-NiyAHaE8?cb=12&w=900&h=600&rs=1&pid=ImgDetMain&o=7&rm=3",
-        "/logo192.png"
+        "http://res.cloudinary.com/dck2nnfja/image/upload/v1762364602/otnqh147ugpv15raiu3e.jpg"
       ],
-      "toppings": [
-        ""
-      ],
+      "toppings": [""],
       "details": [],
       "createdAt": "",
-      "updatedAt": ""
+      "updatedAt": "2025-11-05T17:43:23.142Z"
+    },
+    {
+      "id": "19db",
+      "title": "PHINDI Xoài Dứa",
+      "description": "Sự kết hợp hoàn hảo giữa hạt cà phê Robusta & Arabica thượng hạng được trồng trên những vùng cao nguyên Việt Nam màu mỡ, qua những bí quyết rang xay độc đáo, Highlands Coffee chúng tôi tự hào giới thiệu những dòng sản phẩm Cà phê mang hương vị đậm đà và tinh tế.",
+      "price": 60000,
+      "originPrice": 60000,
+      "categoryId": 2,
+      "featured": false,
+      "status": "active",
+      "images": [
+        "http://res.cloudinary.com/dck2nnfja/image/upload/v1762363483/see7jksf4hq6mijmkmta.png"
+      ],
+      "toppings": [],
+      "details": [],
+      "createdAt": "2025-11-05T17:24:44.723Z",
+      "updatedAt": "2025-11-05T17:24:44.723Z"
     }
   ],
   "reviews": [
@@ -942,6 +964,132 @@
       "orderedDate": "2025-11-03",
       "orderedTime": "03:24:29",
       "statusId": 3
+    },
+    {
+      "id": "ord_3",
+      "userId": "2",
+      "receiver": {
+        "fullName": "Hoàng Anh Nguyễn",
+        "email": "nguyenhoanganh21003@gmail.com",
+        "mobile": "0123456789",
+        "address": {
+          "country": "Việt Nam",
+          "city": "Hà Nội",
+          "zipcode": "10000",
+          "street": "Cầu Giấy",
+          "detailAddress": "Số 144, Đường Xuân Thủy"
+        }
+      },
+      "totalPrice": 115000,
+      "status": "success",
+      "orderedDate": "2023-01-10",
+      "orderedTime": "08:30:00",
+      "statusId": 3
+    },
+    {
+      "id": "ord_4",
+      "userId": "thanhdhhe180811@fpt.edu.vn",
+      "receiver": {
+        "fullName": "Do Huy Thanh (K18 HL)",
+        "email": "thanhdhhe180811@fpt.edu.vn",
+        "mobile": "0987654321",
+        "address": {
+          "country": "Việt Nam",
+          "city": "Hồ Chí Minh",
+          "zipcode": "70000",
+          "street": "Quận 1",
+          "detailAddress": "Số 1, Đường Nguyễn Huệ"
+        }
+      },
+      "totalPrice": 152600,
+      "status": "success",
+      "orderedDate": "2023-01-25",
+      "orderedTime": "14:20:00",
+      "statusId": 3
+    },
+    {
+      "id": "ord_5",
+      "userId": "2",
+      "receiver": {
+        "fullName": "Hoàng Anh Nguyễn",
+        "email": "nguyenhoanganh21003@gmail.com",
+        "mobile": "0123456789",
+        "address": {
+          "country": "Việt Nam",
+          "city": "Hà Nội",
+          "zipcode": "10000",
+          "street": "Cầu Giấy",
+          "detailAddress": "Số 144, Đường Xuân Thủy"
+        }
+      },
+      "totalPrice": 57500,
+      "status": "cancelled",
+      "orderedDate": "2023-02-12",
+      "orderedTime": "19:00:00",
+      "statusId": 4
+    },
+    {
+      "id": "ord_6",
+      "userId": "thanhdhhe180811@fpt.edu.vn",
+      "receiver": {
+        "fullName": "Do Huy Thanh (K18 HL)",
+        "email": "thanhdhhe180811@fpt.edu.vn",
+        "mobile": "0987654321",
+        "address": {
+          "country": "Việt Nam",
+          "city": "Hồ Chí Minh",
+          "zipcode": "70000",
+          "street": "Quận 1",
+          "detailAddress": "Số 1, Đường Nguyễn Huệ"
+        }
+      },
+      "totalPrice": 172500,
+      "status": "success",
+      "orderedDate": "2023-03-05",
+      "orderedTime": "11:45:00",
+      "statusId": 3
+    },
+    {
+      "id": "ord_7",
+      "userId": "2",
+      "receiver": {
+        "fullName": "Hoàng Anh Nguyễn",
+        "email": "nguyenhoanganh21003@gmail.com",
+        "mobile": "0123456789",
+        "address": {
+          "country": "Việt Nam",
+          "city": "Hà Nội",
+          "zipcode": "10000",
+          "street": "Cầu Giấy",
+          "detailAddress": "Số 144, Đường Xuân Thủy"
+        }
+      },
+      "totalPrice": 92000,
+      "status": "processing",
+      "orderedDate": "2023-03-18",
+      "orderedTime": "10:00:00",
+      "statusId": 2
+    },
+    {
+      "id": "ord_8",
+      "userId": "thanhdhhe180811@fpt.edu.vn",
+      "receiver": {
+        "fullName": "Do Huy Thanh (K18 HL)",
+        "email": "thanhdhhe180811@fpt.edu.vn",
+        "mobile": "0987654321",
+        "address": {
+          "country": "Việt Nam",
+          "city": "Hồ Chí Minh",
+          "zipcode": "70000",
+          "street": "Quận 1",
+          "detailAddress": "Số 1, Đường Nguyễn Huệ"
+        }
+      },
+      "totalPrice": 121900,
+      "status": "pending",
+      "orderedDate": "2023-04-02",
+      "orderedTime": "16:10:00",
+      "statusId": 1
     }
   ],
   "orderItems": [
@@ -966,39 +1114,6 @@
       "iceLevel": "less ice",
       "sugarLevel": "half sugar",
       "totalCost": 115000
-    },
-    {
-      "id": "oi_3",
-      "orderId": "ord_2",
-      "productId": "300",
-      "quantity": 1,
-      "unitPrice": 57500,
-      "toppingIds": [],
-      "iceLevel": "less ice",
-      "sugarLevel": "normal",
-      "totalCost": 57500
-    },
-    {
-      "id": "b9d2",
-      "orderId": "454a",
-      "productId": "302",
-      "quantity": 1,
-      "unitPrice": 50600,
-      "toppingIds": [],
-      "iceLevel": "Bình thường",
-      "sugarLevel": "100%",
-      "totalCost": 50600
-    },
-    {
-      "id": "c3a3",
-      "orderId": "454a",
-      "productId": "306",
-      "quantity": 1,
-      "unitPrice": 103500,
-      "toppingIds": [],
-      "iceLevel": "Bình thường",
-      "sugarLevel": "100%",
-      "totalCost": 103500
     }
   ]
 }

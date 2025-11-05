@@ -145,25 +145,10 @@
     }
   ],
   "categories_topping": {
-    "1": [
-      "6"
-    ],
-    "2": [
-      "5",
-      "6"
-    ],
-    "3": [
-      "2",
-      "3",
-      "5"
-    ],
-    "4": [
-      "1",
-      "2",
-      "3",
-      "4",
-      "5"
-    ]
+    "1": ["6"],
+    "2": ["5", "6"],
+    "3": ["2", "3", "5"],
+    "4": ["1", "2", "3", "4", "5"]
   },
   "products": [
     {
@@ -179,9 +164,7 @@
         "https://product.hstatic.net/1000075078/product/1746441451_caramel-coffee_dc2004f6d8144f2f8b7512ba95319ef7_large.png",
         "/logo192.png"
       ],
-      "toppings": [
-        ""
-      ],
+      "toppings": [""],
       "details": [],
       "createdAt": "",
       "updatedAt": ""
@@ -199,9 +182,7 @@
         "https://product.hstatic.net/1000075078/product/1746441372_halzenut-latte_3ef994056c3b4765a600e853f6cca72d_large.png",
         "/logo192.png"
       ],
-      "toppings": [
-        ""
-      ],
+      "toppings": [""],
       "details": [],
       "createdAt": "",
       "updatedAt": ""
@@ -219,9 +200,7 @@
         "https://product.hstatic.net/1000075078/product/1746441267_latte-bac-xiu_a6fe420fef6f4ec7a2e4f87e9e03ef4b_large.png",
         "/logo192.png"
       ],
-      "toppings": [
-        ""
-      ],
+      "toppings": [""],
       "details": [],
       "createdAt": "",
       "updatedAt": ""
@@ -239,9 +218,7 @@
         "https://product.hstatic.net/1000075078/product/1737357108_cappucino-nong_f78c106928fe4c418906763d3dfa4b29_large.png",
         "/logo192.png"
       ],
-      "toppings": [
-        ""
-      ],
+      "toppings": [""],
       "details": [],
       "createdAt": "",
       "updatedAt": ""
@@ -259,9 +236,7 @@
         "https://product.hstatic.net/1000075078/product/1737357135_caramel-macchiato-da_d0a3250162e6427ab8808d8bc35012ec_large.png",
         "/logo192.png"
       ],
-      "toppings": [
-        ""
-      ],
+      "toppings": [""],
       "details": [],
       "createdAt": "",
       "updatedAt": ""
@@ -279,9 +254,7 @@
         "https://product.hstatic.net/1000075078/product/1737357444_espresso-nong_2ac99445a9fc4619a45761a5023b538c_large.png",
         "/logo192.png"
       ],
-      "toppings": [
-        ""
-      ],
+      "toppings": [""],
       "details": [],
       "createdAt": "",
       "updatedAt": ""
@@ -299,9 +272,7 @@
         "https://product.hstatic.net/1000075078/product/1737357451_latte-nong_5072d19ea4af4c28a1f9f307e49d3af9_large.png",
         "/logo192.png"
       ],
-      "toppings": [
-        ""
-      ],
+      "toppings": [""],
       "details": [],
       "createdAt": "",
       "updatedAt": ""
@@ -319,9 +290,7 @@
         "https://product.hstatic.net/1000075078/product/1737357020_bac-xiu-da_43a593b61b8e44379111a9ebb00904d9_large.png",
         "/logo192.png"
       ],
-      "toppings": [
-        ""
-      ],
+      "toppings": [""],
       "details": [],
       "createdAt": "",
       "updatedAt": ""
@@ -339,9 +308,7 @@
         "https://product.hstatic.net/1000075078/product/1737357029_bac-xiu-nong_e0a0732dee144dfda4e3cb43949ce065_large.png",
         "/logo192.png"
       ],
-      "toppings": [
-        ""
-      ],
+      "toppings": [""],
       "details": [],
       "createdAt": "",
       "updatedAt": ""
@@ -359,9 +326,7 @@
         "https://product.hstatic.net/1000075078/product/1737356988_cf-den-da_25422ed38d5a4696bc1af22266ac7589_large.png",
         "/logo192.png"
       ],
-      "toppings": [
-        ""
-      ],
+      "toppings": [""],
       "details": [],
       "createdAt": "",
       "updatedAt": ""
@@ -379,9 +344,7 @@
         "https://gongcha.com.vn/wp-content/uploads/2021/03/ALISAN-TRÁI-CÂY-768x768.png",
         "/logo192.png"
       ],
-      "toppings": [
-        ""
-      ],
+      "toppings": [""],
       "details": [],
       "createdAt": "",
       "updatedAt": ""
@@ -399,9 +362,7 @@
         "https://gongcha.com.vn/wp-content/uploads/2018/02/Chanh-Aiyu-trân-châu-trắng-2-768x768.png",
         "/logo192.png"
       ],
-      "toppings": [
-        ""
-      ],
+      "toppings": [""],
       "details": [],
       "createdAt": "",
       "updatedAt": ""
@@ -419,9 +380,7 @@
         "https://gongcha.com.vn/wp-content/uploads/2018/02/Đào-hồng-mận-hột-é-1-768x768.png",
         "/logo192.png"
       ],
-      "toppings": [
-        ""
-      ],
+      "toppings": [""],
       "details": [],
       "createdAt": "",
       "updatedAt": ""
@@ -439,9 +398,7 @@
         "https://gongcha.com.vn/wp-content/uploads/2018/02/Oolong-vải-2-768x768.png",
         "/logo192.png"
       ],
-      "toppings": [
-        ""
-      ],
+      "toppings": [""],
       "details": [],
       "createdAt": "",
       "updatedAt": ""
@@ -459,9 +416,7 @@
         "https://gongcha.com.vn/wp-content/uploads/2018/02/Alisan-vải-2-768x768.png",
         "/logo192.png"
       ],
-      "toppings": [
-        ""
-      ],
+      "toppings": [""],
       "details": [],
       "createdAt": "",
       "updatedAt": ""
@@ -479,9 +434,7 @@
         "https://gongcha.com.vn/wp-content/uploads/2018/02/Đen-đào-2-768x768.png",
         "/logo192.png"
       ],
-      "toppings": [
-        ""
-      ],
+      "toppings": [""],
       "details": [],
       "createdAt": "",
       "updatedAt": ""
@@ -499,9 +452,7 @@
         "https://gongcha.com.vn/wp-content/uploads/2024/12/STAWBERRY-8.png",
         "/logo192.png"
       ],
-      "toppings": [
-        ""
-      ],
+      "toppings": [""],
       "details": [],
       "createdAt": "",
       "updatedAt": ""
@@ -519,9 +470,7 @@
         "https://gongcha.com.vn/wp-content/uploads/2024/12/OKINAWA-8.png",
         "/logo192.png"
       ],
-      "toppings": [
-        ""
-      ],
+      "toppings": [""],
       "details": [],
       "createdAt": "",
       "updatedAt": ""
@@ -539,9 +488,7 @@
         "https://gongcha.com.vn/wp-content/uploads/2024/07/Tra-sua-Earl-Grey-Carvia_web.png",
         "/logo192.png"
       ],
-      "toppings": [
-        ""
-      ],
+      "toppings": [""],
       "details": [],
       "createdAt": "",
       "updatedAt": ""
@@ -559,9 +506,7 @@
         "https://gongcha.com.vn/wp-content/uploads/2023/11/Tra-sua-Earl-Grey-768x768.png",
         "/logo192.png"
       ],
-      "toppings": [
-        ""
-      ],
+      "toppings": [""],
       "details": [],
       "createdAt": "",
       "updatedAt": ""
@@ -579,9 +524,7 @@
         "https://gongcha.com.vn/wp-content/uploads/2021/12/Tra-Sua-Dao.png",
         "/logo192.png"
       ],
-      "toppings": [
-        ""
-      ],
+      "toppings": [""],
       "details": [],
       "createdAt": "",
       "updatedAt": ""
@@ -599,9 +542,7 @@
         "https://gongcha.com.vn/wp-content/uploads/2019/06/Tra-Sua-Xoai.png",
         "/logo192.png"
       ],
-      "toppings": [
-        ""
-      ],
+      "toppings": [""],
       "details": [],
       "createdAt": "",
       "updatedAt": ""
@@ -619,9 +560,7 @@
         "https://gongcha.com.vn/wp-content/uploads/2018/02/Trà-sữa-Oolong-3J-2-768x768.png",
         "/logo192.png"
       ],
-      "toppings": [
-        ""
-      ],
+      "toppings": [""],
       "details": [],
       "createdAt": "",
       "updatedAt": ""
@@ -639,9 +578,7 @@
         "https://gongcha.com.vn/wp-content/uploads/2018/02/Trà-sữa-Pudding-đậu-đỏ-2-768x768.png",
         "/logo192.png"
       ],
-      "toppings": [
-        ""
-      ],
+      "toppings": [""],
       "details": [],
       "createdAt": "",
       "updatedAt": ""
@@ -659,9 +596,7 @@
         "https://gongcha.com.vn/wp-content/uploads/2018/02/Trà-sữa-Chocolate-2-768x768.png",
         "/logo192.png"
       ],
-      "toppings": [
-        ""
-      ],
+      "toppings": [""],
       "details": [],
       "createdAt": "",
       "updatedAt": ""
@@ -679,9 +614,7 @@
         "https://gongcha.com.vn/wp-content/uploads/2018/02/Trà-sữa-Trân-châu-đen-1.png",
         "/logo192.png"
       ],
-      "toppings": [
-        ""
-      ],
+      "toppings": [""],
       "details": [],
       "createdAt": "",
       "updatedAt": ""
@@ -699,9 +632,7 @@
         "https://gongcha.com.vn/wp-content/uploads/2018/01/Trà-sữa-Khoai-môn-2-768x768.png",
         "/logo192.png"
       ],
-      "toppings": [
-        ""
-      ],
+      "toppings": [""],
       "details": [],
       "createdAt": "",
       "updatedAt": ""
@@ -719,9 +650,7 @@
         "https://tse4.mm.bing.net/th/id/OIP.U-otG2TFJ3hvCSN-Qa0k4AHaFj?cb=12&w=768&h=576&rs=1&pid=ImgDetMain&o=7&rm=3",
         "/logo192.png"
       ],
-      "toppings": [
-        ""
-      ],
+      "toppings": [""],
       "details": [],
       "createdAt": "",
       "updatedAt": ""
@@ -739,9 +668,7 @@
         "https://tse3.mm.bing.net/th/id/OIP.ptp9yUIDiWwKfTsy4-NiyAHaE8?cb=12&w=900&h=600&rs=1&pid=ImgDetMain&o=7&rm=3",
         "http://res.cloudinary.com/dck2nnfja/image/upload/v1762364602/otnqh147ugpv15raiu3e.jpg"
       ],
-      "toppings": [
-        ""
-      ],
+      "toppings": [""],
       "details": [],
       "createdAt": "",
       "updatedAt": "2025-11-05T17:43:23.142Z"
@@ -2087,6 +2014,1014 @@
       "orderedDate": "2025-06-10",
       "orderedTime": "09:45:00",
       "statusId": 3
+    },
+    {
+      "id": "ord_53",
+      "userId": "anhtv.he180123@fpt.edu.vn",
+      "receiver": {
+        "fullName": "Trần Văn Anh",
+        "email": "anhtv.he180123@fpt.edu.vn",
+        "mobile": "0912345678",
+        "address": {
+          "country": "Việt Nam",
+          "city": "Hà Nội",
+          "zipcode": "10000",
+          "street": "Quận Ba Đình",
+          "detailAddress": "Số 10, Đường Kim Mã"
+        }
+      },
+      "totalPrice": 85000,
+      "status": "success",
+      "orderedDate": "2025-03-15",
+      "orderedTime": "14:30:10",
+      "statusId": 3
+    },
+    {
+      "id": "ord_54",
+      "userId": "binhnt.he180456@fpt.edu.vn",
+      "receiver": {
+        "fullName": "Nguyễn Thị Bình",
+        "email": "binhnt.he180456@fpt.edu.vn",
+        "mobile": "0988123456",
+        "address": {
+          "country": "Việt Nam",
+          "city": "Đà Nẵng",
+          "zipcode": "55000",
+          "street": "Quận Hải Châu",
+          "detailAddress": "Số 25, Đường Bạch Đằng"
+        }
+      },
+      "totalPrice": 120500,
+      "status": "success",
+      "orderedDate": "2025-09-02",
+      "orderedTime": "10:15:45",
+      "statusId": 3
+    },
+    {
+      "id": "ord_55",
+      "userId": "cuonglv.he170789@fpt.edu.vn",
+      "receiver": {
+        "fullName": "Lê Văn Cường",
+        "email": "cuonglv.he170789@fpt.edu.vn",
+        "mobile": "0977890123",
+        "address": {
+          "country": "Việt Nam",
+          "city": "Hồ Chí Minh",
+          "zipcode": "70000",
+          "street": "Quận 3",
+          "detailAddress": "Hẻm 123, Đường Cách Mạng Tháng Tám"
+        }
+      },
+      "totalPrice": 45000,
+      "status": "success",
+      "orderedDate": "2025-01-20",
+      "orderedTime": "19:05:22",
+      "statusId": 3
+    },
+    {
+      "id": "ord_56",
+      "userId": "dungptt.he180321@fpt.edu.vn",
+      "receiver": {
+        "fullName": "Phạm Thị Thùy Dung",
+        "email": "dungptt.he180321@fpt.edu.vn",
+        "mobile": "0966543210",
+        "address": {
+          "country": "Việt Nam",
+          "city": "Cần Thơ",
+          "zipcode": "90000",
+          "street": "Quận Ninh Kiều",
+          "detailAddress": "Số 5, Bến Ninh Kiều"
+        }
+      },
+      "totalPrice": 78000,
+      "status": "success",
+      "orderedDate": "2025-10-11",
+      "orderedTime": "08:20:00",
+      "statusId": 3
+    },
+    {
+      "id": "ord_57",
+      "userId": "gianght.he170111@fpt.edu.vn",
+      "receiver": {
+        "fullName": "Hoàng Thị Giang",
+        "email": "gianght.he170111@fpt.edu.vn",
+        "mobile": "0905111222",
+        "address": {
+          "country": "Việt Nam",
+          "city": "Hà Nội",
+          "zipcode": "10000",
+          "street": "Quận Hoàn Kiếm",
+          "detailAddress": "Số 30, Phố Hàng Bông"
+        }
+      },
+      "totalPrice": 99500,
+      "status": "success",
+      "orderedDate": "2025-07-28",
+      "orderedTime": "11:55:30",
+      "statusId": 3
+    },
+    {
+      "id": "ord_58",
+      "userId": "hieunv.he180999@fpt.edu.vn",
+      "receiver": {
+        "fullName": "Nguyễn Văn Hiếu",
+        "email": "hieunv.he180999@fpt.edu.vn",
+        "mobile": "0934987654",
+        "address": {
+          "country": "Việt Nam",
+          "city": "Hồ Chí Minh",
+          "zipcode": "70000",
+          "street": "Quận Gò Vấp",
+          "detailAddress": "Số 199, Đường Quang Trung"
+        }
+      },
+      "totalPrice": 62000,
+      "status": "success",
+      "orderedDate": "2025-04-05",
+      "orderedTime": "16:40:15",
+      "statusId": 3
+    },
+    {
+      "id": "ord_59",
+      "userId": "khanhld.he170234@fpt.edu.vn",
+      "receiver": {
+        "fullName": "Lê Duy Khánh",
+        "email": "khanhld.he170234@fpt.edu.vn",
+        "mobile": "0918765432",
+        "address": {
+          "country": "Việt Nam",
+          "city": "Hải Phòng",
+          "zipcode": "18000",
+          "street": "Quận Ngô Quyền",
+          "detailAddress": "Số 88, Đường Lạch Tray"
+        }
+      },
+      "totalPrice": 210000,
+      "status": "success",
+      "orderedDate": "2025-11-19",
+      "orderedTime": "12:00:00",
+      "statusId": 3
+    },
+    {
+      "id": "ord_60",
+      "userId": "linhttk.he180567@fpt.edu.vn",
+      "receiver": {
+        "fullName": "Trần Thị Kim Linh",
+        "email": "linhttk.he180567@fpt.edu.vn",
+        "mobile": "0987111333",
+        "address": {
+          "country": "Việt Nam",
+          "city": "Đà Nẵng",
+          "zipcode": "55000",
+          "street": "Quận Sơn Trà",
+          "detailAddress": "Số 42, Đường Võ Nguyên Giáp"
+        }
+      },
+      "totalPrice": 55500,
+      "status": "success",
+      "orderedDate": "2025-02-14",
+      "orderedTime": "20:30:00",
+      "statusId": 3
+    },
+    {
+      "id": "ord_61",
+      "userId": "minhnd.he170888@fpt.edu.vn",
+      "receiver": {
+        "fullName": "Nguyễn Đức Minh",
+        "email": "minhnd.he170888@fpt.edu.vn",
+        "mobile": "0909888777",
+        "address": {
+          "country": "Việt Nam",
+          "city": "Hồ Chí Minh",
+          "zipcode": "70000",
+          "street": "Quận 7",
+          "detailAddress": "Khu đô thị Phú Mỹ Hưng"
+        }
+      },
+      "totalPrice": 150000,
+      "status": "success",
+      "orderedDate": "2025-08-22",
+      "orderedTime": "13:13:13",
+      "statusId": 3
+    },
+    {
+      "id": "ord_62",
+      "userId": "namvh.he180101@fpt.edu.vn",
+      "receiver": {
+        "fullName": "Vũ Hoàng Nam",
+        "email": "namvh.he180101@fpt.edu.vn",
+        "mobile": "0944101101",
+        "address": {
+          "country": "Việt Nam",
+          "city": "Hà Nội",
+          "zipcode": "10000",
+          "street": "Quận Cầu Giấy",
+          "detailAddress": "Số 1, Phố Duy Tân"
+        }
+      },
+      "totalPrice": 72000,
+      "status": "success",
+      "orderedDate": "2025-05-30",
+      "orderedTime": "09:00:50",
+      "statusId": 3
+    },
+    {
+      "id": "ord_63",
+      "userId": "oanhltk.he170444@fpt.edu.vn",
+      "receiver": {
+        "fullName": "Lê Thị Kim Oanh",
+        "email": "oanhltk.he170444@fpt.edu.vn",
+        "mobile": "0911444555",
+        "address": {
+          "country": "Việt Nam",
+          "city": "Cần Thơ",
+          "zipcode": "90000",
+          "street": "Quận Bình Thủy",
+          "detailAddress": "Số 12, Đường Lê Hồng Phong"
+        }
+      },
+      "totalPrice": 89000,
+      "status": "success",
+      "orderedDate": "2025-10-25",
+      "orderedTime": "15:10:05",
+      "statusId": 3
+    },
+    {
+      "id": "ord_64",
+      "userId": "phuongnt.he180666@fpt.edu.vn",
+      "receiver": {
+        "fullName": "Nguyễn Thị Phương",
+        "email": "phuongnt.he180666@fpt.edu.vn",
+        "mobile": "0988666888",
+        "address": {
+          "country": "Việt Nam",
+          "city": "Hồ Chí Minh",
+          "zipcode": "70000",
+          "street": "Quận Tân Bình",
+          "detailAddress": "Số 202, Đường Hoàng Văn Thụ"
+        }
+      },
+      "totalPrice": 115500,
+      "status": "success",
+      "orderedDate": "2025-06-18",
+      "orderedTime": "18:45:00",
+      "statusId": 3
+    },
+    {
+      "id": "ord_65",
+      "userId": "quanpv.he170777@fpt.edu.vn",
+      "receiver": {
+        "fullName": "Phạm Văn Quân",
+        "email": "quanpv.he170777@fpt.edu.vn",
+        "mobile": "0977777999",
+        "address": {
+          "country": "Việt Nam",
+          "city": "Hà Nội",
+          "zipcode": "10000",
+          "street": "Quận Hai Bà Trưng",
+          "detailAddress": "Số 55, Phố Đại Cồ Việt"
+        }
+      },
+      "totalPrice": 35000,
+      "status": "success",
+      "orderedDate": "2025-01-01",
+      "orderedTime": "07:30:00",
+      "statusId": 3
+    },
+    {
+      "id": "ord_66",
+      "userId": "sonnh.he180888@fpt.edu.vn",
+      "receiver": {
+        "fullName": "Nguyễn Hải Sơn",
+        "email": "sonnh.he180888@fpt.edu.vn",
+        "mobile": "0905888999",
+        "address": {
+          "country": "Việt Nam",
+          "city": "Đà Nẵng",
+          "zipcode": "55000",
+          "street": "Quận Thanh Khê",
+          "detailAddress": "Số 150, Đường Điện Biên Phủ"
+        }
+      },
+      "totalPrice": 95000,
+      "status": "success",
+      "orderedDate": "2025-09-15",
+      "orderedTime": "14:20:30",
+      "statusId": 3
+    },
+    {
+      "id": "ord_67",
+      "userId": "thaovt.he170999@fpt.edu.vn",
+      "receiver": {
+        "fullName": "Vũ Thị Thảo",
+        "email": "thaovt.he170999@fpt.edu.vn",
+        "mobile": "0912999000",
+        "address": {
+          "country": "Việt Nam",
+          "city": "Hồ Chí Minh",
+          "zipcode": "70000",
+          "street": "Quận Bình Thạnh",
+          "detailAddress": "Chung cư Vinhomes Central Park"
+        }
+      },
+      "totalPrice": 180000,
+      "status": "success",
+      "orderedDate": "2025-03-08",
+      "orderedTime": "21:00:00",
+      "statusId": 3
+    },
+    {
+      "id": "ord_68",
+      "userId": "uyennt.he181000@fpt.edu.vn",
+      "receiver": {
+        "fullName": "Nguyễn Thị Tố Uyên",
+        "email": "uyennt.he181000@fpt.edu.vn",
+        "mobile": "0981000111",
+        "address": {
+          "country": "Việt Nam",
+          "city": "Hà Nội",
+          "zipcode": "10000",
+          "street": "Quận Đống Đa",
+          "detailAddress": "Số 198, Phố Xã Đàn"
+        }
+      },
+      "totalPrice": 50000,
+      "status": "success",
+      "orderedDate": "2025-07-07",
+      "orderedTime": "10:10:10",
+      "statusId": 3
+    },
+    {
+      "id": "ord_69",
+      "userId": "vanpt.he171111@fpt.edu.vn",
+      "receiver": {
+        "fullName": "Phan Thị Vân",
+        "email": "vanpt.he171111@fpt.edu.vn",
+        "mobile": "0905111111",
+        "address": {
+          "country": "Việt Nam",
+          "city": "Hồ Chí Minh",
+          "zipcode": "70000",
+          "street": "Quận 10",
+          "detailAddress": "Số 33, Đường 3 tháng 2"
+        }
+      },
+      "totalPrice": 68500,
+      "status": "success",
+      "orderedDate": "2025-04-30",
+      "orderedTime": "12:30:45",
+      "statusId": 3
+    },
+    {
+      "id": "ord_70",
+      "userId": "xuanht.he181212@fpt.edu.vn",
+      "receiver": {
+        "fullName": "Hồ Thị Xuân",
+        "email": "xuanht.he181212@fpt.edu.vn",
+        "mobile": "0912121212",
+        "address": {
+          "country": "Việt Nam",
+          "city": "Đà Nẵng",
+          "zipcode": "55000",
+          "street": "Quận Cẩm Lệ",
+          "detailAddress": "Số 77, Đường Ông Ích Đường"
+        }
+      },
+      "totalPrice": 105000,
+      "status": "success",
+      "orderedDate": "2025-11-28",
+      "orderedTime": "17:00:15",
+      "statusId": 3
+    },
+    {
+      "id": "ord_71",
+      "userId": "yennt.he171313@fpt.edu.vn",
+      "receiver": {
+        "fullName": "Nguyễn Thị Yến",
+        "email": "yennt.he171313@fpt.edu.vn",
+        "mobile": "0981313131",
+        "address": {
+          "country": "Việt Nam",
+          "city": "Hà Nội",
+          "zipcode": "10000",
+          "street": "Quận Tây Hồ",
+          "detailAddress": "Số 99, Đường ven hồ"
+        }
+      },
+      "totalPrice": 88000,
+      "status": "success",
+      "orderedDate": "2025-08-15",
+      "orderedTime": "09:30:00",
+      "statusId": 3
+    },
+    {
+      "id": "ord_72",
+      "userId": "anhdq.he181414@fpt.edu.vn",
+      "receiver": {
+        "fullName": "Đỗ Quang Anh",
+        "email": "anhdq.he181414@fpt.edu.vn",
+        "mobile": "0914141414",
+        "address": {
+          "country": "Việt Nam",
+          "city": "Hồ Chí Minh",
+          "zipcode": "70000",
+          "street": "Thành phố Thủ Đức",
+          "detailAddress": "Khu Công nghệ cao"
+        }
+      },
+      "totalPrice": 135000,
+      "status": "success",
+      "orderedDate": "2025-02-28",
+      "orderedTime": "11:20:35",
+      "statusId": 3
+    },
+    {
+      "id": "ord_73",
+      "userId": "bachhv.he171515@fpt.edu.vn",
+      "receiver": {
+        "fullName": "Hoàng Văn Bách",
+        "email": "bachhv.he171515@fpt.edu.vn",
+        "mobile": "0915151515",
+        "address": {
+          "country": "Việt Nam",
+          "city": "Cần Thơ",
+          "zipcode": "90000",
+          "street": "Quận Cái Răng",
+          "detailAddress": "Số 1, Chợ nổi Cái Răng"
+        }
+      },
+      "totalPrice": 48500,
+      "status": "success",
+      "orderedDate": "2025-10-01",
+      "orderedTime": "06:00:00",
+      "statusId": 3
+    },
+    {
+      "id": "ord_74",
+      "userId": "chilt.he181616@fpt.edu.vn",
+      "receiver": {
+        "fullName": "Lý Thị Chi",
+        "email": "chilt.he181616@fpt.edu.vn",
+        "mobile": "0916161616",
+        "address": {
+          "country": "Việt Nam",
+          "city": "Hà Nội",
+          "zipcode": "10000",
+          "street": "Quận Hà Đông",
+          "detailAddress": "Số 16, Làng lụa Vạn Phúc"
+        }
+      },
+      "totalPrice": 77000,
+      "status": "success",
+      "orderedDate": "2025-05-19",
+      "orderedTime": "15:50:50",
+      "statusId": 3
+    },
+    {
+      "id": "ord_75",
+      "userId": "datlt.he171717@fpt.edu.vn",
+      "receiver": {
+        "fullName": "Lương Thành Đạt",
+        "email": "datlt.he171717@fpt.edu.vn",
+        "mobile": "0917171717",
+        "address": {
+          "country": "Việt Nam",
+          "city": "Hồ Chí Minh",
+          "zipcode": "70000",
+          "street": "Quận 1",
+          "detailAddress": "Tòa nhà Bitexco"
+        }
+      },
+      "totalPrice": 250000,
+      "status": "success",
+      "orderedDate": "2025-09-20",
+      "orderedTime": "19:45:10",
+      "statusId": 3
+    },
+    {
+      "id": "ord_76",
+      "userId": "anhtn.he181818@fpt.edu.vn",
+      "receiver": {
+        "fullName": "Trịnh Ngọc Anh",
+        "email": "anhtn.he181818@fpt.edu.vn",
+        "mobile": "0918181818",
+        "address": {
+          "country": "Việt Nam",
+          "city": "Đà Nẵng",
+          "zipcode": "55000",
+          "street": "Quận Ngũ Hành Sơn",
+          "detailAddress": "Số 18, Đường An Thượng"
+        }
+      },
+      "totalPrice": 92000,
+      "status": "success",
+      "orderedDate": "2025-01-15",
+      "orderedTime": "13:05:00",
+      "statusId": 3
+    },
+    {
+      "id": "ord_77",
+      "userId": "baotq.he171919@fpt.edu.vn",
+      "receiver": {
+        "fullName": "Trần Quốc Bảo",
+        "email": "baotq.he171919@fpt.edu.vn",
+        "mobile": "0919191919",
+        "address": {
+          "country": "Việt Nam",
+          "city": "Hải Phòng",
+          "zipcode": "18000",
+          "street": "Quận Hồng Bàng",
+          "detailAddress": "Số 19, Phố Tam Bạc"
+        }
+      },
+      "totalPrice": 65000,
+      "status": "success",
+      "orderedDate": "2025-07-22",
+      "orderedTime": "22:10:40",
+      "statusId": 3
+    },
+    {
+      "id": "ord_78",
+      "userId": "chautt.he182020@fpt.edu.vn",
+      "receiver": {
+        "fullName": "Trương Thị Châu",
+        "email": "chautt.he182020@fpt.edu.vn",
+        "mobile": "0920202020",
+        "address": {
+          "country": "Việt Nam",
+          "city": "Hồ Chí Minh",
+          "zipcode": "70000",
+          "street": "Quận 5",
+          "detailAddress": "Số 20, Đường Trần Hưng Đạo"
+        }
+      },
+      "totalPrice": 110000,
+      "status": "success",
+      "orderedDate": "2025-11-01",
+      "orderedTime": "08:55:00",
+      "statusId": 3
+    },
+    {
+      "id": "ord_79",
+      "userId": "duonglt.he172121@fpt.edu.vn",
+      "receiver": {
+        "fullName": "Lê Thị Dương",
+        "email": "duonglt.he172121@fpt.edu.vn",
+        "mobile": "0921212121",
+        "address": {
+          "country": "Việt Nam",
+          "city": "Hà Nội",
+          "zipcode": "10000",
+          "street": "Quận Long Biên",
+          "detailAddress": "Số 21, KĐT Việt Hưng"
+        }
+      },
+      "totalPrice": 75500,
+      "status": "success",
+      "orderedDate": "2025-06-06",
+      "orderedTime": "16:16:16",
+      "statusId": 3
+    },
+    {
+      "id": "ord_80",
+      "userId": "hangnt.he182222@fpt.edu.vn",
+      "receiver": {
+        "fullName": "Nguyễn Thu Hằng",
+        "email": "hangnt.he182222@fpt.edu.vn",
+        "mobile": "0922222222",
+        "address": {
+          "country": "Việt Nam",
+          "city": "Đà Nẵng",
+          "zipcode": "55000",
+          "street": "Quận Liên Chiểu",
+          "detailAddress": "Số 22, Đường Nguyễn Lương Bằng"
+        }
+      },
+      "totalPrice": 142000,
+      "status": "success",
+      "orderedDate": "2025-03-26",
+      "orderedTime": "11:45:00",
+      "statusId": 3
+    },
+    {
+      "id": "ord_81",
+      "userId": "huyennt.he172323@fpt.edu.vn",
+      "receiver": {
+        "fullName": "Nguyễn Thị Huyền",
+        "email": "huyennt.he172323@fpt.edu.vn",
+        "mobile": "0923232323",
+        "address": {
+          "country": "Việt Nam",
+          "city": "Hồ Chí Minh",
+          "zipcode": "70000",
+          "street": "Quận Phú Nhuận",
+          "detailAddress": "Số 23, Đường Phan Xích Long"
+        }
+      },
+      "totalPrice": 88500,
+      "status": "success",
+      "orderedDate": "2025-09-10",
+      "orderedTime": "14:00:25",
+      "statusId": 3
+    },
+    {
+      "id": "ord_82",
+      "userId": "khangld.he182424@fpt.edu.vn",
+      "receiver": {
+        "fullName": "Lê Duy Khang",
+        "email": "khangld.he182424@fpt.edu.vn",
+        "mobile": "0924242424",
+        "address": {
+          "country": "Việt Nam",
+          "city": "Cần Thơ",
+          "zipcode": "90000",
+          "street": "Quận Ô Môn",
+          "detailAddress": "Số 24, Phường Châu Văn Liêm"
+        }
+      },
+      "totalPrice": 53000,
+      "status": "success",
+      "orderedDate": "2025-04-12",
+      "orderedTime": "10:30:10",
+      "statusId": 3
+    },
+    {
+      "id": "ord_83",
+      "userId": "lampt.he172525@fpt.edu.vn",
+      "receiver": {
+        "fullName": "Phan Tùng Lâm",
+        "email": "lampt.he172525@fpt.edu.vn",
+        "mobile": "0925252525",
+        "address": {
+          "country": "Việt Nam",
+          "city": "Hà Nội",
+          "zipcode": "10000",
+          "street": "Quận Hoàng Mai",
+          "detailAddress": "Số 25, KĐT Linh Đàm"
+        }
+      },
+      "totalPrice": 165000,
+      "status": "success",
+      "orderedDate": "2025-11-20",
+      "orderedTime": "20:05:00",
+      "statusId": 3
+    },
+    {
+      "id": "ord_84",
+      "userId": "maitt.he182626@fpt.edu.vn",
+      "receiver": {
+        "fullName": "Trần Thị Mai",
+        "email": "maitt.he182626@fpt.edu.vn",
+        "mobile": "0926262626",
+        "address": {
+          "country": "Việt Nam",
+          "city": "Hồ Chí Minh",
+          "zipcode": "70000",
+          "street": "Quận 4",
+          "detailAddress": "Số 26, Đường Tôn Đản"
+        }
+      },
+      "totalPrice": 71000,
+      "status": "success",
+      "orderedDate": "2025-08-01",
+      "orderedTime": "09:15:30",
+      "statusId": 3
+    },
+    {
+      "id": "ord_85",
+      "userId": "nganvt.he172727@fpt.edu.vn",
+      "receiver": {
+        "fullName": "Vũ Thị Ngân",
+        "email": "nganvt.he172727@fpt.edu.vn",
+        "mobile": "0927272727",
+        "address": {
+          "country": "Việt Nam",
+          "city": "Đà Nẵng",
+          "zipcode": "55000",
+          "street": "Quận Sơn Trà",
+          "detailAddress": "Số 27, Đường Hoàng Sa"
+        }
+      },
+      "totalPrice": 109500,
+      "status": "success",
+      "orderedDate": "2025-01-28",
+      "orderedTime": "12:12:12",
+      "statusId": 3
+    },
+    {
+      "id": "ord_86",
+      "userId": "ngocdt.he182828@fpt.edu.vn",
+      "receiver": {
+        "fullName": "Đinh Thị Ngọc",
+        "email": "ngocdt.he182828@fpt.edu.vn",
+        "mobile": "0928282828",
+        "address": {
+          "country": "Việt Nam",
+          "city": "Hải Phòng",
+          "zipcode": "18000",
+          "street": "Quận Lê Chân",
+          "detailAddress": "Số 28, Phố Tô Hiệu"
+        }
+      },
+      "totalPrice": 49000,
+      "status": "success",
+      "orderedDate": "2025-10-31",
+      "orderedTime": "23:59:59",
+      "statusId": 3
+    },
+    {
+      "id": "ord_87",
+      "userId": "nhipt.he172929@fpt.edu.vn",
+      "receiver": {
+        "fullName": "Phan Thị Yến Nhi",
+        "email": "nhipt.he172929@fpt.edu.vn",
+        "mobile": "0929292929",
+        "address": {
+          "country": "Việt Nam",
+          "city": "Hồ Chí Minh",
+          "zipcode": "70000",
+          "street": "Quận Tân Phú",
+          "detailAddress": "Số 29, Đường Lũy Bán Bích"
+        }
+      },
+      "totalPrice": 99000,
+      "status": "success",
+      "orderedDate": "2025-05-01",
+      "orderedTime": "08:08:08",
+      "statusId": 3
+    },
+    {
+      "id": "ord_88",
+      "userId": "nhunglt.he183030@fpt.edu.vn",
+      "receiver": {
+        "fullName": "Lê Thị Nhung",
+        "email": "nhunglt.he183030@fpt.edu.vn",
+        "mobile": "0930303030",
+        "address": {
+          "country": "Việt Nam",
+          "city": "Hà Nội",
+          "zipcode": "10000",
+          "street": "Quận Thanh Xuân",
+          "detailAddress": "Số 30, KĐT Royal City"
+        }
+      },
+      "totalPrice": 195000,
+      "status": "success",
+      "orderedDate": "2025-09-09",
+      "orderedTime": "17:30:00",
+      "statusId": 3
+    },
+    {
+      "id": "ord_89",
+      "userId": "phatlt.he173131@fpt.edu.vn",
+      "receiver": {
+        "fullName": "Lê Tấn Phát",
+        "email": "phatlt.he173131@fpt.edu.vn",
+        "mobile": "0931313131",
+        "address": {
+          "country": "Việt Nam",
+          "city": "Đà Nẵng",
+          "zipcode": "55000",
+          "street": "Huyện Hòa Vang",
+          "detailAddress": "Số 31, Khu du lịch Bà Nà"
+        }
+      },
+      "totalPrice": 300000,
+      "status": "success",
+      "orderedDate": "2025-07-14",
+      "orderedTime": "10:00:00",
+      "statusId": 3
+    },
+    {
+      "id": "ord_90",
+      "userId": "phuclv.he183232@fpt.edu.vn",
+      "receiver": {
+        "fullName": "Lâm Văn Phúc",
+        "email": "phuclv.he183232@fpt.edu.vn",
+        "mobile": "0932323232",
+        "address": {
+          "country": "Việt Nam",
+          "city": "Hồ Chí Minh",
+          "zipcode": "70000",
+          "street": "Quận 12",
+          "detailAddress": "Số 32, Công viên phần mềm Quang Trung"
+        }
+      },
+      "totalPrice": 82000,
+      "status": "success",
+      "orderedDate": "2025-02-02",
+      "orderedTime": "14:14:14",
+      "statusId": 3
+    },
+    {
+      "id": "ord_91",
+      "userId": "quynhtt.he173333@fpt.edu.vn",
+      "receiver": {
+        "fullName": "Trần Thị Quỳnh",
+        "email": "quynhtt.he173333@fpt.edu.vn",
+        "mobile": "0933333333",
+        "address": {
+          "country": "Việt Nam",
+          "city": "Cần Thơ",
+          "zipcode": "90000",
+          "street": "Quận Ninh Kiều",
+          "detailAddress": "Số 33, Đường 30/4"
+        }
+      },
+      "totalPrice": 58000,
+      "status": "success",
+      "orderedDate": "2025-06-25",
+      "orderedTime": "18:00:00",
+      "statusId": 3
+    },
+    {
+      "id": "ord_92",
+      "userId": "sangtv.he183434@fpt.edu.vn",
+      "receiver": {
+        "fullName": "Trương Văn Sáng",
+        "email": "sangtv.he183434@fpt.edu.vn",
+        "mobile": "0934343434",
+        "address": {
+          "country": "Việt Nam",
+          "city": "Hà Nội",
+          "zipcode": "10000",
+          "street": "Quận Bắc Từ Liêm",
+          "detailAddress": "Số 34, KĐT Goldmark City"
+        }
+      },
+      "totalPrice": 125000,
+      "status": "success",
+      "orderedDate": "2025-10-10",
+      "orderedTime": "09:09:09",
+      "statusId": 3
+    },
+    {
+      "id": "ord_93",
+      "userId": "tamht.he173535@fpt.edu.vn",
+      "receiver": {
+        "fullName": "Hồ Thị Tâm",
+        "email": "tamht.he173535@fpt.edu.vn",
+        "mobile": "0935353535",
+        "address": {
+          "country": "Việt Nam",
+          "city": "Hồ Chí Minh",
+          "zipcode": "70000",
+          "street": "Quận 8",
+          "detailAddress": "Số 35, Đường Tạ Quang Bửu"
+        }
+      },
+      "totalPrice": 66000,
+      "status": "success",
+      "orderedDate": "2025-03-03",
+      "orderedTime": "15:03:00",
+      "statusId": 3
+    },
+    {
+      "id": "ord_94",
+      "userId": "thangnd.he183636@fpt.edu.vn",
+      "receiver": {
+        "fullName": "Nguyễn Đức Thắng",
+        "email": "thangnd.he183636@fpt.edu.vn",
+        "mobile": "0936363636",
+        "address": {
+          "country": "Việt Nam",
+          "city": "Đà Nẵng",
+          "zipcode": "55000",
+          "street": "Quận Hải Châu",
+          "detailAddress": "Số 36, Đường 2/9"
+        }
+      },
+      "totalPrice": 170500,
+      "status": "success",
+      "orderedDate": "2025-08-18",
+      "orderedTime": "11:11:11",
+      "statusId": 3
+    },
+    {
+      "id": "ord_95",
+      "userId": "thanhpt.he173737@fpt.edu.vn",
+      "receiver": {
+        "fullName": "Phan Thị Thanh",
+        "email": "thanhpt.he173737@fpt.edu.vn",
+        "mobile": "0937373737",
+        "address": {
+          "country": "Việt Nam",
+          "city": "Hà Nội",
+          "zipcode": "10000",
+          "street": "Quận Nam Từ Liêm",
+          "detailAddress": "Số 37, Đường Lê Đức Thọ"
+        }
+      },
+      "totalPrice": 94000,
+      "status": "success",
+      "orderedDate": "2025-04-01",
+      "orderedTime": "19:30:15",
+      "statusId": 3
+    },
+    {
+      "id": "ord_96",
+      "userId": "thuyht.he183838@fpt.edu.vn",
+      "receiver": {
+        "fullName": "Hà Thị Thúy",
+        "email": "thuyht.he183838@fpt.edu.vn",
+        "mobile": "0938383838",
+        "address": {
+          "country": "Việt Nam",
+          "city": "Hồ Chí Minh",
+          "zipcode": "70000",
+          "street": "Quận 11",
+          "detailAddress": "Số 38, Đường Lê Đại Hành"
+        }
+      },
+      "totalPrice": 59500,
+      "status": "success",
+      "orderedDate": "2025-11-11",
+      "orderedTime": "11:11:00",
+      "statusId": 3
+    },
+    {
+      "id": "ord_97",
+      "userId": "trangdt.he173939@fpt.edu.vn",
+      "receiver": {
+        "fullName": "Đào Thu Trang",
+        "email": "trangdt.he173939@fpt.edu.vn",
+        "mobile": "0939393939",
+        "address": {
+          "country": "Việt Nam",
+          "city": "Cần Thơ",
+          "zipcode": "90000",
+          "street": "Quận Bình Thủy",
+          "detailAddress": "Số 39, Đường Võ Văn Kiệt"
+        }
+      },
+      "totalPrice": 112000,
+      "status": "success",
+      "orderedDate": "2025-07-01",
+      "orderedTime": "16:45:30",
+      "statusId": 3
+    },
+    {
+      "id": "ord_98",
+      "userId": "trungdt.he184040@fpt.edu.vn",
+      "receiver": {
+        "fullName": "Đặng Tuấn Trung",
+        "email": "trungdt.he184040@fpt.edu.vn",
+        "mobile": "0940404040",
+        "address": {
+          "country": "Việt Nam",
+          "city": "Hà Nội",
+          "zipcode": "10000",
+          "street": "Huyện Gia Lâm",
+          "detailAddress": "Số 40, KĐT Vinhomes Ocean Park"
+        }
+      },
+      "totalPrice": 220000,
+      "status": "success",
+      "orderedDate": "2025-02-18",
+      "orderedTime": "13:30:00",
+      "statusId": 3
+    },
+    {
+      "id": "ord_99",
+      "userId": "tuanva.he174141@fpt.edu.vn",
+      "receiver": {
+        "fullName": "Vũ Anh Tuấn",
+        "email": "tuanva.he174141@fpt.edu.vn",
+        "mobile": "0941414141",
+        "address": {
+          "country": "Việt Nam",
+          "city": "Hồ Chí Minh",
+          "zipcode": "70000",
+          "street": "Huyện Bình Chánh",
+          "detailAddress": "Số 41, Đường Nguyễn Văn Linh"
+        }
+      },
+      "totalPrice": 78500,
+      "status": "success",
+      "orderedDate": "2025-08-30",
+      "orderedTime": "20:20:20",
+      "statusId": 3
+    },
+    {
+      "id": "ord_100",
+      "userId": "vytt.he184242@fpt.edu.vn",
+      "receiver": {
+        "fullName": "Trần Tường Vy",
+        "email": "vytt.he184242@fpt.edu.vn",
+        "mobile": "0942424242",
+        "address": {
+          "country": "Việt Nam",
+          "city": "Đà Nẵng",
+          "zipcode": "55000",
+          "street": "Quận Thanh Khê",
+          "detailAddress": "Số 42, Đường Hà Huy Tập"
+        }
+      },
+      "totalPrice": 130000,
+      "status": "success",
+      "orderedDate": "2025-11-25",
+      "orderedTime": "10:40:55",
+      "statusId": 3
     }
   ],
   "orderItems": [
@@ -2694,6 +3629,534 @@
       "iceLevel": "normal",
       "sugarLevel": "normal",
       "totalCost": 103500
+    },
+    {
+      "id": "oi_54",
+      "orderId": "ord_53",
+      "productId": "302",
+      "quantity": 2,
+      "unitPrice": 42000,
+      "toppingIds": ["2"],
+      "iceLevel": "less",
+      "sugarLevel": "70%",
+      "totalCost": 84000
+    },
+    {
+      "id": "oi_55",
+      "orderId": "ord_54",
+      "productId": "209",
+      "quantity": 1,
+      "unitPrice": 50000,
+      "toppingIds": ["5"],
+      "iceLevel": "normal",
+      "sugarLevel": "50%",
+      "totalCost": 50000
+    },
+    {
+      "id": "oi_56",
+      "orderId": "ord_55",
+      "productId": "106",
+      "quantity": 1,
+      "unitPrice": 45000,
+      "toppingIds": [],
+      "iceLevel": null,
+      "sugarLevel": null,
+      "totalCost": 45000
+    },
+    {
+      "id": "oi_57",
+      "orderId": "ord_56",
+      "productId": "302",
+      "quantity": 2,
+      "unitPrice": 35000,
+      "toppingIds": [],
+      "iceLevel": "more",
+      "sugarLevel": "100%",
+      "totalCost": 70000
+    },
+    {
+      "id": "oi_58",
+      "orderId": "ord_57",
+      "productId": "209",
+      "quantity": 3,
+      "unitPrice": 40000,
+      "toppingIds": [],
+      "iceLevel": "normal",
+      "sugarLevel": "normal",
+      "totalCost": 120000
+    },
+    {
+      "id": "oi_59",
+      "orderId": "ord_58",
+      "productId": "302",
+      "quantity": 1,
+      "unitPrice": 47000,
+      "toppingIds": ["2", "5"],
+      "iceLevel": "no ice",
+      "sugarLevel": "30%",
+      "totalCost": 47000
+    },
+    {
+      "id": "oi_60",
+      "orderId": "ord_59",
+      "productId": "10",
+      "quantity": 2,
+      "unitPrice": 53000,
+      "toppingIds": ["6"],
+      "iceLevel": null,
+      "sugarLevel": null,
+      "totalCost": 106000
+    },
+    {
+      "id": "oi_61",
+      "orderId": "ord_60",
+      "productId": "10",
+      "quantity": 1,
+      "unitPrice": 48000,
+      "toppingIds": ["6"],
+      "iceLevel": "less",
+      "sugarLevel": "50%",
+      "totalCost": 48000
+    },
+    {
+      "id": "oi_62",
+      "orderId": "ord_61",
+      "productId": "10",
+      "quantity": 2,
+      "unitPrice": 40000,
+      "toppingIds": ["3"],
+      "iceLevel": "normal",
+      "sugarLevel": "70%",
+      "totalCost": 80000
+    },
+    {
+      "id": "oi_63",
+      "orderId": "ord_62",
+      "productId": "10",
+      "quantity": 1,
+      "unitPrice": 45000,
+      "toppingIds": [],
+      "iceLevel": null,
+      "sugarLevel": null,
+      "totalCost": 45000
+    },
+    {
+      "id": "oi_64",
+      "orderId": "ord_63",
+      "productId": "209",
+      "quantity": 1,
+      "unitPrice": 50000,
+      "toppingIds": ["5"],
+      "iceLevel": "normal",
+      "sugarLevel": "100%",
+      "totalCost": 50000
+    },
+    {
+      "id": "oi_65",
+      "orderId": "ord_64",
+      "productId": "302",
+      "quantity": 3,
+      "unitPrice": 35000,
+      "toppingIds": [],
+      "iceLevel": "more",
+      "sugarLevel": "50%",
+      "totalCost": 105000
+    },
+    {
+      "id": "oi_66",
+      "orderId": "ord_65",
+      "productId": "106",
+      "quantity": 1,
+      "unitPrice": 53000,
+      "toppingIds": ["6"],
+      "iceLevel": null,
+      "sugarLevel": null,
+      "totalCost": 53000
+    },
+    {
+      "id": "oi_67",
+      "orderId": "ord_66",
+      "productId": "209",
+      "quantity": 2,
+      "unitPrice": 40000,
+      "toppingIds": [],
+      "iceLevel": "less",
+      "sugarLevel": "30%",
+      "totalCost": 80000
+    },
+    {
+      "id": "oi_68",
+      "orderId": "ord_67",
+      "productId": "302",
+      "quantity": 1,
+      "unitPrice": 42000,
+      "toppingIds": ["2"],
+      "iceLevel": "normal",
+      "sugarLevel": "70%",
+      "totalCost": 42000
+    },
+    {
+      "id": "oi_69",
+      "orderId": "ord_68",
+      "productId": "106",
+      "quantity": 1,
+      "unitPrice": 45000,
+      "toppingIds": [],
+      "iceLevel": null,
+      "sugarLevel": null,
+      "totalCost": 45000
+    },
+    {
+      "id": "oi_70",
+      "orderId": "ord_69",
+      "productId": "209",
+      "quantity": 2,
+      "unitPrice": 48000,
+      "toppingIds": ["6"],
+      "iceLevel": "no ice",
+      "sugarLevel": "50%",
+      "totalCost": 96000
+    },
+    {
+      "id": "oi_71",
+      "orderId": "ord_70",
+      "productId": "302",
+      "quantity": 1,
+      "unitPrice": 52000,
+      "toppingIds": ["2", "3"],
+      "iceLevel": "normal",
+      "sugarLevel": "100%",
+      "totalCost": 52000
+    },
+    {
+      "id": "oi_72",
+      "orderId": "ord_71",
+      "productId": "106",
+      "quantity": 1,
+      "unitPrice": 45000,
+      "toppingIds": [],
+      "iceLevel": null,
+      "sugarLevel": null,
+      "totalCost": 45000
+    },
+    {
+      "id": "oi_73",
+      "orderId": "ord_72",
+      "productId": "209",
+      "quantity": 3,
+      "unitPrice": 40000,
+      "toppingIds": [],
+      "iceLevel": "less",
+      "sugarLevel": "70%",
+      "totalCost": 120000
+    },
+    {
+      "id": "oi_74",
+      "orderId": "ord_73",
+      "productId": "302",
+      "quantity": 1,
+      "unitPrice": 40000,
+      "toppingIds": ["3"],
+      "iceLevel": "more",
+      "sugarLevel": "30%",
+      "totalCost": 40000
+    },
+    {
+      "id": "oi_75",
+      "orderId": "ord_74",
+      "productId": "106",
+      "quantity": 1,
+      "unitPrice": 45000,
+      "toppingIds": [],
+      "iceLevel": null,
+      "sugarLevel": null,
+      "totalCost": 45000
+    },
+    {
+      "id": "oi_76",
+      "orderId": "ord_75",
+      "productId": "209",
+      "quantity": 2,
+      "unitPrice": 50000,
+      "toppingIds": ["5"],
+      "iceLevel": "normal",
+      "sugarLevel": "50%",
+      "totalCost": 100000
+    },
+    {
+      "id": "oi_77",
+      "orderId": "ord_76",
+      "productId": "302",
+      "quantity": 1,
+      "unitPrice": 35000,
+      "toppingIds": [],
+      "iceLevel": "normal",
+      "sugarLevel": "100%",
+      "totalCost": 35000
+    },
+    {
+      "id": "oi_78",
+      "orderId": "ord_77",
+      "productId": "106",
+      "quantity": 2,
+      "unitPrice": 45000,
+      "toppingIds": [],
+      "iceLevel": null,
+      "sugarLevel": null,
+      "totalCost": 90000
+    },
+    {
+      "id": "oi_79",
+      "orderId": "ord_78",
+      "productId": "209",
+      "quantity": 1,
+      "unitPrice": 40000,
+      "toppingIds": [],
+      "iceLevel": "less",
+      "sugarLevel": "70%",
+      "totalCost": 40000
+    },
+    {
+      "id": "oi_80",
+      "orderId": "ord_79",
+      "productId": "302",
+      "quantity": 1,
+      "unitPrice": 42000,
+      "toppingIds": ["2"],
+      "iceLevel": "no ice",
+      "sugarLevel": "50%",
+      "totalCost": 42000
+    },
+    {
+      "id": "oi_81",
+      "orderId": "ord_80",
+      "productId": "106",
+      "quantity": 1,
+      "unitPrice": 53000,
+      "toppingIds": ["6"],
+      "iceLevel": null,
+      "sugarLevel": null,
+      "totalCost": 53000
+    },
+    {
+      "id": "oi_82",
+      "orderId": "ord_81",
+      "productId": "209",
+      "quantity": 2,
+      "unitPrice": 48000,
+      "toppingIds": ["6"],
+      "iceLevel": "normal",
+      "sugarLevel": "30%",
+      "totalCost": 96000
+    },
+    {
+      "id": "oi_83",
+      "orderId": "ord_82",
+      "productId": "302",
+      "quantity": 1,
+      "unitPrice": 35000,
+      "toppingIds": [],
+      "iceLevel": "more",
+      "sugarLevel": "100%",
+      "totalCost": 35000
+    },
+    {
+      "id": "oi_84",
+      "orderId": "ord_83",
+      "productId": "106",
+      "quantity": 1,
+      "unitPrice": 45000,
+      "toppingIds": [],
+      "iceLevel": null,
+      "sugarLevel": null,
+      "totalCost": 45000
+    },
+    {
+      "id": "oi_85",
+      "orderId": "ord_84",
+      "productId": "209",
+      "quantity": 1,
+      "unitPrice": 50000,
+      "toppingIds": ["5"],
+      "iceLevel": "less",
+      "sugarLevel": "50%",
+      "totalCost": 50000
+    },
+    {
+      "id": "oi_86",
+      "orderId": "ord_85",
+      "productId": "302",
+      "quantity": 2,
+      "unitPrice": 40000,
+      "toppingIds": ["3"],
+      "iceLevel": "normal",
+      "sugarLevel": "70%",
+      "totalCost": 80000
+    },
+    {
+      "id": "oi_87",
+      "orderId": "ord_86",
+      "productId": "106",
+      "quantity": 1,
+      "unitPrice": 45000,
+      "toppingIds": [],
+      "iceLevel": null,
+      "sugarLevel": null,
+      "totalCost": 45000
+    },
+    {
+      "id": "oi_88",
+      "orderId": "ord_87",
+      "productId": "209",
+      "quantity": 1,
+      "unitPrice": 40000,
+      "toppingIds": [],
+      "iceLevel": "no ice",
+      "sugarLevel": "30%",
+      "totalCost": 40000
+    },
+    {
+      "id": "oi_89",
+      "orderId": "ord_88",
+      "productId": "302",
+      "quantity": 3,
+      "unitPrice": 42000,
+      "toppingIds": ["2"],
+      "iceLevel": "normal",
+      "sugarLevel": "100%",
+      "totalCost": 126000
+    },
+    {
+      "id": "oi_90",
+      "orderId": "ord_89",
+      "productId": "106",
+      "quantity": 2,
+      "unitPrice": 53000,
+      "toppingIds": ["6"],
+      "iceLevel": null,
+      "sugarLevel": null,
+      "totalCost": 106000
+    },
+    {
+      "id": "oi_91",
+      "orderId": "ord_90",
+      "productId": "209",
+      "quantity": 1,
+      "unitPrice": 40000,
+      "toppingIds": [],
+      "iceLevel": "less",
+      "sugarLevel": "50%",
+      "totalCost": 40000
+    },
+    {
+      "id": "oi_92",
+      "orderId": "ord_91",
+      "productId": "302",
+      "quantity": 1,
+      "unitPrice": 35000,
+      "toppingIds": [],
+      "iceLevel": "more",
+      "sugarLevel": "70%",
+      "totalCost": 35000
+    },
+    {
+      "id": "oi_93",
+      "orderId": "ord_92",
+      "productId": "106",
+      "quantity": 1,
+      "unitPrice": 45000,
+      "toppingIds": [],
+      "iceLevel": null,
+      "sugarLevel": null,
+      "totalCost": 45000
+    },
+    {
+      "id": "oi_94",
+      "orderId": "ord_93",
+      "productId": "209",
+      "quantity": 2,
+      "unitPrice": 50000,
+      "toppingIds": ["5"],
+      "iceLevel": "normal",
+      "sugarLevel": "30%",
+      "totalCost": 100000
+    },
+    {
+      "id": "oi_95",
+      "orderId": "ord_94",
+      "productId": "302",
+      "quantity": 1,
+      "unitPrice": 52000,
+      "toppingIds": ["2", "3"],
+      "iceLevel": "no ice",
+      "sugarLevel": "100%",
+      "totalCost": 52000
+    },
+    {
+      "id": "oi_96",
+      "orderId": "ord_95",
+      "productId": "106",
+      "quantity": 1,
+      "unitPrice": 45000,
+      "toppingIds": [],
+      "iceLevel": null,
+      "sugarLevel": null,
+      "totalCost": 45000
+    },
+    {
+      "id": "oi_97",
+      "orderId": "ord_96",
+      "productId": "209",
+      "quantity": 1,
+      "unitPrice": 48000,
+      "toppingIds": ["6"],
+      "iceLevel": "less",
+      "sugarLevel": "50%",
+      "totalCost": 48000
+    },
+    {
+      "id": "oi_98",
+      "orderId": "ord_97",
+      "productId": "302",
+      "quantity": 2,
+      "unitPrice": 35000,
+      "toppingIds": [],
+      "iceLevel": "normal",
+      "sugarLevel": "70%",
+      "totalCost": 70000
+    },
+    {
+      "id": "oi_99",
+      "orderId": "ord_98",
+      "productId": "106",
+      "quantity": 3,
+      "unitPrice": 45000,
+      "toppingIds": [],
+      "iceLevel": null,
+      "sugarLevel": null,
+      "totalCost": 135000
+    },
+    {
+      "id": "oi_100",
+      "orderId": "ord_99",
+      "productId": "209",
+      "quantity": 1,
+      "unitPrice": 40000,
+      "toppingIds": [],
+      "iceLevel": "more",
+      "sugarLevel": "30%",
+      "totalCost": 40000
+    },
+    {
+      "id": "oi_101",
+      "orderId": "ord_100",
+      "productId": "302",
+      "quantity": 1,
+      "unitPrice": 47000,
+      "toppingIds": ["2", "5"],
+      "iceLevel": "normal",
+      "sugarLevel": "50%",
+      "totalCost": 47000
     }
   ]
 }

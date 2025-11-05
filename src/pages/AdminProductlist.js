@@ -8,81 +8,87 @@ import Paginate from "../admin/components/Paginate";
 // use native fetch for compatibility with server headers
 
 const AdminProductlist = () => {
-  const [products, setProducts] = useState([]);
+  const [allProducts, setAllProducts] = useState([]); // Stores all products from server
+  const [products, setProducts] = useState([]); // Stores paginated products for display
   const [categories, setCategories] = useState([]);
   const [nameSearch, setNameSearch] = useState("");
-  const [searchTerm, setSearchTerm] = useState("");
-  const [statusFilter, setStatusFilter] = useState();
-  const [categoryId, setCategoryId] = useState();
+  const [statusFilter, setStatusFilter] = useState("");
+  const [categoryId, setCategoryId] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
+  const perPage = 10;
 
+  // Effect to fetch initial data
   useEffect(() => {
-    const handler = setTimeout(() => {
-      setNameSearch(searchTerm);
-      setCurrentPage(1);
-    }, 500);
-    return () => clearTimeout(handler);
-  }, [searchTerm, setCurrentPage]);
-
-  useEffect(() => {
-    axios.get("http://localhost:9999/categories")
-      .then((res) => setCategories(res.data))
-      .catch((err) => console.error("Error fetching categories:", err));
+    const fetchData = async () => {
+      try {
+        const [productsRes, categoriesRes] = await Promise.all([
+          axios.get("http://localhost:9999/products"),
+          axios.get("http://localhost:9999/categories"),
+        ]);
+        setAllProducts(productsRes.data.sort((a, b) => b.id - a.id)); // Sort by ID desc initially
+        setCategories(categoriesRes.data);
+      } catch (error) {
+        console.error("Error fetching initial data:", error);
+        toast.error("Failed to fetch data");
+      }
+    };
+    fetchData();
   }, []);
 
-  const fetchProducts = async (page) => {
+  // Effect for filtering and pagination
+  useEffect(() => {
+    let filteredProducts = [...allProducts];
+
+    // Filter by search term (name or ID)
+    if (nameSearch) {
+      filteredProducts = filteredProducts.filter(p =>
+        (p.title || p.name || "").toLowerCase().includes(nameSearch.toLowerCase()) ||
+        String(p.id).toLowerCase().includes(nameSearch.toLowerCase())
+      );
+    }
+
+    // Filter by status
+    if (statusFilter) {
+      filteredProducts = filteredProducts.filter(p => p.status === statusFilter);
+    }
+
+    // Filter by category
+    if (categoryId) {
+      filteredProducts = filteredProducts.filter(p => String(p.categoryId) === String(categoryId));
+    }
+
+    // Calculate pagination
+    const newTotalPages = Math.ceil(filteredProducts.length / perPage);
+    setTotalPages(newTotalPages);
+
+    // Adjust current page if it's out of bounds
+    const newCurrentPage = Math.min(currentPage, newTotalPages) || 1;
+    if (currentPage !== newCurrentPage) {
+        setCurrentPage(newCurrentPage);
+    }
+
+    // Get the items for the current page
+    const paginatedProducts = filteredProducts.slice((newCurrentPage - 1) * perPage, newCurrentPage * perPage);
+    setProducts(paginatedProducts);
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [allProducts, nameSearch, statusFilter, categoryId, currentPage]);
+
+  const refetchAllProducts = async () => {
     try {
-      // Build URL with query params. Use per_page for newer json-server pagination, keep page param.
-      const perPage = 10;
-      let url = `http://localhost:9999/products/?_sort=id&_order=desc&_page=${page}&_per_page=${perPage}`;
-      if (nameSearch) url += `&title_like=${encodeURIComponent(nameSearch)}`;
-      if (statusFilter) url += `&status=${encodeURIComponent(statusFilter)}`;
-      if (categoryId) url += `&categoryId=${encodeURIComponent(categoryId)}`;
-
-      const res = await fetch(url, { method: 'GET' });
-      const json = await res.json();
-
-      // New pagination style: response body contains pagination meta and `data` array
-      if (json && Array.isArray(json.data)) {
-        setProducts(json.data || []);
-        const pages = json.pages || json.last || Math.ceil((json.items || json.data.length) / perPage);
-        setTotalPages(Math.max(1, Number(pages) || 1));
-        return;
-      }
-
-      // Fallback to older style: body is array and header X-Total-Count
-      const totalHeader = res.headers.get('X-Total-Count');
-      setProducts(Array.isArray(json) ? json : (json || []));
-
-      const totalNum = totalHeader ? Number(totalHeader) : NaN;
-      if (Number.isFinite(totalNum) && totalNum > 0) {
-        setTotalPages(Math.max(1, Math.ceil(totalNum / perPage)));
-        return;
-      }
-
-      // Last fallback: request full list without pagination to compute count
-      let countUrl = `http://localhost:9999/products/?_sort=id&_order=desc`;
-      if (nameSearch) countUrl += `&title_like=${encodeURIComponent(nameSearch)}`;
-      if (statusFilter) countUrl += `&status=${encodeURIComponent(statusFilter)}`;
-      if (categoryId) countUrl += `&categoryId=${encodeURIComponent(categoryId)}`;
-      const r2 = await fetch(countUrl, { method: 'GET' });
-      const all = await r2.json();
-      const total = Array.isArray(all) ? all.length : (Array.isArray(json) ? json.length : 0);
-      setTotalPages(Math.max(1, Math.ceil(total / perPage)));
+        const productsRes = await axios.get("http://localhost:9999/products");
+        setAllProducts(productsRes.data.sort((a, b) => b.id - a.id));
     } catch (error) {
-      console.error("Error fetching products:", error);
-      toast.error("Failed to fetch products");
-      setTotalPages(0);
-      setProducts([]);
+        toast.error("Failed to refresh product data.");
     }
   };
 
 
   // Fetch products whenever page or filters change
   useEffect(() => {
-    fetchProducts(currentPage);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    // This effect is now primarily for logging or potential future side-effects when filters change.
+    // The main logic is handled in the effect above.
   }, [currentPage, nameSearch, statusFilter, categoryId]);
 
   const handlePageChange = (page) => {
@@ -121,8 +127,8 @@ const AdminProductlist = () => {
   const deleteProduct = async (productId) => {
     try {
       await axios.delete(`http://localhost:9999/products/${productId}`);
-      fetchProducts(currentPage);
       toast.success("Product deleted successfully");
+      refetchAllProducts();
     } catch (error) {
       console.error("Error deleting product:", error);
       toast.error("Failed to delete product");
@@ -135,8 +141,8 @@ const AdminProductlist = () => {
       await axios.patch(`http://localhost:9999/products/${productId}`, {
         status: newStatus,
       });
-      fetchProducts(currentPage);
       toast.success("Change status successfully");
+      refetchAllProducts();
     } catch (error) {
       console.error("Error changing status:", error);
       toast.error("Failed to change status");
@@ -148,8 +154,8 @@ const AdminProductlist = () => {
       await axios.patch(`http://localhost:9999/products/${productId}`, {
         featured: !featured,
       });
-      fetchProducts(currentPage);
       toast.success("Change feature successfully");
+      refetchAllProducts();
     } catch (error) {
       console.error("Error changing featured:", error);
       toast.error("Failed to change feature");
@@ -164,9 +170,12 @@ const AdminProductlist = () => {
           <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
             <Form.Control
               type="text"
-              placeholder="Search by name..."
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
+              placeholder="Search by name or ID..."
+              value={nameSearch}
+              onChange={(e) => {
+                setNameSearch(e.target.value);
+                setCurrentPage(1);
+              }}
             />
           </Form.Group>
         </Col>
