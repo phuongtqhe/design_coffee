@@ -135,7 +135,7 @@ const AllProducts = () => {
       {/* Products by Category */}
       {categories.map((category) => {
         const categoryProducts = filteredProducts.filter(
-          (p) => p.categoryId == category.id
+          (p) => String(p.categoryId) == String(category.id)
         );
         if (categoryProducts.length == 0) return null;
           
